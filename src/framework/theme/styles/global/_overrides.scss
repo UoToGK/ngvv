@@ -1,0 +1,13 @@
+@import "normalize";
+@import "components/tree.theme";
+@import "maps/leaflet.theme";
+@import "tables/smart-table.theme";
+
+@import "typography/typography";
+
+@mixin dy-theme-overrides() {
+  @include dy-typography();
+  @include dy-components-tree-theme();
+  @include dy-maps-leaflet-theme();
+  @include dy-tables-smart-table-theme();
+}

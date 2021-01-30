@@ -1,0 +1,30 @@
+@mixin size($size) {
+  font-size: dy-theme(input-#{$size}-text-font-size);
+  font-weight: dy-theme(input-#{$size}-text-font-weight);
+  line-height: dy-theme(input-#{$size}-text-line-height);
+  padding: dy-theme(input-#{$size}-padding);
+
+  &::placeholder {
+    font-size: dy-theme(input-#{$size}-placeholder-text-font-size);
+    font-weight: dy-theme(input-#{$size}-placeholder-text-font-weight);
+    // TODO: this seems to be unused
+    line-height: dy-theme(input-#{$size}-placeholder-text-line-height);
+  }
+}
+
+@mixin form-control-size() {
+  .input-group-md .form-control,
+  .form-control {
+    @include size(medium);
+  }
+
+  .input-group-sm .form-control,
+  .form-control.input-sm {
+    @include size(small);
+  }
+
+  .input-group-lg .form-control,
+  .form-control.input-lg {
+    @include size(large);
+  }
+}

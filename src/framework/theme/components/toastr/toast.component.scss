@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: 25rem;
+  margin: 0.5rem;
+
+  .title {
+    margin-right: 0.25rem;
+  }
+
+  &.default,
+  &:not(.has-icon) {
+    .content-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &.destroy-by-click {
+    cursor: pointer;
+  }
+
+  dy-icon {
+    font-size: 2.5rem;
+  }
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

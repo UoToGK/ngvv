@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/grid";
+@import "buttons";
+@import "button-group";
+@import "dropdowns";
+@import "icon-buttons";
+@import "forms";
+@import "modals";
+@import "layout";
+
+@mixin dy-bootstrap-global() {
+  @include dy-b-buttons-theme();
+  @include dy-b-button-group-theme();
+  @include dy-b-dropdowns-theme();
+  @include dy-b-icon-buttons-theme();
+  @include dy-b-forms-theme();
+  @include dy-b-modals-theme();
+  @include dy-b-layout-theme();
+}

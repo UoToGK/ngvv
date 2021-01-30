@@ -1,0 +1,64 @@
+/*
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@import "./select-outline";
+@import "./select-filled";
+@import "./select-hero";
+
+@mixin dy-select-theme() {
+  dy-select .select-button {
+    min-width: dy-theme(select-min-width);
+    cursor: dy-theme(select-cursor);
+    font-family: dy-theme(select-text-font-family);
+
+    &.placeholder {
+      font-family: dy-theme(select-placeholder-text-font-family);
+    }
+    &:focus {
+      outline: none;
+    }
+    &[disabled] {
+      cursor: dy-theme(select-disabled-cursor);
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-select.size-#{$size} {
+      .select-button {
+        font-size: dy-theme(select-#{$size}-text-font-size);
+        font-weight: dy-theme(select-#{$size}-text-font-weight);
+        line-height: dy-theme(select-#{$size}-text-line-height);
+
+        &.placeholder {
+          font-size: dy-theme(select-#{$size}-placeholder-text-font-size);
+          font-weight: dy-theme(select-#{$size}-placeholder-text-font-weight);
+        }
+
+        &.empty::before {
+          content: " ";
+          display: block;
+          height: dy-theme(select-#{$size}-text-line-height);
+        }
+      }
+
+      &:not(.full-width) {
+        max-width: dy-theme(select-#{$size}-max-width);
+      }
+    }
+  }
+
+  @each $shape in dy-get-shapes() {
+    dy-select.shape-#{$shape} .select-button {
+      border-radius: dy-theme(select-#{$shape}-border-radius);
+    }
+  }
+
+  @include select-outline();
+  @include select-filled();
+  @include select-hero();
+
+  @include dy-form-field-root-component("dy-select");
+}

@@ -1,0 +1,33 @@
+@import "shape-buttons";
+@import "size-buttons";
+@import "status-buttons";
+@import "hero-buttons";
+@import "outline-buttons";
+
+@mixin dy-b-buttons-theme() {
+  .btn {
+    cursor: dy-theme(button-cursor);
+    font-family: dy-theme(button-text-font-family);
+    font-weight: dy-theme(button-text-font-weight);
+
+    &:focus {
+      @include dy-outline(
+        dy-theme(button-outline-width),
+        dy-theme(button-outline-color)
+      );
+      outline: none;
+    }
+
+    &[disabled] {
+      cursor: dy-theme(button-disabled-cursor);
+    }
+
+    @include b-btn-size(medium);
+  }
+
+  @include b-btn-shapes();
+  @include b-btn-sizes();
+  @include b-btn-statuses();
+  @include b-btn-heros();
+  @include b-btn-outlines();
+}

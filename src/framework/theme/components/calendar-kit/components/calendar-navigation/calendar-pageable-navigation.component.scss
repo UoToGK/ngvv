@@ -1,0 +1,7 @@
+@import "../../../../styles/core/mixins";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

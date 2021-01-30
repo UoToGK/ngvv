@@ -1,0 +1,23 @@
+@mixin b-btn-size($size) {
+  font-size: dy-theme(button-#{$size}-text-font-size);
+  line-height: dy-theme(button-#{$size}-text-line-height);
+  padding: dy-theme(button-filled-#{$size}-padding);
+}
+
+@mixin b-btn-sizes() {
+  .btn.btn-lg {
+    @include b-btn-size(large);
+  }
+
+  .btn.btn-md {
+    @include b-btn-size(medium);
+  }
+
+  .btn.btn-sm {
+    @include b-btn-size(small);
+  }
+
+  .btn.btn-xs {
+    @include b-btn-size(tiny);
+  }
+}

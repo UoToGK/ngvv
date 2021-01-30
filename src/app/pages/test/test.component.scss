@@ -1,0 +1,70 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../framework/theme/styles/global/breakpoints";
+@import "../../@theme/styles/themes.scss";
+
+@include dy-install-component() {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    width: calc(#{dy-theme(sidebar-width)} - #{dy-theme(header-padding)});
+  }
+
+  dy-action {
+    height: auto;
+    display: flex;
+    align-content: center;
+  }
+
+  dy-user {
+    cursor: pointer;
+  }
+
+  ::ng-deep dy-search button {
+    padding: 0 !important;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    width: auto;
+
+    .sidebar-toggle {
+      @include dy-ltr(padding-right, 1.25rem);
+      @include dy-rtl(padding-left, 1.25rem);
+      text-decoration: none;
+      color: dy-theme(text-hint-color);
+      dy-icon {
+        font-size: 1.75rem;
+      }
+    }
+
+    .logo {
+      padding: 0 1.25rem;
+      font-size: 1.75rem;
+      @include dy-ltr(border-left, 1px solid dy-theme(divider-color));
+      @include dy-rtl(border-right, 1px solid dy-theme(divider-color));
+      white-space: nowrap;
+      text-decoration: none;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .control-item {
+      display: none;
+    }
+    .user-action {
+      border: none;
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    dy-select {
+      display: none;
+    }
+  }
+}

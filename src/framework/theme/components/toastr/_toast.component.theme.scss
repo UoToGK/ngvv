@@ -1,0 +1,67 @@
+@mixin dy-toast-theme() {
+  dy-toast {
+    border-style: dy-theme(toastr-border-style);
+    border-width: dy-theme(toastr-border-width);
+    border-radius: dy-theme(toastr-border-radius);
+    padding: dy-theme(toastr-padding);
+    box-shadow: dy-theme(toastr-shadow);
+
+    .title {
+      font-family: dy-theme(toastr-title-text-font-family);
+      font-size: dy-theme(toastr-title-text-font-size);
+      font-weight: dy-theme(toastr-title-text-font-weight);
+      line-height: dy-theme(toastr-title-text-line-height);
+    }
+
+    .message {
+      font-family: dy-theme(toastr-text-font-family);
+      font-size: dy-theme(toastr-text-font-size);
+      font-weight: dy-theme(toastr-text-font-weight);
+      line-height: dy-theme(toastr-text-line-height);
+    }
+
+    .icon-container {
+      @include dy-ltr(margin-right, 1.25rem);
+      @include dy-rtl(margin-left, 1.25rem);
+      border-radius: dy-theme(toastr-border-radius);
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      dy-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-toast.status-#{$status} {
+      background: dy-theme(toastr-#{$status}-background-color);
+      border-color: dy-theme(toastr-#{$status}-border-color);
+      color: dy-theme(toastr-#{$status}-text-color);
+
+      .title {
+        color: dy-theme(toastr-#{$status}-text-color);
+      }
+
+      &.destroy-by-click:hover {
+        background: dy-theme(
+          toastr-destroyable-#{$status}-hover-background-color
+        );
+        border-color: dy-theme(
+          toastr-destroyable-#{$status}-hover-border-color
+        );
+      }
+
+      .icon-container {
+        background: dy-theme(toastr-icon-#{$status}-background-color);
+        color: dy-theme(toastr-icon-#{$status}-color);
+      }
+    }
+  }
+  .toastr-overlay-container {
+    z-index: 1041;
+  }
+}

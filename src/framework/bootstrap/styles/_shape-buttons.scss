@@ -1,0 +1,17 @@
+@mixin b-btn-shape($shape) {
+  border-radius: dy-theme(button-#{$shape}-border-radius);
+}
+
+@mixin b-btn-shapes() {
+  .btn.btn-rectangle {
+    @include b-btn-shape(rectangle);
+  }
+
+  .btn.btn-semi-round {
+    @include b-btn-shape(semi-round);
+  }
+
+  .btn.btn-round {
+    @include b-btn-shape(round);
+  }
+}

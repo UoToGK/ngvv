@@ -1,0 +1,16 @@
+@mixin dy-calendar-picker-theme() {
+  dy-calendar-picker {
+    display: block;
+    padding-top: dy-theme(calendar-picker-padding-top);
+    padding-bottom: dy-theme(calendar-picker-padding-bottom);
+
+    @include dy-ltr() {
+      padding-right: dy-theme(calendar-picker-padding-end);
+      padding-left: dy-theme(calendar-picker-padding-start);
+    }
+    @include dy-rtl() {
+      padding-right: dy-theme(calendar-picker-padding-start);
+      padding-left: dy-theme(calendar-picker-padding-end);
+    }
+  }
+}

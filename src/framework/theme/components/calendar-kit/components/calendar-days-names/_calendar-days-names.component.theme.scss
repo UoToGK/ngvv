@@ -1,0 +1,36 @@
+@mixin dy-calendar-days-names-theme() {
+  dy-calendar-days-names {
+    background: dy-theme(calendar-weekday-background);
+    $border: dy-theme(calendar-weekday-divider-width) solid
+      dy-theme(calendar-weekday-divider-color);
+    border-top: $border;
+    border-bottom: $border;
+
+    @include dy-ltr() {
+      padding-left: dy-theme(calendar-picker-padding-start);
+      padding-right: dy-theme(calendar-picker-padding-end);
+    }
+    @include dy-rtl() {
+      padding-left: dy-theme(calendar-picker-padding-end);
+      padding-right: dy-theme(calendar-picker-padding-start);
+    }
+
+    .day {
+      width: dy-theme(calendar-weekday-width);
+      height: dy-theme(calendar-weekday-height);
+      color: dy-theme(calendar-weekday-text-color);
+      font-size: dy-theme(calendar-weekday-text-font-size);
+      font-weight: dy-theme(calendar-weekday-text-font-weight);
+      line-height: dy-theme(calendar-weekday-text-line-height);
+
+      &.holiday {
+        color: dy-theme(calendar-weekday-holiday-text-color);
+      }
+    }
+
+    &.size-large .day {
+      width: dy-theme(calendar-weekday-large-width);
+      height: dy-theme(calendar-weekday-large-height);
+    }
+  }
+}

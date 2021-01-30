@@ -1,0 +1,77 @@
+@import "./button-core";
+@import "./button-filled";
+@import "./button-outline";
+@import "./button-ghost";
+@import "./button-hero";
+
+@mixin dy-buttons-theme() {
+  [dyButton] {
+    @include dy-button-core();
+
+    cursor: dy-theme(button-cursor);
+    font-family: dy-theme(button-text-font-family);
+    font-weight: dy-theme(button-text-font-weight);
+
+    &:focus {
+      // Sibling buttons are covering outline shadow.
+      // position: relative; declaration makes shadow appear on top of sibling buttons.
+      position: relative;
+      outline: none;
+      @include dy-outline(
+        dy-theme(button-outline-width),
+        dy-theme(button-outline-color)
+      );
+    }
+
+    &[disabled],
+    &.btn-disabled {
+      cursor: dy-theme(button-disabled-cursor);
+    }
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        font-size: dy-theme(button-#{$size}-text-font-size);
+        line-height: dy-theme(button-#{$size}-text-line-height);
+
+        dy-icon {
+          font-size: dy-theme(button-#{$size}-text-font-size);
+          height: dy-theme(button-#{$size}-icon-size);
+          width: dy-theme(button-#{$size}-icon-size);
+          margin-top: dy-theme(button-#{$size}-icon-vertical-margin);
+          margin-bottom: dy-theme(button-#{$size}-icon-vertical-margin);
+        }
+
+        $icon-offset: dy-theme(button-#{$size}-icon-offset);
+        &.icon-start:not(.icon-end) dy-icon {
+          @include dy-ltr(margin-right, $icon-offset);
+          @include dy-rtl(margin-left, $icon-offset);
+        }
+        &.icon-end:not(.icon-start) dy-icon {
+          @include dy-ltr(margin-left, $icon-offset);
+          @include dy-rtl(margin-right, $icon-offset);
+        }
+
+        @each $appearance in ("filled", "outline", "ghost", "hero") {
+          &.icon-start.icon-end.appearance-#{$appearance} {
+            padding: dy-theme(icon-button-#{$appearance}-#{$size}-padding);
+          }
+        }
+      }
+    }
+
+    @each $shape in dy-get-shapes() {
+      &.shape-#{$shape} {
+        border-radius: dy-theme(button-#{$shape}-border-radius);
+      }
+    }
+  }
+
+  a[dyButton] {
+    text-decoration: none;
+  }
+
+  @include button-filled;
+  @include button-outline;
+  @include button-ghost;
+  @include button-hero;
+}

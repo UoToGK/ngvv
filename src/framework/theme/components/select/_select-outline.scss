@@ -1,0 +1,86 @@
+@import "../form-field/form-field.component.theme";
+
+@mixin select-outline {
+  dy-select.appearance-outline .select-button {
+    border-style: dy-theme(select-outline-border-style);
+    border-width: dy-theme(select-outline-border-width);
+
+    &.top {
+      border-top-style: dy-theme(select-outline-adjacent-border-style);
+      border-top-width: dy-theme(select-outline-adjacent-border-width);
+    }
+    &.bottom {
+      border-bottom-style: dy-theme(select-outline-adjacent-border-style);
+      border-bottom-width: dy-theme(select-outline-adjacent-border-width);
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-select.appearance-outline.status-#{$status} .select-button {
+      background-color: dy-theme(select-outline-#{$status}-background-color);
+      border-color: dy-theme(select-outline-#{$status}-border-color);
+      color: dy-theme(select-outline-#{$status}-text-color);
+
+      &.placeholder {
+        color: dy-theme(select-outline-#{$status}-placeholder-text-color);
+      }
+      dy-icon {
+        color: dy-theme(select-outline-#{$status}-icon-color);
+      }
+
+      &:focus {
+        background-color: dy-theme(
+          select-outline-#{$status}-focus-background-color
+        );
+        border-color: dy-theme(select-outline-#{$status}-focus-border-color);
+      }
+      &:hover {
+        background-color: dy-theme(
+          select-outline-#{$status}-hover-background-color
+        );
+        border-color: dy-theme(select-outline-#{$status}-hover-border-color);
+      }
+
+      &[disabled] {
+        color: dy-theme(select-outline-#{$status}-disabled-text-color);
+        background-color: dy-theme(
+          select-outline-#{$status}-disabled-background-color
+        );
+        border-color: dy-theme(select-outline-#{$status}-disabled-border-color);
+
+        dy-icon {
+          color: dy-theme(select-outline-#{$status}-disabled-icon-color);
+        }
+      }
+
+      &.bottom,
+      &.top {
+        border-color: dy-theme(select-outline-#{$status}-open-border-color);
+      }
+
+      &.top {
+        border-top-color: dy-theme(
+          select-outline-#{$status}-adjacent-border-color
+        );
+      }
+      &.bottom {
+        border-bottom-color: dy-theme(
+          select-outline-#{$status}-adjacent-border-color
+        );
+      }
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-select.appearance-outline.size-#{$size} .select-button {
+      padding: dy-theme(select-outline-#{$size}-padding);
+      @include dy-ltr(padding-right, dy-theme(select-icon-offset));
+      @include dy-rtl(padding-left, dy-theme(select-icon-offset));
+    }
+
+    @include dy-form-field-with-prefix(
+      "dy-select.appearance-outline.size-#{$size} .select-button",
+      $size
+    );
+  }
+}

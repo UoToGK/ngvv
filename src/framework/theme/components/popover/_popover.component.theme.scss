@@ -1,0 +1,111 @@
+@mixin dy-popover-theme {
+  dy-popover {
+    $arrow-size: dy-theme(popover-arrow-size);
+
+    border: dy-theme(popover-border-width) solid dy-theme(popover-border-color);
+    border-radius: dy-theme(popover-border-radius);
+    background: dy-theme(popover-background-color);
+    box-shadow: dy-theme(popover-shadow);
+    color: dy-theme(popover-text-color);
+
+    .primitive-overlay {
+      font-family: dy-theme(popover-text-font-family);
+      font-size: dy-theme(popover-text-font-size);
+      font-weight: dy-theme(popover-text-font-weight);
+      line-height: dy-theme(popover-text-line-height);
+      padding: dy-theme(popover-padding);
+    }
+
+    .arrow {
+      border-left: $arrow-size solid transparent;
+      border-right: $arrow-size solid transparent;
+      border-bottom: $arrow-size solid dy-theme(popover-border-color);
+
+      &::after {
+        position: absolute;
+        content: " ";
+        width: 0;
+        height: 0;
+        top: 3px;
+        left: calc(50% - #{$arrow-size});
+        border-left: $arrow-size solid transparent;
+        border-right: $arrow-size solid transparent;
+        border-bottom: $arrow-size solid dy-theme(popover-background-color);
+        clip-path: inset(0 0 2px);
+      }
+    }
+
+    &.dy-overlay-bottom .arrow {
+      top: calc(-1 * #{$arrow-size} + 1px);
+      left: calc(50% - #{$arrow-size});
+    }
+
+    &.dy-overlay-bottom-start .arrow {
+      top: calc(-1 * #{$arrow-size} + 1px);
+      @include dy-ltr(right, $arrow-size);
+      @include dy-rtl(left, $arrow-size);
+    }
+
+    &.dy-overlay-bottom-end .arrow {
+      top: calc(-1 * #{$arrow-size} + 1px);
+      @include dy-ltr(left, $arrow-size);
+      @include dy-rtl(right, $arrow-size);
+    }
+
+    &.dy-overlay-left .arrow {
+      right: calc(-1 * #{$arrow-size} - #{$arrow-size} / 2 + 2px);
+      top: calc(50% - #{$arrow-size / 2});
+      transform: rotate(90deg);
+    }
+
+    &.dy-overlay-start-top .arrow {
+      right: calc(-1 * #{$arrow-size} - #{$arrow-size} / 2 + 2px);
+      bottom: $arrow-size;
+      transform: rotate(90deg);
+    }
+
+    &.dy-overlay-start-bottom .arrow {
+      right: calc(-1 * #{$arrow-size} - #{$arrow-size} / 2 + 2px);
+      top: $arrow-size;
+      transform: rotate(90deg);
+    }
+
+    &.dy-overlay-top .arrow {
+      bottom: calc(-1 * #{$arrow-size} + 1px);
+      left: calc(50% - #{$arrow-size});
+      transform: rotate(180deg);
+    }
+
+    &.dy-overlay-top-start .arrow {
+      bottom: calc(-1 * #{$arrow-size} + 1px);
+      @include dy-ltr(right, $arrow-size);
+      @include dy-rtl(left, $arrow-size);
+      transform: rotate(180deg);
+    }
+
+    &.dy-overlay-top-end .arrow {
+      bottom: calc(-1 * #{$arrow-size} + 1px);
+      @include dy-ltr(left, $arrow-size);
+      @include dy-rtl(right, $arrow-size);
+      transform: rotate(180deg);
+    }
+
+    &.dy-overlay-right .arrow {
+      left: calc(-1 * #{$arrow-size} - #{$arrow-size} / 2 + 2px);
+      top: calc(50% - #{$arrow-size / 2});
+      transform: rotate(270deg);
+    }
+
+    &.dy-overlay-end-top .arrow {
+      left: calc(-1 * #{$arrow-size} - #{$arrow-size} / 2 + 2px);
+      bottom: $arrow-size;
+      transform: rotate(270deg);
+    }
+
+    &.dy-overlay-end-bottom .arrow {
+      left: calc(-1 * #{$arrow-size} - #{$arrow-size} / 2 + 2px);
+      top: $arrow-size;
+      transform: rotate(270deg);
+    }
+  }
+}

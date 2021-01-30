@@ -1,0 +1,139 @@
+<dy-layout windowMode>
+  <dy-layout-header fixed>
+    <div class="header-container">
+      <dy-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+        <dy-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</dy-option>
+      </dy-select>
+    </div>
+  </dy-layout-header>
+  <dy-layout-column>
+    <div class="row">
+      <div class="col-lg-12">
+        <dy-card>
+          <dy-card-header>英雄按钮</dy-card-header>
+          <dy-card-body>
+            <div class="buttons-row">
+              <button *ngFor="let status of statuses" dyButton [status]="status" hero>
+                {{ status }}
+              </button>
+              <button disabled dyButton hero>
+                禁止
+              </button>
+            </div>
+          </dy-card-body>
+        </dy-card>
+
+        <dy-card>
+          <dy-card-header>默认按钮</dy-card-header>
+          <dy-card-body>
+            <div class="buttons-row">
+              <button *ngFor="let status of statuses" dyButton [status]="status">
+                {{ status }}
+              </button>
+              <button disabled dyButton>
+                禁止
+              </button>
+            </div>
+          </dy-card-body>
+        </dy-card>
+
+        <dy-card>
+          <dy-card-header>带有轮廓的按钮</dy-card-header>
+          <dy-card-body>
+            <div class="buttons-row">
+              <button *ngFor="let status of statuses" dyButton [status]="status" outline>
+                {{ status }}
+              </button>
+              <button disabled dyButton outline>
+                禁止
+              </button>
+            </div>
+          </dy-card-body>
+        </dy-card>
+
+        <dy-card>
+          <dy-card-header>镜像按钮</dy-card-header>
+          <dy-card-body>
+            <div class="buttons-row">
+              <button *ngFor="let status of statuses" dyButton [status]="status" ghost>
+                {{ status }}
+              </button>
+              <button disabled dyButton outline>
+                禁止
+              </button>
+            </div>
+          </dy-card-body>
+        </dy-card>
+      </div>
+
+      <div class="col-md-12 col-lg-12 col-xxxl-6">
+        <dy-card>
+          <dy-card-header>按钮外形</dy-card-header>
+          <dy-card-body>
+            <div class="buttons-row">
+              <button *ngFor="let shape of shapes" dyButton [shape]="shape" status="primary">
+                {{ shape }}
+              </button>
+            </div>
+          </dy-card-body>
+        </dy-card>
+
+        <dy-card>
+          <dy-card-header>按钮尺寸</dy-card-header>
+          <dy-card-body>
+            <div class="buttons-row">
+              <button *ngFor="let size of sizes" dyButton [size]="size">
+                {{ size }}
+              </button>
+            </div>
+          </dy-card-body>
+        </dy-card>
+      </div>
+
+      <div class="col-md-12 col-lg-12 col-xxxl-6">
+        <dy-card class="actions-card">
+          <dy-card-header>按钮组</dy-card-header>
+          <dy-card-body>
+            <dy-actions size="medium">
+              <dy-action icon="menu-outline"></dy-action>
+              <dy-action icon="search-outline"></dy-action>
+              <dy-action icon="email-outline"></dy-action>
+              <dy-action disabled icon="bell-outline"></dy-action>
+              <dy-action>
+                <dy-user name="Han Solo"></dy-user>
+              </dy-action>
+              <dy-action icon="settings-2-outline"></dy-action>
+            </dy-actions>
+          </dy-card-body>
+        </dy-card>
+
+        <dy-card>
+          <dy-card-body>
+            <dy-actions size="medium" fullWidth>
+              <dy-action>
+                <span>暂停</span>
+              </dy-action>
+              <dy-action>
+                <dy-icon class="action-icon" icon="list-outline"></dy-icon>
+                <span>Logs</span>
+              </dy-action>
+              <dy-action>
+                <dy-icon class="action-icon" icon="search-outline"></dy-icon>
+                <span>搜索</span>
+              </dy-action>
+              <dy-action>
+                <dy-icon class="action-icon" icon="settings-2-outline"></dy-icon>
+                <span>设置</span>
+              </dy-action>
+            </dy-actions>
+          </dy-card-body>
+        </dy-card>
+      </div>
+    </div>
+    <dy-alert status="success" closable (close)="onClose()" *ngIf="!flag">
+      恭喜你成功通过认证！
+    </dy-alert>
+  </dy-layout-column>
+
+  <dy-layout-footer fixed></dy-layout-footer>
+</dy-layout>

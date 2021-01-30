@@ -1,0 +1,33 @@
+:host {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+:host(.disabled) {
+  cursor: not-allowed;
+
+  a,
+  dy-icon {
+    cursor: not-allowed;
+  }
+}
+
+:host-context(dy-actions.full-width) {
+  justify-content: center;
+  width: 100%;
+}
+
+a.icon-container {
+  position: relative;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+dy-icon:hover {
+  cursor: pointer;
+}

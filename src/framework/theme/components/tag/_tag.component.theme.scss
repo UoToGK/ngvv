@@ -1,0 +1,9 @@
+@import "./tag";
+@import "./tag-list";
+@import "./tag-input";
+
+@mixin dy-tags-theme() {
+  @include dy-tag-theme();
+  @include dy-tag-list-theme();
+  @include dy-tag-input-theme();
+}

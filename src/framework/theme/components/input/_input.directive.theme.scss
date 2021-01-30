@@ -1,0 +1,48 @@
+@import "./input-statuses";
+@import "./input-sizes";
+@import "./input-shapes";
+
+@mixin dy-input-theme() {
+  [dyInput] {
+    @include dy-input-core-theme();
+    @include input-statuses();
+    @include input-sizes();
+    @include input-shapes();
+  }
+
+  @include dy-form-field-root-component("[dyInput]");
+
+  @each $size in dy-get-sizes() {
+    @include dy-form-field-with-prefix("[dyInput].size-#{$size}", $size);
+    @include dy-form-field-with-suffix("[dyInput].size-#{$size}", $size);
+  }
+}
+
+@mixin dy-input-core-theme() {
+  border-style: dy-theme(input-border-style);
+  border-width: dy-theme(input-border-width);
+  font-family: dy-theme(input-text-font-family);
+  appearance: none; // removes inner shadow on iOS
+
+  &.dy-transition {
+    @include dy-component-animation(
+      border,
+      background-color,
+      color,
+      box-shadow
+    );
+  }
+
+  &::placeholder {
+    font-family: dy-theme(input-placeholder-text-font-family);
+    text-overflow: ellipsis;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.input-full-width {
+    width: 100%;
+  }
+}

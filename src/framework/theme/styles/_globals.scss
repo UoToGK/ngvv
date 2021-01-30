@@ -1,0 +1,9 @@
+@import "global/components";
+@import "global/overrides";
+@import "global/breakpoints";
+@import "global/styles";
+
+@mixin dy-theme-global() {
+  @include dy-theme-components();
+  @include dy-theme-overrides();
+}

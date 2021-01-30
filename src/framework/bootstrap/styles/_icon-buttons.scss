@@ -1,0 +1,29 @@
+@mixin dy-b-icon-buttons-theme() {
+  .btn-icon {
+    font-size: 1.75rem;
+    padding: 0.5rem 1rem;
+
+    dy-icon,
+    .icon {
+      vertical-align: middle;
+    }
+  }
+
+  .btn-with-icon {
+    @include dy-ltr() {
+      padding-left: 1rem;
+      text-align: left;
+    }
+    @include dy-rtl() {
+      padding-right: 1rem;
+      text-align: right;
+    }
+
+    dy-icon,
+    .icon {
+      @include dy-ltr(margin-right, 1rem);
+      @include dy-rtl(margin-left, 1rem);
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+/*
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@mixin dy-radio-theme() {
+  dy-radio {
+    .outer-circle,
+    .inner-circle {
+      height: dy-theme(radio-height);
+      width: dy-theme(radio-width);
+    }
+
+    .outer-circle {
+      border-style: dy-theme(radio-border-style);
+      border-width: dy-theme(radio-border-width);
+    }
+
+    .native-input:enabled:focus + .outer-circle {
+      @include dy-outline(
+        dy-theme(radio-outline-width),
+        dy-theme(radio-outline-color)
+      );
+    }
+
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} .native-input:enabled + .outer-circle {
+        background-color: dy-theme(radio-#{$status}-background-color);
+        border-color: dy-theme(radio-#{$status}-border-color);
+      }
+
+      &.status-#{$status} .native-input:enabled:checked {
+        & + .outer-circle {
+          background-color: dy-theme(radio-#{$status}-checked-background-color);
+          border-color: dy-theme(radio-#{$status}-checked-border-color);
+        }
+        & ~ .inner-circle {
+          background-color: dy-theme(radio-#{$status}-inner-circle-color);
+        }
+      }
+
+      &.status-#{$status} .native-input:enabled:focus + .outer-circle {
+        background-color: dy-theme(radio-#{$status}-focus-background-color);
+        border-color: dy-theme(radio-#{$status}-focus-border-color);
+      }
+      &.status-#{$status} .native-input:enabled:checked:focus {
+        & + .outer-circle {
+          background-color: dy-theme(
+            radio-#{$status}-focus-checked-background-color
+          );
+          border-color: dy-theme(radio-#{$status}-focus-checked-border-color);
+        }
+        & ~ .inner-circle {
+          background-color: dy-theme(radio-#{$status}-focus-inner-circle-color);
+        }
+      }
+
+      &.status-#{$status} label:hover .native-input:enabled + .outer-circle {
+        background-color: dy-theme(radio-#{$status}-hover-background-color);
+        border-color: dy-theme(radio-#{$status}-hover-border-color);
+      }
+      &.status-#{$status} label:hover .native-input:checked:enabled {
+        + .outer-circle {
+          background-color: dy-theme(
+            radio-#{$status}-hover-checked-background-color
+          );
+          border-color: dy-theme(radio-#{$status}-hover-checked-border-color);
+        }
+        ~ .inner-circle {
+          background-color: dy-theme(radio-#{$status}-hover-inner-circle-color);
+        }
+      }
+
+      &.status-#{$status} label .native-input:enabled:active + .outer-circle {
+        background-color: dy-theme(radio-#{$status}-active-background-color);
+        border-color: dy-theme(radio-#{$status}-active-border-color);
+      }
+      &.status-#{$status} label .native-input:enabled:checked:active {
+        & + .outer-circle {
+          background-color: dy-theme(
+            radio-#{$status}-active-checked-background-color
+          );
+          border-color: dy-theme(radio-#{$status}-active-checked-border-color);
+        }
+        & ~ .inner-circle {
+          background-color: dy-theme(
+            radio-#{$status}-active-inner-circle-color
+          );
+        }
+      }
+
+      &.status-#{$status} .text {
+        color: dy-theme(radio-#{$status}-text-color);
+      }
+
+      &.status-#{$status} .native-input:disabled {
+        & + .outer-circle {
+          background-color: dy-theme(
+            radio-#{$status}-disabled-background-color
+          );
+          border-color: dy-theme(radio-#{$status}-disabled-border-color);
+        }
+        & ~ .text {
+          color: dy-theme(radio-#{$status}-disabled-text-color);
+        }
+
+        &:checked {
+          & + .outer-circle {
+            background-color: dy-theme(
+              radio-#{$status}-disabled-checked-background-color
+            );
+            border-color: dy-theme(
+              radio-#{$status}-disabled-checked-border-color
+            );
+          }
+          ~ .inner-circle {
+            background-color: dy-theme(
+              radio-#{$status}-disabled-checked-inner-circle-color
+            );
+          }
+        }
+      }
+    }
+
+    .text {
+      font-family: dy-theme(radio-text-font-family);
+      font-size: dy-theme(radio-text-font-size);
+      font-weight: dy-theme(radio-text-font-weight);
+      line-height: dy-theme(radio-text-line-height);
+      @include dy-ltr(margin-left, dy-theme(radio-width));
+      @include dy-rtl(margin-right, dy-theme(radio-width));
+    }
+  }
+}

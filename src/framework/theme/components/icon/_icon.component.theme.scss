@@ -1,0 +1,18 @@
+@mixin dy-icon-theme() {
+  dy-icon {
+    font-size: dy-theme(icon-font-size);
+    line-height: dy-theme(icon-line-height);
+    width: dy-theme(icon-width);
+    height: dy-theme(icon-height);
+  }
+
+  dy-icon svg {
+    vertical-align: dy-theme(icon-svg-vertical-align);
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-icon.status-#{$status} {
+      color: dy-theme(icon-#{$status}-color);
+    }
+  }
+}

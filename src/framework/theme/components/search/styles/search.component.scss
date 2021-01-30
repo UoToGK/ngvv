@@ -1,0 +1,21 @@
+:host {
+  button {
+    font-size: 2rem;
+
+    margin: 0 auto;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+
+::ng-deep dy-layout.with-search .scrollable-container {
+  position: relative;
+  z-index: 0;
+}

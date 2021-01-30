@@ -1,0 +1,65 @@
+@mixin dy-alert-theme() {
+  dy-alert {
+    border-radius: dy-theme(alert-border-radius);
+    box-shadow: dy-theme(alert-shadow);
+    font-family: dy-theme(alert-text-font-family);
+    font-size: dy-theme(alert-text-font-size);
+    font-weight: dy-theme(alert-text-font-weight);
+    line-height: dy-theme(alert-text-line-height);
+    padding: dy-theme(alert-padding);
+
+    // TODO: move alert margin style to layout
+    margin-bottom: dy-theme(alert-bottom-margin);
+
+    @include dy-scrollbars(
+      dy-theme(alert-scrollbar-color),
+      dy-theme(alert-scrollbar-background-color),
+      dy-theme(alert-scrollbar-width)
+    );
+
+    &.closable {
+      @include dy-ltr(padding-right, dy-theme(alert-closable-start-padding));
+      @include dy-rtl(padding-left, dy-theme(alert-closable-start-padding));
+    }
+
+    .close {
+      padding: dy-theme(alert-padding);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      font-family: monospace;
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-alert.size-#{$size} {
+      height: dy-theme(alert-#{$size}-height);
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-alert {
+      &.status-#{$status} {
+        color: dy-theme(alert-#{$status}-text-color);
+        background-color: dy-theme(alert-#{$status}-background-color);
+
+        a,
+        a:hover {
+          color: dy-theme(alert-#{$status}-text-color);
+        }
+      }
+
+      &.accent-#{$status} {
+        border-top: dy-theme(alert-border-radius)
+          solid
+          dy-theme(alert-accent-#{$status}-color);
+      }
+
+      &.outline-#{$status} {
+        border: dy-theme(alert-outline-width)
+          solid
+          dy-theme(alert-outline-#{$status}-color);
+      }
+    }
+  }
+}

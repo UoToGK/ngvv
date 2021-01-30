@@ -1,0 +1,23 @@
+@import "./themes";
+
+@mixin dy-overrides() {
+  dy-select.size-medium button {
+    padding: 0.4375rem 2.2rem 0.4375rem 1.125rem !important;
+
+    dy-icon {
+      right: 0.41rem !important;
+    }
+  }
+
+  dy-card dy-list {
+    @include dy-scrollbars(
+      dy-theme(card-scrollbar-color),
+      dy-theme(card-scrollbar-background-color),
+      dy-theme(card-scrollbar-width)
+    );
+  }
+
+  .table {
+    color: dy-theme(text-basic-color) !important;
+  }
+}

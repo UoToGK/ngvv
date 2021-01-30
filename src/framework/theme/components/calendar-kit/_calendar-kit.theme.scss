@@ -1,0 +1,15 @@
+@import "./components/calendar-navigation/calendar-navigation.theme";
+@import "./components/calendar-picker/calendar-picker.component.theme";
+@import "./components/calendar-days-names/calendar-days-names.component.theme";
+@import "./components/calendar-week-number/calendar-week-number.component.theme";
+@import "./components/calendar-day-picker/calendar-day-picker.component.theme";
+@import "./components/calendar-cell.theme";
+
+@mixin dy-calendar-kit-theme() {
+  @include dy-calendar-navigation-theme();
+  @include dy-calendar-picker-theme();
+  @include dy-calendar-days-names-theme();
+  @include dy-calendar-week-numbers-theme();
+  @include dy-calendar-day-picker-theme();
+  @include dy-calendar-cell-theme();
+}

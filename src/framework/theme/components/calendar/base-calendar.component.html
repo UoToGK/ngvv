@@ -1,0 +1,52 @@
+<dy-card>
+  <dy-card-header *ngIf="showNavigation" class="calendar-navigation">
+    <dy-calendar-view-mode [date]="visibleDate"
+                           [viewMode]="activeViewMode"
+                           (changeMode)="onChangeViewMode()">
+    </dy-calendar-view-mode>
+
+    <dy-calendar-pageable-navigation (prev)="navigatePrev()" (next)="navigateNext()">
+    </dy-calendar-pageable-navigation>
+  </dy-card-header>
+
+  <dy-card-body [ngSwitch]="activeViewMode">
+
+    <dy-calendar-day-picker *ngSwitchCase="ViewMode.DATE"
+                            [boundingMonths]="boundingMonth"
+                            [cellComponent]="dayCellComponent"
+                            [min]="min"
+                            [max]="max"
+                            [filter]="filter"
+                            [visibleDate]="visibleDate"
+                            [size]="size"
+                            [date]="date"
+                            [showWeekNumber]="showWeekNumber"
+                            (dateChange)="dateChange.emit($any($event))"
+                            [weekNumberSymbol]="weekNumberSymbol">
+    </dy-calendar-day-picker>
+
+    <dy-calendar-year-picker *ngSwitchCase="ViewMode.YEAR"
+                             [cellComponent]="yearCellComponent"
+                             [date]="$any(date)"
+                             [min]="min"
+                             [max]="max"
+                             [filter]="filter"
+                             [size]="size"
+                             [year]="visibleDate"
+                             (yearChange)="setVisibleDate($event); setViewMode(ViewMode.MONTH)">
+    </dy-calendar-year-picker>
+
+    <dy-calendar-month-picker *ngSwitchCase="ViewMode.MONTH"
+                              [cellComponent]="monthCellComponent"
+                              [min]="min"
+                              [max]="max"
+                              [filter]="filter"
+                              [size]="size"
+                              [month]="visibleDate"
+                              [date]="$any(date)"
+                              (monthChange)="setVisibleDate($event); setViewMode(ViewMode.DATE)">
+    </dy-calendar-month-picker>
+
+  </dy-card-body>
+
+</dy-card>

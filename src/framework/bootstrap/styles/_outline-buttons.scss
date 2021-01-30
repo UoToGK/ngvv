@@ -1,0 +1,58 @@
+@import "status-buttons";
+
+@mixin b-btn-outline($status) {
+  background-color: dy-theme(button-outline-#{$status}-background-color);
+  border-style: dy-theme(button-outline-border-style);
+  border-width: dy-theme(button-outline-border-width);
+  text-transform: dy-theme(button-outline-text-transform);
+  border-color: dy-theme(button-outline-#{$status}-border-color);
+  color: dy-theme(button-outline-#{$status}-text-color);
+
+  &:focus {
+    background-color: dy-theme(button-outline-#{$status}-background-color);
+    border-color: dy-theme(button-outline-#{$status}-focus-border-color);
+    color: dy-theme(button-outline-#{$status}-focus-text-color);
+  }
+
+  &:hover {
+    background-color: dy-theme(button-outline-#{$status}-background-color);
+    border-color: dy-theme(button-outline-#{$status}-hover-border-color);
+    color: dy-theme(button-outline-#{$status}-hover-text-color);
+  }
+
+  &:active {
+    background-color: dy-theme(button-outline-#{$status}-background-color);
+    border-color: dy-theme(button-outline-#{$status}-active-border-color);
+    color: dy-theme(button-outline-#{$status}-active-text-color);
+  }
+
+  &[disabled] {
+    background-color: dy-theme(
+      button-outline-#{$status}-disabled-background-color
+    );
+    border-color: dy-theme(button-outline-#{$status}-disabled-border-color);
+    color: dy-theme(button-outline-#{$status}-disabled-text-color);
+  }
+}
+
+@mixin b-btn-outlines() {
+  .btn.btn-outline-primary {
+    @include b-btn-outline(primary);
+  }
+
+  .btn.btn-outline-warning {
+    @include b-btn-outline(warning);
+  }
+
+  .btn.btn-outline-success {
+    @include b-btn-outline(success);
+  }
+
+  .btn.btn-outline-info {
+    @include b-btn-outline(info);
+  }
+
+  .btn.btn-outline-danger {
+    @include b-btn-outline(danger);
+  }
+}

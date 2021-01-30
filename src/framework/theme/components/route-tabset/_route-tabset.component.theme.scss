@@ -1,0 +1,89 @@
+@mixin dy-route-tabset-theme() {
+  dy-route-tabset {
+    @include dy-scrollbars(
+      dy-theme(route-tabset-scrollbar-color),
+      dy-theme(route-tabset-scrollbar-background-color),
+      dy-theme(route-tabset-scrollbar-width)
+    );
+
+    background-color: dy-theme(route-tabset-background-color);
+    border-radius: dy-theme(route-tabset-border-radius);
+    box-shadow: dy-theme(route-tabset-shadow);
+
+    .route-tabset {
+      border-bottom: dy-theme(route-tabset-divider-width)
+        dy-theme(route-tabset-divider-style)
+        dy-theme(route-tabset-divider-color);
+    }
+
+    .tab-link {
+      background-color: dy-theme(route-tabset-tab-background-color);
+      cursor: pointer;
+      padding: dy-theme(route-tabset-tab-padding);
+      color: dy-theme(route-tabset-tab-text-color);
+      font-family: dy-theme(route-tabset-tab-text-font-family);
+      font-size: dy-theme(route-tabset-tab-text-font-size);
+      font-weight: dy-theme(route-tabset-tab-text-font-weight);
+      line-height: dy-theme(route-tabset-tab-text-line-height);
+      text-transform: dy-theme(route-tabset-tab-text-transform);
+
+      &::before {
+        background-color: dy-theme(route-tabset-tab-underline-color);
+        height: dy-theme(route-tabset-tab-underline-width);
+      }
+    }
+
+    .route-tab.active {
+      .tab-link {
+        background-color: dy-theme(tabset-tab-active-background-color);
+        color: dy-theme(tabset-tab-active-text-color);
+        &::before {
+          background-color: dy-theme(tabset-tab-active-underline-color);
+        }
+      }
+    }
+
+    .route-tab:focus {
+      .tab-link {
+        background-color: dy-theme(route-tabset-tab-focus-background-color);
+        color: dy-theme(route-tabset-tab-focus-text-color);
+        &::before {
+          background-color: dy-theme(route-tabset-tab-focus-underline-color);
+        }
+      }
+    }
+
+    .route-tab:hover {
+      .tab-link {
+        background-color: dy-theme(route-tabset-tab-hover-background-color);
+        color: dy-theme(route-tabset-tab-hover-text-color);
+        &::before {
+          background-color: dy-theme(route-tabset-tab-hover-underline-color);
+        }
+      }
+    }
+
+    .route-tab.disabled {
+      cursor: default;
+      pointer-events: none;
+
+      .tab-link {
+        background-color: dy-theme(route-tabset-tab-disabled-background-color);
+        color: dy-theme(route-tabset-tab-disabled-text-color);
+        cursor: default;
+        pointer-events: none;
+        &::before {
+          background-color: dy-theme(route-tabset-tab-disabled-underline-color);
+        }
+      }
+    }
+
+    .route-tab.responsive {
+      @media screen and (max-width: dy-theme(route-tabset-tab-text-hide-breakpoint)) {
+        .tab-text {
+          display: none;
+        }
+      }
+    }
+  }
+}

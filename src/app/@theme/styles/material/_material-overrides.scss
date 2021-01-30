@@ -1,0 +1,47 @@
+@mixin material-overrides() {
+  @include dy-for-themes(material-dark, material-light) {
+    dy-layout-header {
+      dy-actions,
+      .logo-container {
+        dy-icon,
+        .user-name {
+          color: dy-theme(color-basic-100) !important;
+        }
+      }
+
+      .select-button {
+        background-color: dy-theme(background-basic-color-3) !important;
+      }
+    }
+
+    dy-sidebar {
+      transition: width 0.3s;
+
+      .main-container {
+        transition: width 0.3s;
+      }
+    }
+
+    dy-card {
+      border-bottom-left-radius: 0.125rem;
+      border-bottom-right-radius: 0.125rem;
+
+      dy-card-header,
+      .tabset {
+        background-color: dy-theme(card-divider-color);
+      }
+    }
+
+    [dyinput] {
+      font-weight: 400;
+
+      &.status-basic:focus:hover {
+        border-color: dy-theme(color-primary-focus) !important;
+      }
+    }
+
+    [dybutton] {
+      box-shadow: none !important;
+    }
+  }
+}

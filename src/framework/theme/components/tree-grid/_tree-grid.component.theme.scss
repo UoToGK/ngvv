@@ -1,0 +1,65 @@
+@import "./tree-grid-sort.component.theme";
+
+@mixin dy-tree-grid-theme() {
+  $border-width: dy-theme(tree-grid-cell-border-width);
+  $border-style: dy-theme(tree-grid-cell-border-style);
+  $border-color: dy-theme(tree-grid-cell-border-color);
+
+  .dy-tree-grid-header-cell,
+  .dy-tree-grid-cell,
+  .dy-tree-grid-footer-cell {
+    height: dy-theme(tree-grid-row-min-height);
+    padding: dy-theme(tree-grid-cell-padding);
+    border: $border-width $border-style $border-color;
+  }
+
+  .dy-tree-grid-header-row {
+    background: dy-theme(tree-grid-header-background-color);
+    color: dy-theme(tree-grid-header-text-color);
+    font-family: dy-theme(tree-grid-header-text-font-family);
+    font-size: dy-theme(tree-grid-header-text-font-size);
+    font-weight: dy-theme(tree-grid-header-text-font-weight);
+    line-height: dy-theme(tree-grid-header-text-line-height);
+  }
+
+  .dy-tree-grid-footer-row {
+    background: dy-theme(tree-grid-footer-background-color);
+    color: dy-theme(tree-grid-footer-text-color);
+    font-family: dy-theme(tree-grid-footer-text-font-family);
+    font-size: dy-theme(tree-grid-footer-text-font-size);
+    font-weight: dy-theme(tree-grid-footer-text-font-weight);
+    line-height: dy-theme(tree-grid-footer-text-line-height);
+  }
+
+  .dy-tree-grid-row {
+    background: dy-theme(tree-grid-row-background-color);
+    color: dy-theme(tree-grid-row-text-color);
+    font-family: dy-theme(tree-grid-row-text-font-family);
+    font-size: dy-theme(tree-grid-row-text-font-size);
+    font-weight: dy-theme(tree-grid-row-text-font-weight);
+    line-height: dy-theme(tree-grid-row-text-line-height);
+    &:hover {
+      background: dy-theme(tree-grid-row-hover-background-color);
+    }
+    &:nth-child(2n):not(:hover) {
+      background-color: dy-theme(tree-grid-row-even-background-color);
+    }
+  }
+
+  .dy-tree-grid-header-cell {
+    button {
+      vertical-align: middle;
+    }
+  }
+
+  dy-tree-grid-row-toggle,
+  dy-sort-icon {
+    dy-icon {
+      font-size: inherit;
+      vertical-align: middle;
+      color: currentColor;
+    }
+  }
+
+  @include dy-tree-grid-sort-header-theme();
+}

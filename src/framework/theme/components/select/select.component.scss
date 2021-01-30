@@ -1,0 +1,64 @@
+/*!
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@import "../../styles/core/mixins";
+
+:host {
+  display: inline-block;
+  max-width: 100%;
+
+  .select-button {
+    @include dy-ltr(text-align, left) {
+      dy-icon {
+        right: 0.2em;
+      }
+    }
+    @include dy-rtl(text-align, right) {
+      dy-icon {
+        left: 0.2em;
+      }
+    }
+  }
+}
+
+:host(.full-width) {
+  width: 100%;
+}
+
+:host(.dy-transition) {
+  .select-button {
+    @include dy-component-animation(
+      background-color,
+      border-color,
+      border-radius,
+      box-shadow,
+      color
+    );
+  }
+}
+
+.select-button {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+dy-icon {
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  @include dy-ltr(right, 0.5rem);
+  @include dy-rtl(left, 0.5rem);
+  @include dy-component-animation(transform);
+}
+
+:host(.open) dy-icon {
+  transform: translateY(-50%) rotate(180deg);
+}

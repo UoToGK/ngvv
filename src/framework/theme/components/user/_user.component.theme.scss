@@ -1,0 +1,54 @@
+@mixin dy-user-theme() {
+  dy-user {
+    .user-picture {
+      background-color: dy-theme(user-picture-box-background-color);
+      border: dy-theme(user-picture-box-border-width) solid
+        dy-theme(user-picture-box-border-color);
+    }
+
+    .initials {
+      color: dy-theme(user-initials-text-color);
+      font-family: dy-theme(user-initials-text-font-family);
+      font-weight: dy-theme(user-initials-text-font-weight);
+    }
+
+    .user-name {
+      color: dy-theme(user-name-text-color);
+      font-family: dy-theme(user-name-text-font-family);
+      font-weight: dy-theme(user-name-text-font-weight);
+    }
+
+    .user-title {
+      color: dy-theme(user-title-text-color);
+      font-family: dy-theme(user-title-text-font-family);
+      font-weight: dy-theme(user-title-text-font-weight);
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-user.size-#{$size} {
+      .user-picture {
+        height: dy-theme(user-#{$size}-height);
+        width: dy-theme(user-#{$size}-width);
+      }
+      .initials {
+        font-size: dy-theme(user-#{$size}-initials-text-font-size);
+        line-height: dy-theme(user-#{$size}-initials-text-line-height);
+      }
+      .user-name {
+        font-size: dy-theme(user-#{$size}-name-text-font-size);
+        line-height: dy-theme(user-#{$size}-name-text-line-height);
+      }
+      .user-title {
+        font-size: dy-theme(user-#{$size}-title-text-font-size);
+        line-height: dy-theme(user-#{$size}-title-text-line-height);
+      }
+    }
+  }
+
+  @each $shape in dy-get-shapes() {
+    dy-user.shape-#{$shape} .user-picture {
+      border-radius: dy-theme(user-#{$shape}-border-radius);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@function dy-get-core-statuses() {
+  @return "basic", "primary", "success", "warning", "danger", "info", "control";
+}
+
+@function dy-get-statuses() {
+  @return join(dy-get-core-statuses(), $dy-custom-statuses);
+}
+
+@function dy-get-sizes() {
+  @return "tiny", "small", "medium", "large", "giant";
+}
+
+@function dy-get-shapes() {
+  @return "rectangle", "semi-round", "round";
+}

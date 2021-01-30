@@ -1,0 +1,67 @@
+@mixin dy-calendar-theme() {
+  dy-base-calendar {
+    dy-card {
+      background-color: dy-theme(calendar-background-color);
+      border: dy-theme(calendar-border-width) dy-theme(calendar-border-style)
+        dy-theme(calendar-border-color);
+      box-shadow: none;
+      margin: 0;
+      width: dy-theme(calendar-width);
+      overflow: hidden;
+    }
+
+    dy-card-body {
+      padding: 0;
+    }
+
+    .calendar-navigation {
+      border: none;
+      display: flex;
+
+      padding: dy-theme(calendar-navigation-padding);
+      color: dy-theme(calendar-navigation-text-color);
+      font-family: dy-theme(calendar-navigation-text-font-family);
+      font-size: dy-theme(calendar-navigation-title-text-font-size);
+      font-weight: dy-theme(calendar-navigation-title-text-font-weight);
+      line-height: dy-theme(calendar-navigation-title-text-line-height);
+    }
+
+    &:not(.has-navigation) {
+      dy-calendar-week-numbers .sign-container,
+      dy-calendar-days-names {
+        border-top: 0;
+      }
+    }
+
+    &.has-week-number {
+      dy-card {
+        $calendar-width: dy-theme(calendar-width);
+        $week-col-width: dy-theme(calendar-weeknumber-width);
+        $divider-width: dy-theme(calendar-weeknumber-divider-width);
+        width: calc(
+          #{$calendar-width} + #{$week-col-width} + #{$divider-width}
+        );
+      }
+
+      .month-cell,
+      .year-cell {
+        flex: 1 0 auto;
+      }
+    }
+
+    &.size-large {
+      dy-card {
+        width: dy-theme(calendar-large-width);
+      }
+
+      &.has-week-number dy-card {
+        $week-column-width: dy-theme(calendar-weeknumber-large-width);
+        $divider-width: dy-theme(calendar-weeknumber-divider-width);
+        $large-cal-width: dy-theme(calendar-large-width);
+        width: calc(
+          #{$large-cal-width} + #{$week-column-width} + #{$divider-width}
+        );
+      }
+    }
+  }
+}

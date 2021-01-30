@@ -1,0 +1,6 @@
+@import "../../components/auth-block/auth-block.component.theme";
+
+// Create a theme
+@mixin dy-auth-components() {
+  @include dy-auth-block-theme();
+}

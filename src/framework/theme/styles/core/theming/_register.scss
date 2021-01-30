@@ -1,0 +1,61 @@
+@import "../../themes/mapping";
+
+@function dy-get-enabled-themes() {
+  @if (length($dy-enabled-themes) == 0) {
+    @each $theme-name, $theme in $dy-themes {
+      $dy-enabled-themes: append($dy-enabled-themes, $theme-name) !global;
+    }
+  }
+  @return $dy-enabled-themes;
+}
+
+@function get-last-enabled-theme() {
+  $themes: dy-get-enabled-themes();
+  @return nth($themes, length($themes));
+}
+
+@function dy-set-for-export($theme, $name, $parent-name: null) {
+  $parent-theme: map-get($dy-themes-export, $parent-name);
+  @if ($parent-theme != null) {
+    $theme: map-merge(map-get($parent-theme, data), $theme);
+  }
+
+  $theme-data: (
+    data: $theme,
+    parent: $parent-name,
+  );
+  @return map-set($dy-themes-export, $name, $theme-data);
+}
+
+@function dy-get-registered-theme($name) {
+  $theme: map-get($dy-themes, $name);
+
+  // TODO: check if optimal place
+  @if ($theme == null) {
+    @error 'Nebular Theme: theme `' + $name + '` is not registered with `dy-register-theme` function.';
+  }
+
+  @return $theme;
+}
+
+// Entry point
+// Registers a new theme
+@function dy-register-theme($theme, $name, $parent-name: null) {
+  @if ($dy-theme-export-mode == true) {
+    $dy-themes-export: dy-set-for-export($theme, $name, $parent-name) !global;
+  }
+
+  $theme-data: ();
+
+  @if ($parent-name != null) {
+    $parent-theme: map-get($dy-themes, $parent-name);
+    @if ($parent-theme == null) {
+      @error 'Nebular Theme: parent theme `' + $parent-name + '` is not registered or imported.';
+    }
+    $theme: map-merge($parent-theme, $theme);
+  }
+  $theme: map-merge($eva-mapping, $theme);
+  $dy-themes: map-set($dy-themes, $name, $theme) !global;
+
+  @return $dy-themes;
+}

@@ -1,0 +1,48 @@
+<dy-layout windowMode>
+  <dy-layout-header fixed>
+    <div class="header-container">
+      <div class="logo-container">
+        <p class="logo">ngx-<span>admin</span></p>
+      </div>
+    </div>
+
+    <div class="header-container">
+      <dy-actions size="small">
+        <dy-action class="control-item github-stars">
+          <span class="subtitle text">Support us: </span>
+          <iframe src="https://ghbtns.com/github-btn.html?user=akveo&repo=ngx-admin&type=star&count=true"
+            frameborder="0" scrolling="0" width="170px" height="20px">
+          </iframe>
+        </dy-action>
+        <dy-action class="control-item downloads-count">
+          <dy-icon icon="download"></dy-icon>
+          <span class="subtitle number">470.000</span>
+        </dy-action>
+        <dy-action class="control-item contact-us" (click)="trackEmailClick()">
+          <a dyButton ghost href="mailto:contact@akveo.com">
+            <dy-icon icon="email-outline" pack="eva"></dy-icon>
+            <span>contact@akveo.com</span>
+          </a>
+        </dy-action>
+      </dy-actions>
+    </div>
+  </dy-layout-header>
+
+  <dy-layout-column>
+    <h4>Choose theme</h4>
+
+    <ng-container *ngFor="let theme of themes">
+      <dy-card (click)="navigate(theme.value)">
+        <dy-card-header>{{theme.name}}</dy-card-header>
+        <dy-card-body>
+          <img src="../../assets/images/{{theme.value}}-theme.png" class="theme-preview" alt="{{theme.name}} Theme" />
+        </dy-card-body>
+      </dy-card>
+    </ng-container>
+  </dy-layout-column>
+
+  <dy-layout-footer fixed>
+    <ngx-footer></ngx-footer>
+  </dy-layout-footer>
+
+</dy-layout>

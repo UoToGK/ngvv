@@ -1,0 +1,44 @@
+@import "outline-buttons";
+
+@mixin dy-b-dropdowns-theme() {
+  .dropdown-menu {
+    box-shadow: dy-theme(option-list-shadow);
+    max-height: dy-theme(option-list-max-height);
+    overflow: auto;
+    border: none;
+  }
+
+  .dropdown-item {
+    user-select: none;
+    background-color: dy-theme(option-background-color);
+    color: dy-theme(option-text-color);
+    font-family: dy-theme(option-text-font-family);
+    font-weight: dy-theme(option-medium-text-font-weight);
+    font-size: dy-theme(option-medium-text-font-size);
+    line-height: dy-theme(option-medium-text-line-height);
+
+    &[disabled] {
+      background-color: dy-theme(option-disabled-background-color);
+      color: dy-theme(option-disabled-text-color);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.selected {
+      background-color: dy-theme(option-selected-background-color);
+      color: dy-theme(option-selected-text-color);
+    }
+
+    &:focus {
+      background-color: dy-theme(option-focus-background-color);
+      color: dy-theme(option-focus-text-color);
+    }
+
+    &:hover {
+      background-color: dy-theme(option-hover-background-color);
+      color: dy-theme(option-hover-text-color);
+    }
+  }
+}

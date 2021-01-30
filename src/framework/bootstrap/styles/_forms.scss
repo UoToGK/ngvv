@@ -1,0 +1,47 @@
+@import "../../theme/styles/core/mixins";
+@import "size-form-control";
+@import "default-form-control";
+
+@mixin dy-b-forms-theme() {
+  .form-control {
+    background-color: dy-theme(input-basic-background-color);
+    border-color: dy-theme(input-basic-border-color);
+    border-style: dy-theme(input-border-style);
+    border-width: dy-theme(input-border-width);
+    color: dy-theme(input-basic-text-color);
+    font-family: dy-theme(input-text-font-family);
+    @include dy-component-animation(border, background-color, color);
+
+    &::placeholder {
+      color: dy-theme(input-basic-placeholder-text-color);
+      font-family: dy-theme(input-placeholder-text-font-family);
+      text-overflow: ellipsis;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: dy-theme(input-basic-focus-border-color);
+    }
+
+    &:hover {
+      border-color: dy-theme(input-basic-hover-border-color);
+    }
+
+    &:disabled {
+      background-color: dy-theme(input-basic-disabled-background-color);
+      border-color: dy-theme(input-basic-disabled-border-color);
+      color: dy-theme(input-basic-disabled-text-color);
+
+      &::placeholder {
+        color: dy-theme(input-basic-disabled-placeholder-text-color);
+      }
+    }
+
+    &.input-full-width {
+      width: 100%;
+    }
+  }
+
+  @include form-control-size();
+  @include form-control-default();
+}

@@ -1,0 +1,35 @@
+/*
+  Declare variables before making them global.
+  dart-sass doesn't allow to declare variable with !global.
+ */
+$dy-enable-css-custom-properties: false !default;
+$dy-enabled-themes: ();
+$dy-themes: ();
+$dy-theme-process-mode: null;
+$dy-theme-name: "default";
+$dy-theme: ();
+$dy-processed-theme: ();
+$dy-theme-export-mode: false !default;
+$dy-themes-export: ();
+$dy-custom-statuses: () !default;
+
+// public variables
+$dy-enable-css-custom-properties: false !default !global;
+$dy-enabled-themes: () !global;
+$dy-themes: () !global;
+$dy-custom-statuses: () !default !global;
+
+// private variables
+$dy-theme-process-mode: "lazy-process" !global;
+$dy-theme-name: null !global;
+$dy-theme: () !global;
+$dy-processed-theme: () !global;
+$dy-theme-export-mode: false !default !global;
+$dy-themes-export: () !global;
+
+@import "core/mixins";
+@import "core/functions";
+@import "core/variants";
+@import "core/theming/register";
+@import "core/theming/install";
+@import "core/theming/get-value";

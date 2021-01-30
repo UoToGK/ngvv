@@ -1,0 +1,15 @@
+@mixin dy-auth-block-theme() {
+  dy-auth-block {
+    .text-link {
+      color: dy-theme(text-hint-color);
+    }
+
+    .forgot-password {
+      color: dy-theme(text-disabled-color);
+    }
+
+    .socials a {
+      color: dy-theme(text-hint-color);
+    }
+  }
+}

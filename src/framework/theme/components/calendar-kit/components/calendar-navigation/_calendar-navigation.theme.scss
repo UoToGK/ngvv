@@ -1,0 +1,28 @@
+@mixin dy-calendar-navigation-theme() {
+  dy-calendar-view-mode,
+  dy-calendar-pageable-navigation {
+    [dyButton].appearance-ghost.status-basic {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        color: dy-theme(calendar-navigation-text-color);
+        font-family: dy-theme(calendar-navigation-text-font-family);
+        font-size: dy-theme(calendar-navigation-title-text-font-size);
+        font-weight: dy-theme(calendar-navigation-title-text-font-weight);
+        line-height: dy-theme(calendar-navigation-title-text-line-height);
+      }
+      &:focus {
+        &,
+        &:not(:hover):not(:active) {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  dy-calendar-pageable-navigation {
+    @include dy-ltr(margin-left, auto);
+    @include dy-rtl(margin-right, auto);
+  }
+}

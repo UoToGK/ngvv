@@ -1,0 +1,45 @@
+@mixin dy-actions-theme() {
+  dy-actions {
+    background-color: dy-theme(actions-background-color);
+    color: dy-theme(actions-text-color);
+    font-family: dy-theme(actions-text-font-family);
+    font-weight: dy-theme(actions-text-font-weight);
+    line-height: dy-theme(actions-text-line-height);
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-actions.size-#{$size} dy-action {
+      font-size: dy-theme(actions-#{$size}-text-font-size);
+      height: dy-theme(actions-#{$size}-height);
+      padding: dy-theme(actions-#{$size}-padding);
+
+      dy-icon {
+        font-size: dy-theme(actions-#{$size}-icon-height);
+      }
+    }
+  }
+
+  dy-action {
+    $divider: dy-theme(actions-divider-width) dy-theme(actions-divider-style)
+      dy-theme(actions-divider-color);
+    @include dy-ltr(border-left, $divider);
+    @include dy-rtl(border-right, $divider);
+
+    &:first-child {
+      @include dy-ltr(border-left, none !important);
+      @include dy-rtl(border-right, none !important);
+    }
+
+    dy-icon {
+      color: dy-theme(actions-icon-color);
+    }
+
+    &.disabled {
+      color: dy-theme(actions-disabled-text-color);
+
+      dy-icon {
+        color: dy-theme(actions-disabled-icon-color);
+      }
+    }
+  }
+}

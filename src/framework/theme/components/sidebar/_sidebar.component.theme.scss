@@ -1,0 +1,183 @@
+@mixin dy-sidebar-theme() {
+  dy-sidebar {
+    background-color: dy-theme(sidebar-background-color);
+    box-shadow: dy-theme(sidebar-shadow);
+    color: dy-theme(sidebar-text-color);
+    font-family: dy-theme(sidebar-text-font-family);
+    font-size: dy-theme(sidebar-text-font-size);
+    font-weight: dy-theme(sidebar-text-font-weight);
+    line-height: dy-theme(sidebar-text-line-height);
+    width: dy-theme(sidebar-width);
+
+    .main-container {
+      height: dy-theme(sidebar-height);
+      width: dy-theme(sidebar-width);
+    }
+
+    .scrollable {
+      padding: dy-theme(sidebar-padding);
+      position: relative;
+
+      -webkit-transform: translate3d(0, 0, 0); // ios optimisation
+      @include media-breakpoint-down(sm) {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @include dy-scrollbars(
+        dy-theme(sidebar-scrollbar-color),
+        dy-theme(sidebar-scrollbar-background-color),
+        dy-theme(sidebar-scrollbar-width)
+      );
+    }
+
+    // TODO: width used to use transition on width
+    &.collapsed {
+      width: 0;
+      padding: 0;
+      .main-container {
+        width: 0;
+        padding: 0;
+      }
+      .scrollable {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      dy-sidebar-header,
+      dy-sidebar-footer {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    }
+
+    &.compacted {
+      width: dy-theme(sidebar-width-compact);
+      .main-container {
+        width: dy-theme(sidebar-width-compact);
+      }
+
+      dy-menu {
+        width: dy-theme(sidebar-width-compact);
+
+        .menu-item a.active {
+          position: relative;
+
+          &::before {
+            position: absolute;
+            content: "";
+            @include dy-ltr(left, 0);
+            @include dy-rtl(right, 0);
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: dy-theme(sidebar-menu-item-highlight-color);
+          }
+        }
+
+        > .menu-items > .menu-item > a {
+          span,
+          dy-badge,
+          .expand-state {
+            display: none;
+          }
+        }
+
+        .menu-items > .menu-item {
+          transition: border-color 1s ease;
+
+          &.menu-group {
+            display: block;
+            color: transparent;
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+          }
+
+          i {
+            margin-right: 0;
+          }
+
+          a {
+            justify-content: center;
+          }
+
+          & > .expanded {
+            display: none;
+          }
+        }
+      }
+      // we need to pull the content
+      &.left.fixed ~ .content {
+        margin-left: dy-theme(sidebar-width-compact);
+      }
+
+      &.fixed.right ~ .content {
+        margin-left: 0;
+        margin-right: dy-theme(sidebar-width-compact);
+      }
+
+      &.left.fixed ~ .content.center {
+        padding-left: dy-theme(sidebar-width-compact);
+      }
+
+      &.fixed.right ~ .content.center {
+        padding-left: 0;
+        padding-right: dy-theme(sidebar-width-compact);
+      }
+
+      &.start.fixed ~ .content {
+        @include dy-ltr(margin-left, dy-theme(sidebar-width-compact));
+        @include dy-rtl(margin-right, dy-theme(sidebar-width-compact));
+      }
+
+      &.fixed.end ~ .content {
+        @include dy-ltr(margin-right, dy-theme(sidebar-width-compact));
+        @include dy-rtl(margin-left, dy-theme(sidebar-width-compact));
+      }
+
+      &.start.fixed ~ .content.center {
+        @include dy-ltr(padding-left, dy-theme(sidebar-width-compact));
+        @include dy-rtl(padding-right, dy-theme(sidebar-width-compact));
+      }
+
+      &.fixed.end ~ .content.center {
+        @include dy-ltr(padding-right, dy-theme(sidebar-width-compact));
+        @include dy-rtl(padding-left, dy-theme(sidebar-width-compact));
+      }
+    }
+
+    &.fixed.left.collapsed + .content,
+    &.fixed.start.collapsed + .content {
+      margin-left: 0;
+    }
+
+    &.fixed.right.collapsed + .content,
+    &.fixed.end.collapsed + .content {
+      margin-right: 0;
+    }
+
+    &.expanded {
+      width: dy-theme(sidebar-width);
+      > .scrollable {
+        width: dy-theme(sidebar-width);
+      }
+    }
+
+    dy-sidebar-header {
+      padding: dy-theme(sidebar-padding);
+      height: dy-theme(sidebar-header-height);
+    }
+
+    dy-sidebar-footer {
+      padding: dy-theme(sidebar-padding);
+      height: dy-theme(sidebar-footer-height);
+    }
+
+    dy-menu {
+      margin: 0 -#{dy-theme(sidebar-padding)} -#{dy-theme(sidebar-padding)};
+    }
+  }
+}

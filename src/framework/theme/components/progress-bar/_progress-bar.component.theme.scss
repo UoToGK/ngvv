@@ -1,0 +1,45 @@
+@mixin dy-progress-bar-theme() {
+  dy-progress-bar {
+    .progress-container {
+      border-radius: dy-theme(progress-bar-border-radius);
+    }
+
+    .progress-value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: dy-theme(progress-bar-text-font-family);
+      transition-duration: dy-theme(progress-bar-animation-duration);
+      transition-property: width, background-color;
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-progress-bar.size-#{$size} {
+      .progress-container {
+        height: dy-theme(progress-bar-#{$size}-height);
+      }
+
+      .progress-value {
+        font-size: dy-theme(progress-bar-#{$size}-text-font-size);
+        font-weight: dy-theme(progress-bar-#{$size}-text-font-weight);
+        line-height: dy-theme(progress-bar-#{$size}-text-line-height);
+      }
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-progress-bar.status-#{$status} {
+      .progress-container {
+        background-color: dy-theme(progress-bar-#{$status}-background-color);
+      }
+
+      .progress-value {
+        background-color: dy-theme(
+          progress-bar-#{$status}-filled-background-color
+        );
+        color: dy-theme(progress-bar-#{$status}-text-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@import "../form-field/form-field.component.theme";
+
+@mixin select-filled {
+  dy-select.appearance-filled .select-button {
+    border-style: dy-theme(select-filled-border-style);
+    border-width: dy-theme(select-filled-border-width);
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-select.appearance-filled.size-#{$size} .select-button {
+      padding: dy-theme(select-filled-#{$size}-padding);
+      @include dy-ltr(padding-right, dy-theme(select-icon-offset));
+      @include dy-rtl(padding-left, dy-theme(select-icon-offset));
+    }
+
+    @include dy-form-field-with-prefix(
+      "dy-select.appearance-filled.size-#{$size} .select-button",
+      $size
+    );
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-select.appearance-filled.status-#{$status} .select-button {
+      background-color: dy-theme(select-filled-#{$status}-background-color);
+      border-color: dy-theme(select-filled-#{$status}-border-color);
+      color: dy-theme(select-filled-#{$status}-text-color);
+
+      &.placeholder {
+        color: dy-theme(select-filled-#{$status}-placeholder-text-color);
+      }
+
+      &:focus {
+        background-color: dy-theme(
+          select-filled-#{$status}-focus-background-color
+        );
+        border-color: dy-theme(select-filled-#{$status}-focus-border-color);
+      }
+      &:hover {
+        background-color: dy-theme(
+          select-filled-#{$status}-hover-background-color
+        );
+        border-color: dy-theme(select-filled-#{$status}-hover-border-color);
+      }
+
+      &[disabled] {
+        background-color: dy-theme(
+          select-filled-#{$status}-disabled-background-color
+        );
+        border-color: dy-theme(select-filled-#{$status}-disabled-border-color);
+        color: dy-theme(select-filled-#{$status}-disabled-text-color);
+
+        dy-icon {
+          color: dy-theme(select-filled-#{$status}-disabled-icon-color);
+        }
+      }
+
+      dy-icon {
+        color: dy-theme(select-filled-#{$status}-icon-color);
+      }
+    }
+  }
+}

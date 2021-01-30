@@ -1,0 +1,7 @@
+@import "../all";
+
+$dy-enabled-themes: (corporate);
+
+@include dy-install() {
+  @include dy-theme-global();
+} ;

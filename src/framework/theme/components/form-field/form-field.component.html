@@ -1,0 +1,13 @@
+<div *ngIf="shouldShowPrefix()" [ngClass]="prefixClasses$ | async">
+  <ng-content select="[dyPrefix]"></ng-content>
+</div>
+
+<div class="dy-form-control-container"
+     [class.dy-form-field-control-with-prefix]="shouldShowPrefix()"
+     [class.dy-form-field-control-with-suffix]="shouldShowSuffix()">
+  <ng-content></ng-content>
+</div>
+
+<div *ngIf="shouldShowSuffix()" [ngClass]="suffixClasses$ | async">
+  <ng-content select="[dySuffix]"></ng-content>
+</div>

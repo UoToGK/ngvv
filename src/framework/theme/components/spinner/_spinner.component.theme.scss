@@ -1,0 +1,44 @@
+@mixin dy-spinner-theme() {
+  .dy-spinner-container {
+    position: relative;
+  }
+
+  dy-spinner .message {
+    color: dy-theme(spinner-text-color);
+    font-family: dy-theme(spinner-text-font-family);
+    font-size: dy-theme(spinner-text-font-size);
+    font-weight: dy-theme(spinner-text-font-weight);
+    line-height: dy-theme(spinner-text-line-height);
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-spinner.status-#{$status} {
+      background-color: dy-theme(spinner-#{$status}-background-color);
+
+      .spin-circle {
+        border-top-color: dy-theme(spinner-#{$status}-circle-filled-color);
+        border-right-color: dy-theme(spinner-#{$status}-circle-empty-color);
+        border-bottom-color: dy-theme(spinner-#{$status}-circle-filled-color);
+        border-left-color: dy-theme(spinner-#{$status}-circle-filled-color);
+      }
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-spinner.size-#{$size} {
+      font-size: dy-theme(spinner-height-#{$size});
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(230deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

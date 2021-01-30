@@ -1,0 +1,22 @@
+@mixin dy-badge-theme() {
+  dy-badge {
+    border-radius: dy-theme(badge-border-radius);
+    font-family: dy-theme(badge-text-font-family);
+    font-size: dy-theme(badge-text-font-size);
+    font-weight: dy-theme(badge-text-font-weight);
+    line-height: dy-theme(badge-text-line-height);
+    padding: dy-theme(badge-padding);
+
+    &.dot-mode {
+      padding: dy-theme(badge-dot-mode-padding);
+      border-radius: dy-theme(badge-dot-mode-border-radius);
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-badge.status-#{$status} {
+      color: dy-theme(badge-#{$status}-text-color);
+      background-color: dy-theme(badge-#{$status}-background-color);
+    }
+  }
+}

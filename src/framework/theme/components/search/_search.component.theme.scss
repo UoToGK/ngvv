@@ -1,0 +1,88 @@
+@mixin dy-search-theme() {
+  dy-search-field {
+    .close-button {
+      z-index: 1;
+    }
+
+    .search {
+      background: dy-theme(search-background-color);
+
+      span.info {
+        color: dy-theme(search-info-text-color);
+        font-family: dy-theme(search-info-text-font-family);
+        font-size: dy-theme(search-info-text-font-size);
+        font-weight: dy-theme(search-info-text-font-weight);
+        line-height: dy-theme(search-info-text-line-height);
+      }
+
+      input {
+        border-bottom: dy-theme(search-divider-width)
+          dy-theme(search-divider-style) dy-theme(search-divider-color);
+        color: dy-theme(search-text-color);
+        font-family: dy-theme(search-text-font-family);
+        font-size: dy-theme(search-text-font-size);
+        font-weight: dy-theme(search-text-font-weight);
+        line-height: dy-theme(search-text-line-height);
+
+        &::placeholder {
+          color: dy-theme(search-placeholder-text-color);
+        }
+
+        &::-ms-clear {
+          display: none;
+        }
+      }
+    }
+
+    &.rotate-layout {
+      opacity: 0;
+      background: dy-theme(search-background-color);
+    }
+
+    &.modal-zoomin {
+      .search::before,
+      .search::after {
+        border: 1.5rem solid dy-theme(search-extra-background-color);
+      }
+    }
+
+    &.modal-half {
+      .form-wrapper {
+        background: dy-theme(search-background-color);
+      }
+      .search::before {
+        background: dy-theme(search-extra-background-color);
+      }
+    }
+
+    &.modal-drop {
+      .form-content::after {
+        background: dy-theme(search-divider-color);
+      }
+      .search::before {
+        background: dy-theme(search-background-color);
+      }
+    }
+
+    &.curtain {
+      .search::after {
+        background: dy-theme(search-background-color);
+      }
+      .search {
+        background: dy-theme(search-background-color);
+      }
+    }
+
+    &.column-curtain {
+      &::before {
+        background: dy-theme(search-background-color);
+      }
+      &::after {
+        background: transparent;
+      }
+      &.show::after {
+        background: dy-theme(search-extra-background-color);
+      }
+    }
+  }
+}

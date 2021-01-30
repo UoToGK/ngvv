@@ -1,0 +1,165 @@
+@mixin dy-toggle-theme() {
+  dy-toggle {
+    .toggle {
+      height: dy-theme(toggle-height);
+      width: dy-theme(toggle-width);
+      border-width: dy-theme(toggle-border-width);
+      border-style: solid;
+      border-radius: dy-theme(toggle-border-radius);
+      cursor: dy-theme(toggle-cursor);
+
+      /*
+        We need to set initial positions as Angular animations won't work in IE11 if positions have no initial value.
+        Setting it in SCSS as we don't have access to theme variables from TS.
+      */
+      @include dy-ltr() {
+        &.checked .toggle-switcher {
+          left: calc(
+            100% - #{dy-theme(toggle-switcher-size)} - #{dy-theme(
+                toggle-border-width
+              )} - #{dy-theme(toggle-border-width)}
+          );
+        }
+
+        &:not(.checked) .toggle-switcher {
+          right: 0;
+        }
+      }
+
+      @include dy-rtl() {
+        &.checked .toggle-switcher {
+          right: calc(
+            100% - #{dy-theme(toggle-switcher-size)} - #{dy-theme(
+                toggle-border-width
+              )} - #{dy-theme(toggle-border-width)}
+          );
+        }
+
+        &:not(.checked) .toggle-switcher {
+          left: 0;
+        }
+      }
+    }
+
+    .native-input:enabled:focus + .toggle {
+      @include dy-outline(
+        dy-theme(toggle-outline-width),
+        dy-theme(toggle-outline-color)
+      );
+    }
+
+    .native-input:disabled + .toggle {
+      cursor: dy-theme(toggle-disabled-cursor);
+    }
+
+    .toggle-switcher {
+      width: dy-theme(toggle-switcher-size);
+      height: dy-theme(toggle-switcher-size);
+
+      dy-icon {
+        height: dy-theme(toggle-switcher-icon-size);
+        width: dy-theme(toggle-switcher-icon-size);
+      }
+    }
+
+    .text {
+      font-family: dy-theme(toggle-text-font-family);
+      font-size: dy-theme(toggle-text-font-size);
+      font-weight: dy-theme(toggle-text-font-weight);
+      line-height: dy-theme(toggle-text-line-height);
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    @include dy-toggle-status($status);
+  }
+}
+
+@mixin dy-toggle-status($status) {
+  dy-toggle.status-#{$status} {
+    .text {
+      color: dy-theme(toggle-#{$status}-text-color);
+    }
+
+    .toggle {
+      background-color: dy-theme(toggle-#{$status}-background-color);
+      border-color: dy-theme(toggle-#{$status}-border-color);
+    }
+
+    .toggle.checked {
+      background-color: dy-theme(toggle-#{$status}-checked-background-color);
+      border-color: dy-theme(toggle-#{$status}-checked-border-color);
+    }
+
+    .native-input:enabled {
+      &:focus + .toggle {
+        background-color: dy-theme(toggle-#{$status}-focus-background-color);
+        border-color: dy-theme(toggle-#{$status}-focus-border-color);
+
+        &.checked {
+          background-color: dy-theme(
+            toggle-#{$status}-focus-checked-background-color
+          );
+          border-color: dy-theme(toggle-#{$status}-focus-checked-border-color);
+        }
+      }
+
+      &:active + .toggle {
+        background-color: dy-theme(toggle-#{$status}-active-background-color);
+        border-color: dy-theme(toggle-#{$status}-active-border-color);
+
+        &.checked {
+          background-color: dy-theme(
+            toggle-#{$status}-active-checked-background-color
+          );
+          border-color: dy-theme(toggle-#{$status}-active-checked-border-color);
+        }
+      }
+    }
+
+    .native-input:enabled + .toggle:hover {
+      background-color: dy-theme(toggle-#{$status}-hover-background-color);
+      border-color: dy-theme(toggle-#{$status}-hover-border-color);
+
+      &.checked {
+        background-color: dy-theme(
+          toggle-#{$status}-hover-checked-background-color
+        );
+        border-color: dy-theme(toggle-#{$status}-hover-checked-border-color);
+      }
+    }
+
+    .toggle-switcher {
+      background-color: dy-theme(
+        toggle-#{$status}-checked-switcher-background-color
+      );
+
+      dy-icon {
+        color: dy-theme(toggle-#{$status}-checked-switcher-checkmark-color);
+      }
+    }
+
+    .native-input:disabled {
+      & + .toggle {
+        background-color: dy-theme(toggle-#{$status}-disabled-background-color);
+        border-color: dy-theme(toggle-#{$status}-disabled-border-color);
+
+        .toggle-switcher {
+          background-color: dy-theme(
+            toggle-#{$status}-disabled-switcher-background-color
+          );
+
+          dy-icon {
+            color: dy-theme(
+              toggle-#{$status}-disabled-checked-switcher-checkmark-color
+            );
+          }
+        }
+      }
+
+      & ~ .text {
+        color: dy-theme(toggle-#{$status}-disabled-text-color);
+      }
+    }
+  }
+}

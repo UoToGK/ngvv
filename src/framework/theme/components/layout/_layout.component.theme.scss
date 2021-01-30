@@ -1,0 +1,221 @@
+@mixin window-mode($padding-top) {
+  padding-top: $padding-top;
+
+  dy-layout-header.fixed {
+    top: $padding-top;
+  }
+
+  dy-layout-header.fixed ~ .layout-container dy-sidebar .main-container-fixed {
+    height: calc(100vh - #{$padding-top} - #{dy-theme(header-height)});
+    top: calc(#{$padding-top} + #{dy-theme(header-height)});
+  }
+
+  dy-sidebar.fixed {
+    left: calc((100vw - #{dy-theme(layout-window-mode-max-width)}) / 2);
+  }
+
+  .layout .layout-container {
+    dy-sidebar.fixed.right {
+      right: calc((100vw - #{dy-theme(layout-window-mode-max-width)}) / 2);
+    }
+
+    dy-sidebar.fixed {
+      top: calc(#{dy-theme(header-height)} + #{$padding-top});
+    }
+  }
+
+  .scrollable-container {
+    height: calc(100vh - #{$padding-top});
+    box-shadow: dy-theme(layout-window-shadow);
+  }
+}
+
+@mixin dy-layout-theme() {
+  dy-layout .scrollable-container {
+    @include dy-scrollbars(
+      dy-theme(layout-scrollbar-color),
+      dy-theme(layout-scrollbar-background-color),
+      dy-theme(layout-scrollbar-width)
+    );
+  }
+
+  dy-layout.with-scroll .scrollable-container {
+    overflow: auto;
+    height: 100vh;
+    display: block;
+
+    @include media-breakpoint-down(sm) {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .layout {
+    min-width: dy-theme(layout-window-mode-min-width);
+  }
+
+  dy-layout.window-mode {
+    background: dy-theme(layout-window-mode-background-color);
+    display: block;
+
+    .scrollable-container {
+      max-width: dy-theme(layout-window-mode-max-width);
+      margin: 0 auto;
+    }
+
+    .layout dy-layout-header {
+      max-width: dy-theme(layout-window-mode-max-width);
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      nav {
+        max-width: dy-theme(layout-window-mode-max-width);
+        margin: 0 auto;
+      }
+    }
+
+    @media screen and (min-width: dy-theme(layout-window-mode-max-width) + 20px) {
+      $padding-top: dy-theme(layout-window-mode-padding-top) / 4;
+
+      @include window-mode($padding-top);
+
+      dy-layout.with-scroll {
+        .scrollable-container {
+          height: calc(100vh - #{$padding-top});
+        }
+      }
+    }
+
+    @media screen and (min-width: dy-theme(layout-window-mode-max-width) + 150px) {
+      $padding-top: dy-theme(layout-window-mode-padding-top) / 2;
+
+      @include window-mode($padding-top);
+
+      dy-layout.with-scroll {
+        .scrollable-container {
+          height: calc(100vh - #{$padding-top});
+        }
+      }
+    }
+
+    @media screen and (min-width: dy-theme(layout-window-mode-max-width) + 300px) {
+      $padding-top: dy-theme(layout-window-mode-padding-top);
+
+      @include window-mode($padding-top);
+
+      dy-layout.with-scroll {
+        .scrollable-container {
+          height: calc(100vh - #{$padding-top});
+        }
+      }
+    }
+  }
+
+  dy-layout .layout {
+    background-color: dy-theme(layout-background-color);
+    color: dy-theme(layout-text-color);
+    font-family: dy-theme(layout-text-font-family);
+    font-size: dy-theme(layout-text-font-size);
+    font-weight: dy-theme(layout-text-font-weight);
+    line-height: dy-theme(layout-text-line-height);
+    min-height: dy-theme(layout-min-height);
+
+    .layout-container {
+      dy-sidebar {
+        &.fixed,
+        .main-container-fixed {
+          top: dy-theme(header-height);
+        }
+      }
+
+      .content {
+        dy-layout-footer {
+          box-shadow: dy-theme(footer-shadow);
+
+          nav {
+            background-color: dy-theme(footer-background-color);
+            border-top: dy-theme(footer-divider-width)
+              dy-theme(footer-divider-style) dy-theme(footer-divider-color);
+            color: dy-theme(footer-text-color);
+            font-family: dy-theme(footer-text-font-family);
+            font-size: dy-theme(footer-text-font-size);
+            font-weight: dy-theme(footer-text-font-weight);
+            line-height: dy-theme(footer-text-line-height);
+            padding: dy-theme(footer-padding);
+
+            a {
+              color: dy-theme(footer-text-highlight-color);
+
+              @include hover-focus-active {
+                color: dy-theme(footer-text-highlight-color);
+              }
+            }
+          }
+        }
+
+        &.center {
+          width: dy-theme(layout-content-width);
+          flex: 0 100 dy-theme(layout-content-width) !important;
+        }
+
+        .columns dy-layout-column {
+          padding: dy-theme(layout-padding);
+
+          @include media-breakpoint-down(md) {
+            padding: dy-theme(layout-medium-padding);
+          }
+
+          @include media-breakpoint-down(sm) {
+            padding: dy-theme(layout-small-padding);
+          }
+        }
+      }
+    }
+  }
+
+  dy-layout-header {
+    background-color: dy-theme(header-background-color);
+    color: dy-theme(header-text-color);
+    font-family: dy-theme(header-text-font-family);
+    font-size: dy-theme(header-text-font-size);
+    font-weight: dy-theme(header-text-font-weight);
+    line-height: dy-theme(header-text-line-height);
+
+    nav {
+      color: dy-theme(header-text-color);
+      box-shadow: dy-theme(header-shadow);
+      height: dy-theme(header-height);
+      padding: dy-theme(header-padding);
+
+      a {
+        color: dy-theme(header-text-color);
+
+        @include hover-focus-active {
+          color: dy-theme(header-text-color);
+        }
+      }
+    }
+
+    & ~ .layout-container {
+      min-height: calc(
+        #{dy-theme(layout-min-height)} - #{dy-theme(header-height)}
+      );
+    }
+
+    &.fixed ~ .layout-container {
+      padding-top: dy-theme(header-height);
+      min-height: dy-theme(layout-min-height);
+    }
+
+    &.fixed ~ .layout-container dy-sidebar .main-container {
+      height: calc(#{dy-theme(sidebar-height)} - #{dy-theme(header-height)});
+    }
+  }
+
+  dy-layout.with-subheader {
+    dy-sidebar .main-container {
+      box-shadow: none; // so that we don't have a shadow over the header in this mode
+    }
+  }
+}

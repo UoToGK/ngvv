@@ -1,0 +1,32 @@
+@mixin dy-tag-filled() {
+  &.appearance-filled {
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} {
+        background-color: dy-theme(tag-filled-#{$status}-background-color);
+        border-color: dy-theme(tag-filled-#{$status}-border-color);
+        color: dy-theme(tag-filled-#{$status}-text-color);
+
+        &.selected {
+          background-color: dy-theme(
+            tag-filled-#{$status}-selected-background-color
+          );
+          border-color: dy-theme(tag-filled-#{$status}-selected-border-color);
+        }
+
+        &.active {
+          background-color: dy-theme(
+            tag-filled-#{$status}-active-background-color
+          );
+          border-color: dy-theme(tag-filled-#{$status}-active-border-color);
+        }
+
+        &:hover {
+          background-color: dy-theme(
+            tag-filled-#{$status}-hover-background-color
+          );
+          border-color: dy-theme(tag-filled-#{$status}-hover-border-color);
+        }
+      }
+    }
+  }
+}

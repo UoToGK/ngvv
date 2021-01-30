@@ -1,0 +1,8 @@
+@mixin dy-calendar-day-picker-theme {
+  dy-calendar-day-picker dy-calendar-week-numbers {
+    $border: dy-theme(calendar-weeknumber-divider-width) solid
+      dy-theme(calendar-weeknumber-divider-color);
+    @include dy-ltr(border-right, $border);
+    @include dy-rtl(border-left, $border);
+  }
+}

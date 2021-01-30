@@ -1,0 +1,75 @@
+@mixin dy-accordion-item-header() {
+  border-bottom-width: dy-theme(accordion-header-border-width);
+  border-bottom-style: dy-theme(accordion-header-border-style);
+  border-bottom-color: dy-theme(accordion-header-border-color);
+  color: dy-theme(accordion-header-text-color);
+  font-family: dy-theme(accordion-header-text-font-family);
+  font-size: dy-theme(accordion-header-text-font-size);
+  font-weight: dy-theme(accordion-header-text-font-weight);
+  line-height: dy-theme(accordion-header-text-line-height);
+  padding: dy-theme(accordion-padding);
+
+  @include dy-headings();
+}
+
+@mixin dy-accordion-theme() {
+  dy-accordion {
+    display: block;
+    box-shadow: dy-theme(accordion-shadow);
+    border-radius: dy-theme(accordion-border-radius);
+  }
+
+  dy-accordion-item-header {
+    position: relative;
+    @include dy-accordion-item-header();
+
+    .expansion-indicator {
+      position: absolute;
+      @include dy-ltr(right, 1rem);
+      @include dy-rtl(left, 1rem);
+    }
+  }
+
+  dy-accordion-item {
+    background-color: dy-theme(accordion-item-background-color);
+    color: dy-theme(accordion-item-text-color);
+    font-family: dy-theme(accordion-item-text-font-family);
+    font-size: dy-theme(accordion-item-text-font-size);
+    font-weight: dy-theme(accordion-item-text-font-weight);
+    line-height: dy-theme(accordion-item-text-line-height);
+
+    &.disabled dy-accordion-item-header {
+      color: dy-theme(accordion-header-disabled-text-color);
+      cursor: default;
+    }
+
+    &:first-child {
+      border-top-left-radius: dy-theme(accordion-border-radius);
+      border-top-right-radius: dy-theme(accordion-border-radius);
+    }
+    &:last-child {
+      border-bottom-left-radius: dy-theme(accordion-border-radius);
+      border-bottom-right-radius: dy-theme(accordion-border-radius);
+
+      &.collapsed dy-accordion-item-header {
+        border-bottom: none;
+      }
+    }
+  }
+
+  dy-accordion-item:not(.collapsed)
+    + dy-accordion-item
+    dy-accordion-item-header {
+    border-top-color: dy-theme(accordion-header-border-color);
+    border-top-style: dy-theme(accordion-header-border-style);
+    border-top-width: dy-theme(accordion-header-border-width);
+  }
+
+  dy-accordion-item-body .item-body {
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    overflow: auto;
+    padding: dy-theme(accordion-padding);
+    position: relative;
+  }
+}

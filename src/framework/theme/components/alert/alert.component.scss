@@ -1,0 +1,21 @@
+@import "../../styles/core/mixins";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .close {
+    @include dy-ltr(right, 0);
+    @include dy-rtl(left, 0);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+}

@@ -1,0 +1,154 @@
+@mixin dy-typography {
+  body {
+    color: dy-theme(text-basic-color);
+    font-family: dy-theme(text-paragraph-font-family);
+    font-size: dy-theme(text-paragraph-font-size);
+    font-weight: dy-theme(text-paragraph-font-weight);
+    line-height: dy-theme(text-paragraph-line-height);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: dy-theme(text-basic-color);
+  }
+
+  @each $size in (1, 2, 3, 4, 5, 6) {
+    h#{$size},
+    .h#{$size} {
+      font-size: dy-theme(text-heading-#{$size}-font-size);
+      font-family: dy-theme(text-heading-#{$size}-font-family);
+      font-weight: dy-theme(text-heading-#{$size}-font-weight);
+      line-height: dy-theme(text-heading-#{$size}-line-height);
+    }
+  }
+
+  .subtitle,
+  .subtitle-2 {
+    color: dy-theme(text-basic-color);
+  }
+
+  .subtitle {
+    font-family: dy-theme(text-subtitle-font-family);
+    font-size: dy-theme(text-subtitle-font-size);
+    font-weight: dy-theme(text-subtitle-font-weight);
+    line-height: dy-theme(text-subtitle-line-height);
+  }
+
+  .subtitle-2 {
+    font-family: dy-theme(text-subtitle-2-font-family);
+    font-size: dy-theme(text-subtitle-2-font-size);
+    font-weight: dy-theme(text-subtitle-2-font-weight);
+    line-height: dy-theme(text-subtitle-2-line-height);
+  }
+
+  p,
+  .paragraph {
+    color: dy-theme(text-basic-color);
+    font-family: dy-theme(text-paragraph-font-family);
+    font-size: dy-theme(text-paragraph-font-size);
+    font-weight: dy-theme(text-paragraph-font-weight);
+    line-height: dy-theme(text-paragraph-line-height);
+  }
+
+  .paragraph-2 {
+    color: dy-theme(text-basic-color);
+    font-family: dy-theme(text-paragraph-2-font-family);
+    font-size: dy-theme(text-paragraph-2-font-size);
+    font-weight: dy-theme(text-paragraph-2-font-weight);
+    line-height: dy-theme(text-paragraph-2-line-height);
+  }
+
+  a {
+    color: dy-theme(link-text-color);
+    text-decoration: dy-theme(link-text-decoration);
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+
+    &:focus {
+      color: dy-theme(link-text-focus-color);
+    }
+
+    &:hover {
+      color: dy-theme(link-text-hover-color);
+    }
+
+    &.link-control,
+    &.link-control:hover {
+      color: dy-theme(text-control-color);
+    }
+
+    &.link-alternate,
+    &.link-alternate:hover {
+      color: dy-theme(text-alternate-color);
+    }
+  }
+
+  .label {
+    color: dy-theme(text-hint-color);
+    font-family: dy-theme(text-label-font-family);
+    font-size: dy-theme(text-label-font-size);
+    font-weight: dy-theme(text-label-font-weight);
+    line-height: dy-theme(text-label-line-height);
+  }
+
+  .caption {
+    font-family: dy-theme(text-caption-font-family);
+    font-size: dy-theme(text-caption-font-size);
+    font-weight: dy-theme(text-caption-font-weight);
+    line-height: dy-theme(text-caption-line-height);
+  }
+
+  .caption-2 {
+    font-family: dy-theme(text-caption-2-font-family);
+    font-size: dy-theme(text-caption-2-font-size);
+    font-weight: dy-theme(text-caption-2-font-weight);
+    line-height: dy-theme(text-caption-2-line-height);
+  }
+
+  .caption,
+  .caption-2 {
+    color: dy-theme(text-hint-color);
+
+    @each $status in dy-get-core-statuses() {
+      &.status-#{$status} {
+        color: dy-theme(text-#{$status}-color);
+      }
+    }
+  }
+
+  li {
+    color: dy-theme(list-item-text-color);
+    font-family: dy-theme(list-item-font-family);
+    font-size: dy-theme(list-item-font-size);
+    font-weight: dy-theme(list-item-font-weight);
+    line-height: dy-theme(list-item-line-height);
+  }
+
+  .text-alternate {
+    color: dy-theme(text-alternate-color);
+  }
+  .text-disabled {
+    color: dy-theme(text-disabled-color);
+  }
+  .text-hint {
+    color: dy-theme(text-hint-color);
+  }
+
+  @each $status in dy-get-core-statuses() {
+    .text-#{$status} {
+      color: dy-theme(text-#{$status}-color);
+    }
+  }
+}

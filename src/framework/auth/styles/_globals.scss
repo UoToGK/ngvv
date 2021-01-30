@@ -1,0 +1,5 @@
+@import "global/components";
+
+@mixin dy-auth-global() {
+  @include dy-auth-components();
+}

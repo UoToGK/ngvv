@@ -1,0 +1,8 @@
+@import "../../../theme/styles/all";
+@import "../globals";
+
+$dy-enabled-themes: (corporate);
+
+@include dy-install() {
+  @include dy-auth-global();
+} ;

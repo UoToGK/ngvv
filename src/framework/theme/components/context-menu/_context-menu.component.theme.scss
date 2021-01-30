@@ -1,0 +1,28 @@
+@import "../../styles/core/mixins";
+
+@mixin dy-context-menu-theme() {
+  .context-menu-host {
+    /*
+      Fixes click not being bubbled to the body in Safari.
+      https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+    */
+    cursor: pointer;
+  }
+
+  dy-context-menu {
+    background-color: dy-theme(context-menu-background-color);
+    border-color: dy-theme(context-menu-border-color);
+    border-style: dy-theme(context-menu-border-style);
+    border-width: dy-theme(context-menu-border-width);
+    border-radius: dy-theme(context-menu-border-radius);
+    box-shadow: dy-theme(context-menu-shadow);
+    min-width: dy-theme(context-menu-min-width);
+    max-width: dy-theme(context-menu-max-width);
+
+    dy-menu {
+      border-radius: dy-theme(context-menu-border-radius);
+      overflow: hidden;
+      text-align: dy-theme(context-menu-text-align);
+    }
+  }
+}

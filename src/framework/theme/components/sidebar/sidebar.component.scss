@@ -1,0 +1,78 @@
+@import "../../styles/core/mixins";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: auto;
+  order: 0;
+
+  .scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+  }
+
+  .main-container {
+    // TODO: this looks like a dirty fix to stop sidebar jumping while page is scrolled
+    transform: translate3d(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-container-fixed {
+    position: fixed;
+  }
+
+  &.right {
+    @include dy-ltr(order, 4);
+    @include dy-rtl(order, 0);
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  &.end {
+    order: 4;
+    @include dy-ltr() {
+      margin-right: 0;
+      margin-left: auto;
+    }
+    @include dy-rtl() {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  // TODO: in this case this will won't work when header is not fixed and sidebar is
+  &.fixed {
+    position: fixed;
+    height: 100%;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+
+    left: 0;
+
+    &.right {
+      right: 0;
+    }
+  }
+
+  &.fixed.start {
+    @include dy-ltr(left, 0);
+    @include dy-rtl(right, 0);
+  }
+  &.fixed.end {
+    @include dy-ltr(right, 0);
+    @include dy-rtl(left, 0);
+  }
+
+  ::ng-deep dy-sidebar-footer {
+    margin-top: auto;
+    display: block;
+  }
+
+  ::ng-deep dy-sidebar-header {
+    display: block;
+  }
+}

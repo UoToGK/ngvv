@@ -1,0 +1,12 @@
+@mixin nd-flip-card-theme {
+  .flip-button {
+    line-height: dy-theme(card-text-line-height);
+    margin-bottom: dy-theme(card-margin-bottom);
+    padding: dy-theme(card-padding);
+  }
+
+  .flipcard-body .front-container {
+    @include dy-ltr(margin-right, -100%);
+    @include dy-rtl(margin-left, -100%);
+  }
+}

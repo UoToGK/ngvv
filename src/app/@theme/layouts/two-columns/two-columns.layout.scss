@@ -1,0 +1,9 @@
+@import "../../styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+
+@include dy-install-component() {
+  .menu-sidebar ::ng-deep .scrollable {
+    padding-top: dy-theme(layout-padding-top);
+  }
+}

@@ -1,0 +1,173 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+@import "../@theme/styles/themes";
+
+@include dy-install-component() {
+  img {
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+    vertical-align: top;
+  }
+
+  h4 {
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 36px;
+  }
+
+  dy-layout-column {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+  }
+
+  dy-card {
+    overflow: hidden;
+    cursor: pointer;
+    width: 32%;
+  }
+
+  dy-card-body {
+    padding: 0;
+  }
+
+  dy-layout-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    ::ng-deep nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      width: calc(#{dy-theme(sidebar-width)} - #{dy-theme(header-padding)});
+    }
+
+    dy-action {
+      height: auto;
+      display: flex;
+      align-content: center;
+    }
+
+    .subtitle {
+      font-family: dy-theme(text-subtitle-font-family);
+      font-size: dy-theme(text-subtitle-font-size);
+      font-weight: dy-theme(text-subtitle-font-weight);
+      line-height: dy-theme(text-subtitle-line-height);
+    }
+
+    .downloads-count .number {
+      @include dy-ltr(margin-left, 0.5rem);
+      @include dy-rtl(margin-right, 0.5rem);
+    }
+
+    ::ng-deep dy-search button {
+      padding: 0 !important;
+    }
+
+    .contact-us {
+      padding: 0;
+
+      dy-icon {
+        font-size: 1.25rem;
+      }
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      width: auto;
+
+      .logo {
+        padding: 0 1.25rem;
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+        @include dy-rtl(border-right, 1px solid dy-theme(divider-color));
+        white-space: nowrap;
+        text-decoration: none;
+      }
+    }
+
+    .github-stars {
+      width: 245px;
+      display: flex;
+
+      iframe {
+        width: 100px;
+        @include dy-ltr(margin-left, 1rem);
+        @include dy-rtl(margin-right, 1rem);
+      }
+    }
+
+    @include media-breakpoint-down(xl) {
+      .control-item.github-stars .text {
+        display: none;
+      }
+
+      .control-item.github-stars {
+        width: auto;
+
+        iframe {
+          margin: 0;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(lg) {
+      .downloads-count {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+    }
+
+    @include media-breakpoint-down(sm) {
+      .contact-us {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(is) {
+      .github-stars {
+        display: none;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+  }
+
+  @include media-breakpoint-down(lg) {
+    dy-card-header {
+      padding: 12px 20px;
+    }
+
+    dy-card {
+      width: 48%;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+  }
+
+  @include media-breakpoint-down(sm) {
+    dy-card-header {
+      padding: 10px 20px;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    dy-card {
+      width: 100%;
+    }
+  }
+}

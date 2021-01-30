@@ -1,0 +1,53 @@
+@mixin button-filled() {
+  [dyButton].appearance-filled {
+    border-style: dy-theme(button-filled-border-style);
+    border-width: dy-theme(button-filled-border-width);
+    text-transform: dy-theme(button-filled-text-transform);
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        padding: dy-theme(button-filled-#{$size}-padding);
+      }
+    }
+
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} {
+        background-color: dy-theme(button-filled-#{$status}-background-color);
+        border-color: dy-theme(button-filled-#{$status}-border-color);
+        color: dy-theme(button-filled-#{$status}-text-color);
+
+        &:focus {
+          background-color: dy-theme(
+            button-filled-#{$status}-focus-background-color
+          );
+          border-color: dy-theme(button-filled-#{$status}-focus-border-color);
+        }
+
+        &:hover {
+          background-color: dy-theme(
+            button-filled-#{$status}-hover-background-color
+          );
+          border-color: dy-theme(button-filled-#{$status}-hover-border-color);
+        }
+
+        &:active {
+          background-color: dy-theme(
+            button-filled-#{$status}-active-background-color
+          );
+          border-color: dy-theme(button-filled-#{$status}-active-border-color);
+        }
+
+        &[disabled],
+        &.btn-disabled {
+          background-color: dy-theme(
+            button-filled-#{$status}-disabled-background-color
+          );
+          border-color: dy-theme(
+            button-filled-#{$status}-disabled-border-color
+          );
+          color: dy-theme(button-filled-#{$status}-disabled-text-color);
+        }
+      }
+    }
+  }
+}

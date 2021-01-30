@@ -1,0 +1,58 @@
+@mixin dy-tag-input-theme() {
+  .dy-tag-input {
+    appearance: none;
+    border: transparent;
+    background: transparent;
+    outline: none;
+
+    flex: 1;
+    padding: 0;
+    min-width: dy-theme(tag-input-min-width);
+
+    font-family: dy-theme(tag-input-text-font-family);
+
+    &::placeholder {
+      font-family: dy-theme(tag-input-placeholder-text-font-family);
+    }
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        font-size: dy-theme(tag-input-#{$size}-text-font-size);
+        font-weight: dy-theme(tag-input-#{$size}-text-font-weight);
+        line-height: dy-theme(tag-input-#{$size}-text-line-height);
+
+        padding: dy-theme(tag-input-#{$size}-padding);
+
+        &::placeholder {
+          font-size: dy-theme(tag-input-#{$size}-placeholder-text-font-size);
+          font-weight: dy-theme(
+            tag-input-#{$size}-placeholder-text-font-weight
+          );
+          line-height: dy-theme(
+            tag-input-#{$size}-placeholder-text-line-height
+          );
+        }
+      }
+    }
+
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} {
+        color: dy-theme(tag-input-#{$status}-text-color);
+
+        &::placeholder {
+          color: dy-theme(tag-input-#{$status}-placeholder-text-color);
+        }
+
+        &:disabled {
+          color: dy-theme(tag-input-#{$status}-disabled-text-color);
+
+          &::placeholder {
+            color: dy-theme(
+              tag-input-#{$status}-disabled-placeholder-text-color
+            );
+          }
+        }
+      }
+    }
+  }
+}

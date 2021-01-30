@@ -1,0 +1,79 @@
+@mixin dy-timepicker-theme() {
+  $border: dy-theme(timepicker-border-width) dy-theme(timepicker-border-style)
+    dy-theme(timepicker-border-color);
+  .dy-timepicker-container {
+    width: dy-theme(timepicker-container-width);
+    height: dy-theme(timepicker-container-height);
+
+    .list-item {
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover {
+        background-color: dy-theme(timepicker-cell-hover-background-color);
+        color: dy-theme(timepicker-cell-hover-text-color);
+      }
+
+      &:focus {
+        background-color: dy-theme(timepicker-cell-focus-background-color);
+        color: dy-theme(timepicker-cell-focus-text-color);
+      }
+
+      &.selected {
+        background-color: dy-theme(timepicker-cell-active-background-color);
+        color: dy-theme(timepicker-cell-active-text-color);
+      }
+
+      color: dy-theme(timepicker-cell-text-color);
+      font-size: dy-theme(timepicker-cell-text-font-size);
+      font-family: dy-theme(timepicker-cell-text-font-family);
+      height: dy-theme(timepicker-cell-height);
+      line-height: dy-theme(timepicker-cell-text-line-height);
+      font-weight: dy-theme(timepicker-cell-text-font-weight);
+    }
+
+    .values-list {
+      &:not(:last-of-type) {
+        @include dy-ltr(border-right, $border);
+        @include dy-rtl(border-left, $border);
+      }
+
+      @include dy-scrollbars(
+        dy-theme(timepicker-scrollbar-color),
+        dy-theme(timepicker-scrollbar-background-color),
+        dy-theme(timepicker-scrollbar-width)
+      );
+    }
+
+    &.supports-scrollbar-theming {
+      .values-list:hover .list-item:not(.am-pm-item) {
+        @include dy-ltr(margin-right, -#{dy-theme(timepicker-scrollbar-width)});
+        @include dy-rtl(margin-left, -#{dy-theme(timepicker-scrollbar-width)});
+      }
+    }
+
+    .header-cell {
+      color: dy-theme(timepicker-header-cell-text-color);
+      font-size: dy-theme(timepicker-header-cell-text-font-size);
+      font-family: dy-theme(timepicker-header-cell-text-font-family);
+      height: dy-theme(timepicker-header-cell-height);
+      line-height: dy-theme(timepicker-header-cell-text-line-height);
+      font-weight: dy-theme(timepicker-header-cell-text-font-weight);
+
+      &:not(:last-child) {
+        @include dy-ltr(border-right, $border);
+        @include dy-rtl(border-left, $border);
+      }
+    }
+
+    .column-header {
+      border-bottom: $border;
+    }
+
+    .actions-footer {
+      @include dy-ltr(padding-left, 0.625rem);
+      @include dy-rtl(padding-right, 0.625rem);
+    }
+  }
+}

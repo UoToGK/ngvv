@@ -1,0 +1,18 @@
+@mixin dy-list-theme() {
+  dy-list-item {
+    border-bottom: dy-theme(list-item-divider-width)
+      dy-theme(list-item-divider-style) dy-theme(list-item-divider-color);
+
+    color: dy-theme(list-item-text-color);
+    font-family: dy-theme(list-item-font-family);
+    font-size: dy-theme(list-item-font-size);
+    font-weight: dy-theme(list-item-font-weight);
+    line-height: dy-theme(list-item-line-height);
+    padding: dy-theme(list-item-padding);
+
+    &:first-child {
+      border-top: dy-theme(list-item-divider-width)
+        dy-theme(list-item-divider-style) dy-theme(list-item-divider-color);
+    }
+  }
+}

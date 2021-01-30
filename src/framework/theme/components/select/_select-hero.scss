@@ -1,0 +1,66 @@
+@import "../form-field/form-field.component.theme";
+
+@mixin select-hero {
+  dy-select.appearance-hero .select-button {
+    border: none;
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-select.appearance-hero.size-#{$size} .select-button {
+      padding: dy-theme(select-hero-#{$size}-padding);
+      @include dy-ltr(padding-right, dy-theme(select-icon-offset));
+      @include dy-rtl(padding-left, dy-theme(select-icon-offset));
+    }
+    @include dy-form-field-with-prefix(
+      "dy-select.appearance-hero.size-#{$size} .select-button",
+      $size
+    );
+  }
+
+  @each $status in dy-get-statuses() {
+    dy-select.appearance-hero.status-#{$status} .select-button {
+      $left-color: dy-theme(select-hero-#{$status}-left-background-color);
+      $right-color: dy-theme(select-hero-#{$status}-right-background-color);
+      background-image: linear-gradient(to right, $left-color, $right-color);
+      color: dy-theme(select-hero-#{$status}-text-color);
+
+      &.placeholder {
+        color: dy-theme(select-hero-#{$status}-placeholder-text-color);
+      }
+
+      &:focus {
+        $left-color: dy-theme(
+          select-hero-#{$status}-focus-left-background-color
+        );
+        $right-color: dy-theme(
+          select-hero-#{$status}-focus-right-background-color
+        );
+        background-image: linear-gradient(to right, $left-color, $right-color);
+      }
+      &:hover {
+        $left-color: dy-theme(
+          select-hero-#{$status}-hover-left-background-color
+        );
+        $right-color: dy-theme(
+          select-hero-#{$status}-hover-right-background-color
+        );
+        background-image: linear-gradient(to right, $left-color, $right-color);
+      }
+      &[disabled] {
+        color: dy-theme(select-hero-#{$status}-disabled-text-color);
+        background-color: dy-theme(
+          select-hero-#{$status}-disabled-background-color
+        );
+        background-image: none;
+
+        dy-icon {
+          color: dy-theme(select-hero-#{$status}-disabled-icon-color);
+        }
+      }
+
+      dy-icon {
+        color: dy-theme(select-hero-#{$status}-icon-color);
+      }
+    }
+  }
+}

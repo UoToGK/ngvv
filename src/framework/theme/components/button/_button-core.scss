@@ -1,0 +1,34 @@
+@import "../../styles/core/mixins";
+
+@mixin dy-button-core() {
+  appearance: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  dy-icon {
+    vertical-align: top;
+  }
+
+  &.dy-transition {
+    @include dy-component-animation(
+      background-color,
+      border-color,
+      box-shadow,
+      color
+    );
+  }
+}

@@ -1,0 +1,59 @@
+@function dy-deep-find-value($theme, $key, $value) {
+  $parent-value: map-get($theme, $value);
+
+  @if ($parent-value != null) {
+    @return dy-deep-find-value($theme, $value, $parent-value);
+  }
+
+  @return $value;
+}
+
+@function dy-process-theme($theme) {
+  $processed-theme: ();
+  @each $key, $value in $theme {
+    $processed-theme: map-set(
+      $processed-theme,
+      $key,
+      dy-deep-find-value($theme, $key, $value)
+    );
+  }
+  @return $processed-theme;
+}
+
+@function get-current-theme-name() {
+  @if ($dy-theme-name != null) {
+    @return $dy-theme-name;
+  }
+
+  @return get-last-enabled-theme();
+}
+
+@function dy-theme($key) {
+  $value: ();
+
+  // in case of css custom properties - just returns var(--var-name) - the rest is a browser job
+  @if ($dy-enable-css-custom-properties == true) {
+    // there is no way to check if variable exists as current execution context is outside of particular theme
+    // because we process css in this mode only once! (and not for each theme)
+    $value: var(--#{$key});
+  } @else {
+    // in a preprocess mode (dy-install-global call) get ready value from $dy-processed-theme variable
+    @if ($dy-theme-process-mode == "pre-process") {
+      $value: map-get($dy-processed-theme, $key);
+    }
+
+    // otherwise lazily search for variable value
+    @if ($dy-theme-process-mode == "lazy-process") {
+      $dy-theme-name: get-current-theme-name();
+
+      $theme: dy-get-registered-theme($dy-theme-name);
+      $value: dy-deep-find-value($theme, $key, map-get($theme, $key));
+    }
+  }
+
+  @if ($value == null) {
+    @warn 'Nebular Theme: `dy-theme()` cannot find value for key `' + $key + '` for theme `'+ $dy-theme-name +'`';
+  }
+
+  @return $value;
+}

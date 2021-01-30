@@ -1,0 +1,124 @@
+/*
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@mixin dy-option-list-theme() {
+  dy-option-list {
+    background-color: dy-theme(option-list-background-color);
+    border-color: dy-theme(option-list-border-color);
+    border-style: dy-theme(option-list-border-style);
+    border-width: dy-theme(option-list-border-width);
+    border-radius: dy-theme(option-list-border-radius);
+    box-shadow: dy-theme(option-list-shadow);
+    overflow: hidden;
+
+    .option-list {
+      height: 100%;
+      max-height: dy-theme(option-list-max-height);
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+    }
+
+    $adjacent-border: dy-theme(option-list-adjacent-border-width)
+      dy-theme(option-list-adjacent-border-style)
+      dy-theme(option-list-adjacent-border-color);
+    &.position-top {
+      border-bottom: $adjacent-border;
+    }
+    &.position-bottom {
+      border-top: $adjacent-border;
+    }
+  }
+
+  dy-option-group {
+    color: dy-theme(option-group-text-color);
+    font-family: dy-theme(option-text-font-family);
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-option-list.size-#{$size} dy-option-group {
+      font-size: dy-theme(option-#{$size}-text-font-size);
+      font-weight: dy-theme(option-#{$size}-text-font-weight);
+      line-height: dy-theme(option-#{$size}-text-line-height);
+
+      .option-group-title {
+        padding: dy-theme(option-#{$size}-padding);
+      }
+
+      dy-option {
+        padding-left: dy-theme(option-group-#{$size}-start-padding);
+      }
+    }
+  }
+
+  dy-option {
+    background-color: dy-theme(option-background-color);
+    color: dy-theme(option-text-color);
+    font-family: dy-theme(option-text-font-family);
+
+    &.active {
+      background-color: dy-theme(option-active-background-color);
+      color: dy-theme(option-active-text-color);
+    }
+
+    &.selected {
+      background-color: dy-theme(option-selected-background-color);
+      color: dy-theme(option-selected-text-color);
+    }
+
+    &:focus {
+      background-color: dy-theme(option-focus-background-color);
+      color: dy-theme(option-focus-text-color);
+      outline: none;
+
+      &.selected {
+        background-color: dy-theme(option-selected-focus-background-color);
+        color: dy-theme(option-selected-focus-text-color);
+      }
+    }
+
+    &:hover {
+      background-color: dy-theme(option-hover-background-color);
+      color: dy-theme(option-hover-text-color);
+
+      &.selected {
+        background-color: dy-theme(option-selected-hover-background-color);
+        color: dy-theme(option-selected-hover-text-color);
+      }
+    }
+
+    &.multiple {
+      &.selected {
+        background-color: dy-theme(option-background-color);
+        color: dy-theme(option-text-color);
+      }
+
+      &:focus {
+        background-color: dy-theme(option-focus-background-color);
+        color: dy-theme(option-focus-text-color);
+      }
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    dy-option-list.size-#{$size} dy-option {
+      font-size: dy-theme(option-#{$size}-text-font-size);
+      font-weight: dy-theme(option-#{$size}-text-font-weight);
+      line-height: dy-theme(option-#{$size}-text-line-height);
+      padding: dy-theme(option-#{$size}-padding);
+    }
+  }
+
+  dy-option,
+  dy-option-group {
+    user-select: none;
+
+    &[disabled] {
+      background-color: dy-theme(option-disabled-background-color);
+      color: dy-theme(option-disabled-text-color);
+    }
+  }
+}

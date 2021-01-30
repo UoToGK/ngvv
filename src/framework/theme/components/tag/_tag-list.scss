@@ -1,0 +1,70 @@
+@mixin dy-tag-list-theme() {
+  dy-tag-list {
+    display: inline-flex;
+    outline: none;
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        .dy-tag-list-tags-wrapper {
+          margin: dy-theme-var-negative(dy-theme(tag-list-#{$size}-tag-offset));
+
+          dy-tag,
+          .dy-tag-input {
+            margin: dy-theme(tag-list-#{$size}-tag-offset);
+          }
+        }
+      }
+    }
+  }
+
+  .dy-tag-list-tags-wrapper {
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .dy-tag-list-with-input {
+    @include dy-input-core-theme();
+
+    @each $shape in dy-get-shapes() {
+      &.shape-#{$shape} {
+        border-radius: dy-theme(tag-list-with-input-#{$shape}-border-radius);
+      }
+    }
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        padding: dy-theme(tag-list-with-input-#{$size}-padding);
+      }
+    }
+
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} {
+        background-color: dy-theme(tag-input-#{$status}-background-color);
+        border-color: dy-theme(tag-input-#{$status}-border-color);
+
+        &.focus {
+          background-color: dy-theme(
+            tag-input-#{$status}-focus-background-color
+          );
+          border-color: dy-theme(tag-input-#{$status}-focus-border-color);
+        }
+      }
+    }
+  }
+
+  @include dy-form-field-root-component("dy-tag-list");
+
+  @each $size in dy-get-sizes() {
+    @include dy-form-field-with-prefix(
+      ".dy-tag-list-with-input.size-#{$size}",
+      $size
+    );
+    @include dy-form-field-with-suffix(
+      ".dy-tag-list-with-input.size-#{$size}",
+      $size
+    );
+  }
+}

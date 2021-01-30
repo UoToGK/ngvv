@@ -1,0 +1,154 @@
+@import "../../styles/core/mixins";
+
+@mixin dy-checkbox-theme() {
+  dy-checkbox {
+    .label {
+      padding: dy-theme(checkbox-padding);
+    }
+
+    .custom-checkbox {
+      width: dy-theme(checkbox-width);
+      height: dy-theme(checkbox-height);
+      border-style: dy-theme(checkbox-border-style);
+      border-width: dy-theme(checkbox-border-width);
+      border-radius: dy-theme(checkbox-border-radius);
+      position: relative;
+    }
+
+    .native-input:focus:not(:checked) + .custom-checkbox {
+      $inset-shadow: dy-theme(checkbox-focus-inset-shadow-length);
+      @include dy-outline(
+        dy-theme(checkbox-outline-width),
+        dy-theme(checkbox-outline-color),
+        $inset-shadow
+      );
+    }
+    .native-input:focus:checked + .custom-checkbox {
+      @include dy-outline(
+        dy-theme(checkbox-outline-width),
+        dy-theme(checkbox-outline-color)
+      );
+    }
+
+    dy-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+    }
+
+    .text {
+      font-family: dy-theme(checkbox-text-font-family);
+      font-size: dy-theme(checkbox-text-font-size);
+      font-weight: dy-theme(checkbox-text-font-weight);
+      line-height: dy-theme(checkbox-text-line-height);
+
+      &:not(:empty) {
+        @include dy-ltr(padding-left, dy-theme(checkbox-text-space));
+        @include dy-rtl(padding-right, dy-theme(checkbox-text-space));
+      }
+    }
+  }
+
+  @each $status in dy-get-statuses() {
+    @include dy-checkbox-status($status);
+  }
+}
+
+@mixin dy-checkbox-status($status: "") {
+  dy-checkbox.status-#{$status} {
+    .custom-checkbox {
+      background-color: dy-theme(checkbox-#{$status}-background-color);
+      border-color: dy-theme(checkbox-#{$status}-border-color);
+    }
+
+    .text {
+      color: dy-theme(checkbox-#{$status}-text-color);
+    }
+
+    .custom-checkbox.checked {
+      background-color: dy-theme(checkbox-#{$status}-checked-background-color);
+      border-color: dy-theme(checkbox-#{$status}-checked-border-color);
+
+      dy-icon {
+        color: dy-theme(checkbox-#{$status}-checked-checkmark-color);
+      }
+    }
+
+    .custom-checkbox.indeterminate {
+      background-color: dy-theme(
+        checkbox-#{$status}-indeterminate-background-color
+      );
+      border-color: dy-theme(checkbox-#{$status}-indeterminate-border-color);
+
+      dy-icon {
+        color: dy-theme(checkbox-#{$status}-indeterminate-checkmark-color);
+      }
+    }
+
+    .native-input:enabled:focus + .custom-checkbox {
+      background-color: dy-theme(checkbox-#{$status}-focus-background-color);
+      border-color: dy-theme(checkbox-#{$status}-focus-border-color);
+
+      &.indeterminate,
+      &.checked {
+        background-color: dy-theme(
+          checkbox-#{$status}-focus-checked-background-color
+        );
+        border-color: dy-theme(checkbox-#{$status}-focus-checked-border-color);
+      }
+    }
+
+    .custom-checkbox:hover {
+      background-color: dy-theme(checkbox-#{$status}-hover-background-color);
+      border-color: dy-theme(checkbox-#{$status}-hover-border-color);
+
+      &.indeterminate,
+      &.checked {
+        background-color: dy-theme(
+          checkbox-#{$status}-hover-checked-background-color
+        );
+        border-color: dy-theme(checkbox-#{$status}-hover-checked-border-color);
+      }
+    }
+
+    .native-input:enabled:active + .custom-checkbox {
+      background-color: dy-theme(checkbox-#{$status}-active-background-color);
+      border-color: dy-theme(checkbox-#{$status}-active-border-color);
+
+      &.indeterminate,
+      &.checked {
+        background-color: dy-theme(
+          checkbox-#{$status}-active-checked-background-color
+        );
+        border-color: dy-theme(checkbox-#{$status}-active-checked-border-color);
+      }
+    }
+
+    .native-input:disabled {
+      & + .custom-checkbox {
+        background-color: dy-theme(
+          checkbox-#{$status}-disabled-background-color
+        );
+        border-color: dy-theme(checkbox-#{$status}-disabled-border-color);
+
+        dy-icon {
+          color: dy-theme(checkbox-#{$status}-disabled-checkmark-color);
+        }
+      }
+      & ~ .text {
+        color: dy-theme(checkbox-#{$status}-disabled-text-color);
+      }
+      &:indeterminate + .custom-checkbox,
+      &:checked + .custom-checkbox {
+        background-color: dy-theme(
+          checkbox-#{$status}-disabled-checked-background-color
+        );
+        border-color: dy-theme(
+          checkbox-#{$status}-disabled-checked-border-color
+        );
+      }
+    }
+  }
+}

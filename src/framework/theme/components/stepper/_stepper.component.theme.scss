@@ -1,0 +1,77 @@
+@mixin dy-stepper-theme {
+  dy-stepper {
+    &.horizontal {
+      .header .step {
+        width: dy-theme(stepper-step-index-width);
+        margin: 0 dy-theme(stepper-step-index-width) / 2;
+      }
+
+      .header .connector {
+        margin: dy-theme(stepper-horizontal-connector-margin);
+      }
+    }
+
+    &.vertical {
+      .header .connector {
+        margin: dy-theme(stepper-vertical-connector-margin);
+      }
+    }
+
+    .header {
+      .connector {
+        background-color: dy-theme(stepper-connector-background-color);
+      }
+
+      .connector-past {
+        background-color: dy-theme(
+          stepper-connector-completed-background-color
+        );
+      }
+
+      .label-index {
+        border-radius: dy-theme(stepper-step-index-border-radius);
+        border-color: dy-theme(stepper-step-index-border-color);
+        border-style: dy-theme(stepper-step-index-border-style);
+        border-width: dy-theme(stepper-step-index-border-width);
+        width: dy-theme(stepper-step-index-width);
+        height: dy-theme(stepper-step-index-width);
+      }
+
+      .step {
+        color: dy-theme(stepper-step-text-color);
+        font-family: dy-theme(stepper-step-text-font-family);
+        font-size: dy-theme(stepper-step-text-font-size);
+        font-weight: dy-theme(stepper-step-text-font-weight);
+        line-height: dy-theme(stepper-step-text-line-height);
+
+        &.label-index {
+          border-color: dy-theme(stepper-step-index-border-color);
+        }
+
+        &.selected {
+          color: dy-theme(stepper-step-active-text-color);
+
+          .label-index {
+            border-color: dy-theme(stepper-step-index-active-border-color);
+          }
+        }
+
+        &.completed {
+          color: dy-theme(stepper-step-completed-text-color);
+
+          .label-index {
+            background-color: dy-theme(
+              stepper-step-index-completed-background-color
+            );
+            border-color: dy-theme(stepper-step-index-completed-border-color);
+            color: dy-theme(stepper-step-index-completed-text-color);
+          }
+        }
+      }
+    }
+
+    .step-content {
+      padding: dy-theme(stepper-step-content-padding);
+    }
+  }
+}

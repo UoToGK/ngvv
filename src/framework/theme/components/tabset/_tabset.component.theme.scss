@@ -1,0 +1,128 @@
+@mixin dy-tabset-theme() {
+  dy-tabset {
+    background-color: dy-theme(tabset-background-color);
+    border-radius: dy-theme(tabset-border-radius);
+    box-shadow: dy-theme(tabset-shadow);
+
+    .tabset {
+      border-bottom: dy-theme(tabset-divider-width)
+        dy-theme(tabset-divider-style) dy-theme(tabset-divider-color);
+    }
+
+    .tab-link {
+      background-color: dy-theme(tabset-tab-background-color);
+      cursor: pointer;
+      padding: dy-theme(tabset-tab-padding);
+      color: dy-theme(tabset-tab-text-color);
+      font-family: dy-theme(tabset-tab-text-font-family);
+      font-size: dy-theme(tabset-tab-text-font-size);
+      font-weight: dy-theme(tabset-tab-text-font-weight);
+      line-height: dy-theme(tabset-tab-text-line-height);
+      text-transform: dy-theme(tabset-tab-text-transform);
+
+      &::before {
+        background-color: dy-theme(tabset-tab-underline-color);
+        height: dy-theme(tabset-tab-underline-width);
+      }
+    }
+
+    dy-badge.dot-mode.position-left {
+      left: dy-theme(tabset-tab–badge-dot-mode-horizontal-offset);
+    }
+
+    dy-badge.dot-mode.position-right {
+      right: dy-theme(tabset-tab–badge-dot-mode-horizontal-offset);
+    }
+
+    dy-badge.dot-mode.position-start {
+      @include dy-ltr(
+        left,
+        dy-theme(tabset-tab–badge-dot-mode-horizontal-offset)
+      );
+      @include dy-rtl(
+        right,
+        dy-theme(tabset-tab–badge-dot-mode-horizontal-offset)
+      );
+    }
+
+    dy-badge.dot-mode.position-end {
+      @include dy-ltr(
+        right,
+        dy-theme(tabset-tab–badge-dot-mode-horizontal-offset)
+      );
+      @include dy-rtl(
+        left,
+        dy-theme(tabset-tab–badge-dot-mode-horizontal-offset)
+      );
+    }
+
+    .tab.active {
+      .tab-link {
+        background-color: dy-theme(tabset-tab-active-background-color);
+        color: dy-theme(tabset-tab-active-text-color);
+        &::before {
+          background-color: dy-theme(tabset-tab-active-underline-color);
+        }
+      }
+    }
+
+    .tab:focus {
+      .tab-link {
+        background-color: dy-theme(tabset-tab-focus-background-color);
+        color: dy-theme(tabset-tab-focus-text-color);
+        &::before {
+          background-color: dy-theme(tabset-tab-focus-underline-color);
+        }
+      }
+    }
+
+    .tab:hover {
+      .tab-link {
+        color: dy-theme(tabset-tab-hover-text-color);
+        background-color: dy-theme(tabset-tab-hover-background-color);
+        &::before {
+          background-color: dy-theme(tabset-tab-hover-underline-color);
+        }
+      }
+    }
+
+    .tab.disabled {
+      cursor: default;
+      pointer-events: none;
+
+      .tab-link {
+        background-color: dy-theme(tabset-tab-disabled-background-color);
+        color: dy-theme(tabset-tab-disabled-text-color);
+        cursor: default;
+        pointer-events: none;
+        &::before {
+          background-color: dy-theme(tabset-tab-disabled-underline-color);
+        }
+      }
+    }
+
+    .tab.responsive {
+      @media screen and (max-width: dy-theme(tabset-tab-text-hide-breakpoint)) {
+        .tab-text {
+          display: none;
+        }
+      }
+    }
+
+    dy-tab {
+      background-color: dy-theme(tabset-content-background-color);
+      color: dy-theme(tabset-content-text-color);
+      font-family: dy-theme(tabset-content-text-font-family);
+      font-size: dy-theme(tabset-content-text-font-size);
+      font-weight: dy-theme(tabset-content-text-font-weight);
+      line-height: dy-theme(tabset-content-text-line-height);
+      padding: dy-theme(tabset-content-padding);
+
+      @include dy-scrollbars(
+        dy-theme(tabset-scrollbar-color),
+        dy-theme(tabset-scrollbar-background-color),
+        dy-theme(tabset-scrollbar-width)
+      );
+    }
+  }
+}

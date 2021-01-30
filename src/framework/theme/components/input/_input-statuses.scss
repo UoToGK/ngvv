@@ -1,0 +1,32 @@
+@mixin input-statuses() {
+  @each $status in dy-get-statuses() {
+    &.status-#{$status} {
+      background-color: dy-theme(input-#{$status}-background-color);
+      border-color: dy-theme(input-#{$status}-border-color);
+      color: dy-theme(input-#{$status}-text-color);
+
+      &::placeholder {
+        color: dy-theme(input-#{$status}-placeholder-text-color);
+      }
+
+      &:focus {
+        background-color: dy-theme(input-#{$status}-focus-background-color);
+        border-color: dy-theme(input-#{$status}-focus-border-color);
+      }
+      &:hover {
+        background-color: dy-theme(input-#{$status}-hover-background-color);
+        border-color: dy-theme(input-#{$status}-hover-border-color);
+      }
+
+      &:disabled {
+        background-color: dy-theme(input-#{$status}-disabled-background-color);
+        border-color: dy-theme(input-#{$status}-disabled-border-color);
+        color: dy-theme(input-#{$status}-disabled-text-color);
+
+        &::placeholder {
+          color: dy-theme(input-#{$status}-disabled-placeholder-text-color);
+        }
+      }
+    }
+  }
+}

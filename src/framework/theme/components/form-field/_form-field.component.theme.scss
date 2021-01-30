@@ -1,0 +1,88 @@
+@mixin dy-form-field-theme() {
+  .dy-form-control-container {
+    max-width: inherit;
+  }
+
+  .dy-form-field-addon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &-disabled {
+      color: dy-theme(form-field-addon-disabled-text-color);
+    }
+  }
+
+  dy-form-field.dy-transition .dy-form-field-addon {
+    @include dy-component-animation(color);
+  }
+
+  @each $status in dy-get-statuses() {
+    .dy-form-field-addon-#{$status} {
+      color: dy-theme(form-field-addon-#{$status}-text-color);
+
+      &-highlight {
+        color: dy-theme(form-field-addon-#{$status}-highlight-text-color);
+      }
+    }
+  }
+
+  @each $size in dy-get-sizes() {
+    $form-field-max-width: dy-theme(form-field-#{$size}-max-width);
+    $addon-height: dy-theme(form-field-addon-#{$size}-height);
+    $addon-width: dy-theme(form-field-addon-#{$size}-width);
+
+    .dy-form-field-limited-width.dy-form-field-size-#{$size} {
+      max-width: $form-field-max-width;
+    }
+
+    .dy-form-field-prefix-#{$size},
+    .dy-form-field-suffix-#{$size} {
+      height: $addon-height;
+      width: $addon-width;
+      font-size: dy-theme(form-field-addon-#{$size}-font-size);
+      line-height: dy-theme(form-field-addon-#{$size}-line-height);
+      font-weight: dy-theme(form-field-addon-#{$size}-font-weight);
+
+      dy-icon {
+        font-size: dy-theme(form-field-addon-#{$size}-icon-size);
+        line-height: dy-theme(form-field-addon-#{$size}-icon-size);
+      }
+    }
+
+    .dy-form-field-prefix-#{$size} {
+      @include dy-ltr(margin-right, calc(#{$addon-width} * -1));
+      @include dy-rtl(margin-left, calc(#{$addon-width} * -1));
+    }
+
+    .dy-form-field-suffix-#{$size} {
+      @include dy-ltr(margin-left, calc(#{$addon-width} * -1));
+      @include dy-rtl(margin-right, calc(#{$addon-width} * -1));
+    }
+  }
+}
+
+@mixin dy-form-field-root-component($selector) {
+  dy-form-field #{$selector} {
+    width: 100%;
+  }
+}
+
+@mixin dy-form-field-with-prefix($selector, $size) {
+  $addon-width: dy-theme(form-field-addon-#{$size}-width);
+
+  .dy-form-field-control-with-prefix #{$selector} {
+    @include dy-ltr(padding-left, $addon-width);
+    @include dy-rtl(padding-right, $addon-width);
+  }
+}
+
+@mixin dy-form-field-with-suffix($selector, $size) {
+  $addon-width: dy-theme(form-field-addon-#{$size}-width);
+
+  .dy-form-field-control-with-suffix #{$selector} {
+    @include dy-ltr(padding-right, $addon-width);
+    @include dy-rtl(padding-left, $addon-width);
+  }
+}

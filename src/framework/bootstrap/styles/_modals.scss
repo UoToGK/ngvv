@@ -1,0 +1,80 @@
+@import "../../theme/styles/core/mixins";
+
+@mixin dy-b-modals-theme() {
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: dy-theme(card-background-color);
+    border: dy-theme(card-border-width) dy-theme(card-border-style)
+      dy-theme(card-border-color);
+    border-radius: dy-theme(card-border-radius);
+    box-shadow: dy-theme(card-shadow);
+
+    color: dy-theme(card-text-color);
+    font-family: dy-theme(card-text-font-family);
+    font-size: dy-theme(card-text-font-size);
+    font-weight: dy-theme(card-text-font-weight);
+    line-height: dy-theme(card-text-line-height);
+
+    // TODO: move card margin style to layout
+    margin-bottom: dy-theme(card-margin-bottom);
+
+    @include dy-scrollbars(
+      dy-theme(card-scrollbar-color),
+      dy-theme(card-scrollbar-background-color),
+      dy-theme(card-scrollbar-width)
+    );
+  }
+
+  .modal-header {
+    border-bottom-width: 0;
+    padding: dy-theme(card-padding);
+    border-bottom: dy-theme(card-divider-width) dy-theme(card-divider-style)
+      dy-theme(card-divider-color);
+    border-top-left-radius: dy-theme(card-border-radius);
+    border-top-right-radius: dy-theme(card-border-radius);
+
+    color: dy-theme(card-header-text-color);
+    font-family: dy-theme(card-header-text-font-family);
+    font-size: dy-theme(card-header-text-font-size);
+    font-weight: dy-theme(card-header-text-font-weight);
+    line-height: dy-theme(card-header-text-line-height);
+
+    @include dy-headings();
+
+    .close {
+      text-shadow: none;
+      color: dy-theme(card-header-text-color);
+
+      @include dy-rtl {
+        margin-left: -1rem;
+        margin-right: auto;
+      }
+    }
+  }
+
+  .modal-body {
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    overflow: auto;
+    padding: dy-theme(card-padding);
+    position: relative;
+    @include dy-scrollbars(
+      dy-theme(card-scrollbar-color),
+      dy-theme(card-scrollbar-background-color),
+      dy-theme(card-scrollbar-width)
+    );
+  }
+
+  .modal-footer {
+    padding: dy-theme(card-padding);
+    border-top: dy-theme(card-divider-width) dy-theme(card-divider-style)
+      dy-theme(card-divider-color);
+    border-bottom-left-radius: dy-theme(card-border-radius);
+    border-bottom-right-radius: dy-theme(card-border-radius);
+  }
+
+  dy-card-header {
+    @include dy-card-header();
+  }
+}

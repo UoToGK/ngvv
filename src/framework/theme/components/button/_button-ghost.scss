@@ -1,0 +1,63 @@
+@mixin button-ghost() {
+  [dyButton].appearance-ghost {
+    background-color: dy-theme(button-ghost-background-color);
+    border-color: dy-theme(button-ghost-border-color);
+    border-style: dy-theme(button-ghost-border-style);
+    border-width: dy-theme(button-ghost-border-width);
+    text-transform: dy-theme(button-ghost-text-transform);
+
+    &:focus {
+      $inset-shadow: dy-theme(button-ghost-focus-inset-shadow-length);
+      @include dy-outline(
+        dy-theme(button-outline-width),
+        dy-theme(button-outline-color),
+        $inset-shadow
+      );
+    }
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        padding: dy-theme(button-ghost-#{$size}-padding);
+      }
+    }
+
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} {
+        color: dy-theme(button-ghost-#{$status}-text-color);
+
+        &:focus {
+          background-color: dy-theme(
+            button-ghost-#{$status}-focus-background-color
+          );
+          border-color: dy-theme(button-ghost-#{$status}-focus-border-color);
+          color: dy-theme(button-ghost-#{$status}-focus-text-color);
+        }
+
+        &:hover {
+          background-color: dy-theme(
+            button-ghost-#{$status}-hover-background-color
+          );
+          border-color: dy-theme(button-ghost-#{$status}-hover-border-color);
+          color: dy-theme(button-ghost-#{$status}-hover-text-color);
+        }
+
+        &:active {
+          background-color: dy-theme(
+            button-ghost-#{$status}-active-background-color
+          );
+          border-color: dy-theme(button-ghost-#{$status}-active-border-color);
+          color: dy-theme(button-ghost-#{$status}-active-text-color);
+        }
+
+        &[disabled],
+        &.btn-disabled {
+          background-color: dy-theme(
+            button-ghost-#{$status}-disabled-background-color
+          );
+          border-color: dy-theme(button-ghost-#{$status}-disabled-border-color);
+          color: dy-theme(button-ghost-#{$status}-disabled-text-color);
+        }
+      }
+    }
+  }
+}

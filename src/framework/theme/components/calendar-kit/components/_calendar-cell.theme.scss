@@ -1,0 +1,207 @@
+@mixin dy-calendar-cell-theme() {
+  dy-calendar-picker {
+    .day-cell {
+      width: dy-theme(calendar-day-cell-width);
+      height: dy-theme(calendar-day-cell-height);
+
+      &.size-large {
+        width: dy-theme(calendar-day-cell-large-width);
+        height: dy-theme(calendar-day-cell-large-height);
+      }
+    }
+
+    .month-cell {
+      width: dy-theme(calendar-month-cell-width);
+      height: dy-theme(calendar-month-cell-height);
+
+      &.size-large {
+        width: dy-theme(calendar-month-cell-large-width);
+        height: dy-theme(calendar-month-cell-large-height);
+      }
+    }
+
+    .year-cell {
+      width: dy-theme(calendar-year-cell-width);
+      height: dy-theme(calendar-year-cell-height);
+
+      &.size-large {
+        width: dy-theme(calendar-year-cell-large-width);
+        height: dy-theme(calendar-year-cell-large-height);
+      }
+    }
+
+    .cell-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+
+      border-radius: dy-theme(calendar-border-radius);
+    }
+
+    .day-cell,
+    .month-cell,
+    .year-cell {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-family: dy-theme(calendar-text-font-family);
+      font-size: dy-theme(calendar-text-font-size);
+      font-weight: dy-theme(calendar-text-font-weight);
+      line-height: dy-theme(calendar-text-line-height);
+      color: dy-theme(calendar-text-color);
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      &,
+      & .cell-content {
+        @include dy-component-animation(background-color, border-color, color);
+      }
+
+      &.empty,
+      &.disabled {
+        cursor: default;
+      }
+
+      &.bounding-month {
+        color: dy-theme(calendar-cell-inactive-text-color);
+      }
+
+      &:not(.disabled):not(.empty) {
+        &:hover .cell-content {
+          background-color: dy-theme(calendar-cell-hover-background-color);
+          border-color: dy-theme(calendar-cell-hover-border-color);
+          color: dy-theme(calendar-cell-hover-text-color);
+          font-size: dy-theme(calendar-cell-hover-text-font-size);
+          font-weight: dy-theme(calendar-cell-hover-text-font-weight);
+          line-height: dy-theme(calendar-cell-hover-text-line-height);
+        }
+
+        &:active .cell-content {
+          background-color: dy-theme(calendar-cell-active-background-color);
+          border-color: dy-theme(calendar-cell-active-border-color);
+          color: dy-theme(calendar-cell-active-text-color);
+          font-size: dy-theme(calendar-cell-active-text-font-size);
+          font-weight: dy-theme(calendar-cell-active-text-font-weight);
+          line-height: dy-theme(calendar-cell-active-text-line-height);
+        }
+
+        &.today .cell-content {
+          background-color: dy-theme(calendar-cell-today-background-color);
+          border: 1px solid dy-theme(calendar-cell-today-border-color);
+          color: dy-theme(calendar-cell-today-text-color);
+          font-size: dy-theme(calendar-cell-today-text-font-size);
+          font-weight: dy-theme(calendar-cell-today-text-font-weight);
+          line-height: dy-theme(calendar-cell-today-text-line-height);
+
+          &:hover {
+            background-color: dy-theme(
+              calendar-cell-today-hover-background-color
+            );
+            border-color: dy-theme(calendar-cell-today-hover-border-color);
+          }
+
+          &:active {
+            background-color: dy-theme(
+              calendar-cell-today-active-background-color
+            );
+            border-color: dy-theme(calendar-cell-today-active-border-color);
+          }
+        }
+
+        &.selected .cell-content {
+          background-color: dy-theme(calendar-cell-selected-background-color);
+          border-color: dy-theme(calendar-cell-selected-border-color);
+          color: dy-theme(calendar-cell-selected-text-color);
+          font-size: dy-theme(calendar-cell-selected-text-font-size);
+          font-weight: dy-theme(calendar-cell-selected-text-font-weight);
+          line-height: dy-theme(calendar-cell-selected-text-line-height);
+
+          &:hover {
+            background-color: dy-theme(
+              calendar-cell-selected-hover-background-color
+            );
+            border-color: dy-theme(calendar-cell-selected-hover-border-color);
+          }
+
+          &:active {
+            background-color: dy-theme(
+              calendar-cell-selected-active-background-color
+            );
+            border-color: dy-theme(calendar-cell-selected-active-border-color);
+          }
+        }
+
+        &.today.selected {
+          background-color: dy-theme(calendar-cell-selected-background-color);
+          border-radius: dy-theme(calendar-border-radius);
+
+          .cell-content {
+            background-color: dy-theme(
+              calendar-cell-today-selected-background-color
+            );
+            border-color: dy-theme(calendar-cell-today-selected-border-color);
+            color: dy-theme(calendar-cell-today-selected-text-color);
+
+            &:hover {
+              background-color: dy-theme(
+                calendar-cell-today-selected-hover-background-color
+              );
+              border-color: dy-theme(
+                calendar-cell-today-selected-hover-border-color
+              );
+            }
+
+            &:focus {
+              background-color: dy-theme(
+                calendar-cell-today-selected-active-background-color
+              );
+              border-color: dy-theme(
+                calendar-cell-today-selected-active-border-color
+              );
+            }
+          }
+        }
+      }
+
+      &.disabled {
+        color: dy-theme(calendar-cell-disabled-text-color);
+
+        &.today .cell-content {
+          border: 1px solid dy-theme(calendar-cell-today-disabled-border-color);
+        }
+      }
+    }
+
+    .range-cell.in-range.selected:not(.disabled):not(.empty) {
+      background-color: dy-theme(calendar-cell-selected-background-color);
+      border-radius: 0;
+
+      &.start {
+        @include dy-ltr() {
+          border-top-left-radius: dy-theme(calendar-border-radius);
+          border-bottom-left-radius: dy-theme(calendar-border-radius);
+        }
+        @include dy-rtl() {
+          border-top-right-radius: dy-theme(calendar-border-radius);
+          border-bottom-right-radius: dy-theme(calendar-border-radius);
+        }
+      }
+
+      &.end {
+        @include dy-ltr() {
+          border-top-right-radius: dy-theme(calendar-border-radius);
+          border-bottom-right-radius: dy-theme(calendar-border-radius);
+        }
+        @include dy-rtl() {
+          border-top-left-radius: dy-theme(calendar-border-radius);
+          border-bottom-left-radius: dy-theme(calendar-border-radius);
+        }
+      }
+    }
+  }
+}

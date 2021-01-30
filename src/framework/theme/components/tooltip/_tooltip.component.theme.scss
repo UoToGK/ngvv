@@ -1,0 +1,57 @@
+@mixin dy-tooltip-status($status) {
+  $background-color: dy-theme(tooltip-#{$status}-background-color);
+  $text-color: dy-theme(tooltip-#{$status}-text-color);
+
+  &.status-#{$status} {
+    background: $background-color;
+    border-color: dy-theme(tooltip-#{$status}-border-color);
+
+    .arrow {
+      border-bottom-color: $background-color;
+    }
+
+    .content {
+      color: $text-color;
+    }
+  }
+}
+
+@mixin dy-tooltip-theme {
+  dy-tooltip {
+    $arrow-size: 6px;
+    box-shadow: dy-theme(tooltip-shadow);
+
+    background: dy-theme(tooltip-background-color);
+    border: dy-theme(tooltip-border-width) dy-theme(tooltip-border-style)
+      dy-theme(tooltip-border-color);
+    border-radius: dy-theme(tooltip-border-radius);
+    padding: dy-theme(tooltip-padding);
+    max-width: dy-theme(tooltip-max-width);
+
+    dy-icon:only-child {
+      height: dy-theme(tooltip-icon-height);
+      width: dy-theme(tooltip-icon-width);
+    }
+    dy-icon:not(:only-child) {
+      height: dy-theme(tooltip-text-font-size);
+      width: dy-theme(tooltip-text-font-size);
+    }
+
+    .content {
+      color: dy-theme(tooltip-text-color);
+      font-family: dy-theme(tooltip-text-font-family);
+      font-size: dy-theme(tooltip-text-font-size);
+      font-weight: dy-theme(tooltip-text-font-weight);
+      line-height: dy-theme(tooltip-text-line-height);
+    }
+
+    .arrow {
+      border-bottom: $arrow-size dy-theme(tooltip-border-style)
+        dy-theme(tooltip-background-color);
+    }
+
+    @each $status in dy-get-statuses() {
+      @include dy-tooltip-status($status);
+    }
+  }
+}

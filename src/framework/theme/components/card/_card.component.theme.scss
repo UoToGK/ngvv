@@ -1,0 +1,104 @@
+@mixin dy-card-header() {
+  padding: dy-theme(card-padding);
+  border-bottom: dy-theme(card-divider-width) dy-theme(card-divider-style)
+    dy-theme(card-divider-color);
+  border-top-left-radius: dy-theme(card-border-radius);
+  border-top-right-radius: dy-theme(card-border-radius);
+
+  color: dy-theme(card-header-text-color);
+  font-family: dy-theme(card-header-text-font-family);
+  font-size: dy-theme(card-header-text-font-size);
+  font-weight: dy-theme(card-header-text-font-weight);
+  line-height: dy-theme(card-header-text-line-height);
+
+  @include dy-headings();
+}
+
+@mixin dy-card-theme() {
+  dy-card {
+    background-color: dy-theme(card-background-color);
+    border: dy-theme(card-border-width) dy-theme(card-border-style)
+      dy-theme(card-border-color);
+    border-radius: dy-theme(card-border-radius);
+    box-shadow: dy-theme(card-shadow);
+
+    color: dy-theme(card-text-color);
+    font-family: dy-theme(card-text-font-family);
+    font-size: dy-theme(card-text-font-size);
+    font-weight: dy-theme(card-text-font-weight);
+    line-height: dy-theme(card-text-line-height);
+
+    // TODO: move card margin style to layout
+    margin-bottom: dy-theme(card-margin-bottom);
+
+    @include dy-scrollbars(
+      dy-theme(card-scrollbar-color),
+      dy-theme(card-scrollbar-background-color),
+      dy-theme(card-scrollbar-width)
+    );
+
+    @each $size in dy-get-sizes() {
+      &.size-#{$size} {
+        height: dy-theme(card-height-#{$size});
+      }
+    }
+
+    @each $status in dy-get-statuses() {
+      &.status-#{$status} {
+        dy-card-header {
+          background-color: dy-theme(card-header-#{$status}-background-color);
+          border-bottom-width: 0;
+          border-bottom-color: dy-theme(
+            card-header-#{$status}-background-color
+          );
+          color: dy-theme(card-header-#{$status}-text-color);
+
+          a,
+          a:hover {
+            color: dy-theme(card-header-#{$status}-text-color);
+          }
+        }
+      }
+    }
+
+    @each $status in dy-get-core-statuses() {
+      &.accent-#{$status} {
+        border-top-color: dy-theme(card-header-#{$status}-background-color);
+      }
+    }
+
+    &.accent {
+      border-top-style: dy-theme(card-border-style);
+      border-top-width: dy-theme(card-border-radius);
+
+      & dy-card-header {
+        border-radius: 0;
+      }
+    }
+  }
+
+  dy-card-body {
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    overflow: auto;
+    padding: dy-theme(card-padding);
+    position: relative;
+    @include dy-scrollbars(
+      dy-theme(card-scrollbar-color),
+      dy-theme(card-scrollbar-background-color),
+      dy-theme(card-scrollbar-width)
+    );
+  }
+
+  dy-card-footer {
+    padding: dy-theme(card-padding);
+    border-top: dy-theme(card-divider-width) dy-theme(card-divider-style)
+      dy-theme(card-divider-color);
+    border-bottom-left-radius: dy-theme(card-border-radius);
+    border-bottom-right-radius: dy-theme(card-border-radius);
+  }
+
+  dy-card-header {
+    @include dy-card-header();
+  }
+}
