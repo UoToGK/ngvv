@@ -1,0 +1,12 @@
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  button {
+    margin: 1rem;
+  }
+
+  .size-medium-group {
+    margin-top: 2rem;
+    border-top: 1px solid dy-theme(divider-color);
+  }
+}

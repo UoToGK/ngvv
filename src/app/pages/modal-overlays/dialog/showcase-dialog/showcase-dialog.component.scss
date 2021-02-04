@@ -1,0 +1,8 @@
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card {
+    max-width: 600px;
+    max-height: 500px;
+  }
+}

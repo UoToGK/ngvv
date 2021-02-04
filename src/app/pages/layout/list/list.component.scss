@@ -1,0 +1,13 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .list-card {
+    dy-card-header {
+      border-bottom: none;
+    }
+
+    dy-card-body {
+      padding: 0;
+    }
+  }
+}

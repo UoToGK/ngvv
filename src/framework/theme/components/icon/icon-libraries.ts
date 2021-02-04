@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { DyFontIconPackParams, DyIconPack, DyIconPackParams, DyIconPackType, DyIcons } from './icon-pack';
 import { DyFontIcon, DyIcon, DySvgIcon } from './icon';

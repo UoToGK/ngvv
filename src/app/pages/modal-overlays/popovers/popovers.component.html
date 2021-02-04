@@ -1,0 +1,166 @@
+<div class="row">
+  <div class="col-lg-6">
+    <dy-card size="small">
+      <dy-card-header>Popover Position</dy-card-header>
+      <dy-card-body>
+        <p>When popover has not enough space based on the configured placement, it will adjust accordingly trying to fit
+          the screen.</p>
+        <button dyButton matRipple status="danger" dyPopover="Hello, how are you today?" dyPopoverTrigger="hint"
+          dyPopoverPlacement="left">Left</button>
+        <button dyButton matRipple status="danger" dyPopover="Hello, how are you today?" dyPopoverTrigger="hint"
+          dyPopoverPlacement="top">Top</button>
+        <button dyButton matRipple status="danger" dyPopover="Hello, how are you today?" dyPopoverTrigger="hint"
+          dyPopoverPlacement="bottom">Bottom</button>
+        <button dyButton matRipple status="danger" dyPopover="Hello, how are you today?" dyPopoverTrigger="hint"
+          dyPopoverPlacement="right">Right</button>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-lg-6">
+    <dy-card size="small">
+      <dy-card-header>Simple Popovers</dy-card-header>
+      <dy-card-body>
+        <p>In a simples form popover can take a string of text to render.</p>
+        <button dyButton matRipple status="success" dyPopover="Hello, how are you today?">on click</button>
+        <button dyButton matRipple status="success" dyPopover="Hello, how are you today?" dyPopoverTrigger="hover">on
+          hover</button>
+        <button dyButton matRipple status="success" dyPopover="Hello, how are you today?" dyPopoverTrigger="hint">on
+          hint</button>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+
+    <ng-template #tabs>
+      <dy-tabset>
+        <dy-tab tabTitle="What's up?">
+          <div class="p-4">
+            Such a wonderful day!
+          </div>
+        </dy-tab>
+        <dy-tab tabTitle="Second Tab">
+          <div class="p-4">
+            Indeed!
+          </div>
+        </dy-tab>
+      </dy-tabset>
+    </ng-template>
+
+    <ng-template #form>
+      <div class="p-4">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Recipients">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Message"></textarea>
+          </div>
+          <button matRipple type="submit" class="btn btn-primary w-100">Send</button>
+        </form>
+      </div>
+    </ng-template>
+
+    <ng-template #card>
+      <dy-card class="popover-card">
+        <dy-card-header status="warning">
+          Hello!
+        </dy-card-header>
+        <dy-card-body>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind
+          texts.
+          Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+        </dy-card-body>
+      </dy-card>
+    </ng-template>
+
+    <dy-card size="small">
+      <dy-card-header>Template Popovers</dy-card-header>
+      <dy-card-body>
+        <p>You can pass a refference to `ng-template` to be rendered.</p>
+        <button dyButton matRipple status="warning" [dyPopover]="tabs">With tabs</button>
+        <button dyButton matRipple status="warning" [dyPopover]="form">With form</button>
+        <button dyButton matRipple status="warning" [dyPopover]="card">With card</button>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-lg-6">
+    <dy-card size="small">
+      <dy-card-header>Component Popovers</dy-card-header>
+      <dy-card-body>
+        <p>Same way popover can render any angular compnoent.</p>
+        <button dyButton matRipple status="warning" [dyPopover]="tabsComponent">With tabs</button>
+        <button dyButton matRipple status="warning" [dyPopover]="formComponent">With form</button>
+        <button dyButton matRipple status="warning" [dyPopover]="cardComponent">With card</button>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dy-card>
+      <dy-card-header>Event Debouncing</dy-card-header>
+      <dy-card-body class="debounce-card">
+        <p>Quickly move mouse cursor over the buttons, only the last popover will be created. It allows us to avoid
+          excess white improving page performance.</p>
+
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+        <button dyButton matRipple dyPopover="Popover!" dyPopoverTrigger="hint">
+          show hint
+        </button>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>

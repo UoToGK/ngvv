@@ -1,0 +1,13 @@
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  dy-progress-bar {
+    flex: 1;
+    margin: 0 1rem;
+  }
+}

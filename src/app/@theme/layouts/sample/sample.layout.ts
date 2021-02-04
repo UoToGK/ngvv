@@ -120,7 +120,6 @@ export class SampleLayoutComponent implements OnInit, OnDestroy {
     this.stateService.onLayoutState()
       .pipe(takeUntil(this.destroy$))
       .subscribe(layout => this.layout = layout);
-
     this.stateService.onSidebarState()
       .pipe(takeUntil(this.destroy$))
       .subscribe(sidebar => this.sidebar = sidebar);

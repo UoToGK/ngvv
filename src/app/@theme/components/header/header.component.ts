@@ -45,6 +45,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       value: 'material-dark',
       name: 'Material Dark',
     },
+    // {
+    //   value: 'material',
+    //   name: 'Material',
+    // },
+
   ];
 
   currentTheme = 'default';
@@ -74,7 +79,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => this.user = users.nick);
+      .subscribe((users: any) => this.user = users.zhu);
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()

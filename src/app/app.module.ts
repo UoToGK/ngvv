@@ -28,9 +28,6 @@ import {
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-
-    ThemeModule.forRoot(),
-
     DySidebarModule.forRoot(),
     DyMenuModule.forRoot(),
     DyDatepickerModule.forRoot(),
@@ -41,6 +38,7 @@ import {
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
+    ThemeModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })

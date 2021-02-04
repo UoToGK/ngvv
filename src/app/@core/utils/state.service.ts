@@ -1,41 +1,42 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { of as observableOf,  Observable,  BehaviorSubject } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-
 import { DyLayoutDirectionService, DyLayoutDirection } from 'src/framework/theme/public_api';
+
+
 
 @Injectable()
 export class StateService implements OnDestroy {
 
   protected layouts: any = [
     {
-      name: 'One Column',
-      icon: 'dy-layout-default',
+      name: '单列布局',
+      icon: 'minus-outline',
       id: 'one-column',
       selected: true,
     },
     {
-      name: 'Two Column',
-      icon: 'dy-layout-two-column',
+      name: '双列布局',
+      icon: 'arrowhead-right-outline',
       id: 'two-column',
     },
     {
-      name: 'Center Column',
-      icon: 'dy-layout-centre',
+      name: '中间列布局',
+      icon: 'bar-chart-2-outline',
       id: 'center-column',
     },
   ];
 
   protected sidebars: any = [
     {
-      name: 'Sidebar at layout start',
-      icon: 'dy-layout-sidebar-left',
+      name: '侧栏左侧',
+      icon: 'arrow-left-outline',
       id: 'start',
       selected: true,
     },
     {
-      name: 'Sidebar at layout end',
-      icon: 'dy-layout-sidebar-right',
+      name: '侧栏右侧',
+      icon: 'arrow-right-outline',
       id: 'end',
     },
   ];
@@ -60,8 +61,8 @@ export class StateService implements OnDestroy {
   private updateSidebarIcons(direction: DyLayoutDirection) {
     const [ startSidebar, endSidebar ] = this.sidebars;
     const isLtr = direction === DyLayoutDirection.LTR;
-    const startIconClass = isLtr ? 'dy-layout-sidebar-left' : 'dy-layout-sidebar-right';
-    const endIconClass = isLtr ? 'dy-layout-sidebar-right' : 'dy-layout-sidebar-left';
+    const startIconClass = isLtr ? 'arrow-left-outline' : 'arrow-right-outline';
+    const endIconClass = isLtr ? 'arrow-right-outline' : 'arrow-left-outline';
     startSidebar.icon = startIconClass;
     endSidebar.icon = endIconClass;
   }

@@ -1,0 +1,7 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-progress-bar ~ dy-progress-bar {
+    margin-top: 1rem;
+  }
+}

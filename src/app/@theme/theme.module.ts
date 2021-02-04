@@ -14,7 +14,7 @@ import {
   DyIconModule,
   DyThemeModule,
   DyCardModule,
-  DyEvaIconsModule,
+  // DyEvaIconsModule,
 } from 'src/framework/theme/public_api';
 
 import {
@@ -48,6 +48,8 @@ import { DARK_THEME } from './styles/theme.dark';
 import { MATERIAL_LIGHT_THEME } from './styles/material/theme.material-light';
 import { MATERIAL_DARK_THEME } from './styles/material/theme.material-dark';
 import { DySecurityModule } from 'src/framework/security/public_api';
+import { DyEvaIconsModule } from 'src/framework/theme/components/eva-icons/eva-icons.module';
+import { MATERIAL_THEME } from './styles/theme.material';
 
 const DY_MODULES = [
   DyLayoutModule,
@@ -60,9 +62,10 @@ const DY_MODULES = [
   DySecurityModule,
   DyButtonModule,
   DySelectModule,
-  DyIconModule,
   DyEvaIconsModule,
+  DyIconModule,
   DyCardModule,
+
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -89,7 +92,10 @@ const PIPES = [
 
 @NgModule({
   imports: [CommonModule, MatRippleModule, ...DY_MODULES],
-  exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS,...DY_MODULES],
+  exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS,
+  // test need
+   ...DY_MODULES
+  ],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {
@@ -101,7 +107,8 @@ export class ThemeModule {
           {
             name: 'default',
           },
-          [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME, MATERIAL_LIGHT_THEME, MATERIAL_DARK_THEME ],
+          [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME, MATERIAL_THEME,
+            MATERIAL_LIGHT_THEME, MATERIAL_DARK_THEME ],
         ).providers,
       ],
     };

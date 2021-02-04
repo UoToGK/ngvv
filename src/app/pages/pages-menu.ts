@@ -2,88 +2,108 @@ import { DyMenuItem } from "src/framework/theme/public_api";
 
 export const MENU_ITEMS: DyMenuItem[] = [
   {
-    title: 'E-commerce',
+    title: 'TEST',
     icon: 'shopping-cart-outline',
-    link: '/pages/dashboard',
+    link: '/pages/test',
+  },
+  // {
+  //   title: '电子商务数据展示面板',
+  //   icon: 'home',
+  //   link: '/pages/dashboard',
+  //   home: true,
+  // },
+  {
+    title: '物联网数据展示面板',
+    icon: 'home-outline',
+    link: '/pages/iot-dashboard',
     home: true,
   },
   {
-    title: 'IoT Dashboard',
-    icon: 'home-outline',
-    link: '/pages/iot-dashboard',
-  },
-  {
-    title: 'FEATURES',
+    title: '特性模块',
     group: true,
   },
   {
-    title: 'Layout',
+    title: '布局',
     icon: 'layout-outline',
     children: [
       {
-        title: 'Stepper',
+        title: '步进器',
+        icon: 'bulb',
         link: '/pages/layout/stepper',
       },
       {
-        title: 'List',
+        title: '列表',
+        icon: 'menu-outline',
         link: '/pages/layout/list',
+
       },
       {
-        title: 'Infinite List',
+        title: '无限下拉列表',
+        icon: 'arrowhead-down',
         link: '/pages/layout/infinite-list',
       },
       {
-        title: 'Accordion',
+        title: '手风琴',
+        icon: 'award',
         link: '/pages/layout/accordion',
       },
       {
-        title: 'Tabs',
+        title: '选项卡',
+        icon: 'code',
         pathMatch: 'prefix',
         link: '/pages/layout/tabs',
       },
     ],
   },
   {
-    title: 'Forms',
+    title: '表单',
     icon: 'edit-2-outline',
     children: [
       {
-        title: 'Form Inputs',
+        title: '输入型表单',
+        icon: 'more-vertical',
         link: '/pages/forms/inputs',
       },
       {
-        title: 'Form Layouts',
+        title: '表单布局',
+        icon: 'plus-circle',
         link: '/pages/forms/layouts',
       },
       {
-        title: 'Buttons',
+        title: '按钮',
+        icon: 'layout',
         link: '/pages/forms/buttons',
       },
       {
-        title: 'Datepicker',
+        title: '日期选项卡',
+        icon: 'calendar-outline',
         link: '/pages/forms/datepicker',
       },
     ],
   },
   {
-    title: 'UI Features',
+    title: 'UI 特色',
     icon: 'keypad-outline',
     link: '/pages/ui-features',
     children: [
       {
-        title: 'Grid',
+        title: '网格',
+        icon:'grid',
         link: '/pages/ui-features/grid',
       },
       {
-        title: 'Icons',
+        title: '图标',
+        icon:'pricetags',
         link: '/pages/ui-features/icons',
       },
       {
-        title: 'Typography',
+        title: '字体',
+        icon:'cube',
         link: '/pages/ui-features/typography',
       },
       {
-        title: 'Animated Searches',
+        title: '动画版搜索展示',
+        icon:'search',
         link: '/pages/ui-features/search-fields',
       },
     ],
@@ -93,153 +113,170 @@ export const MENU_ITEMS: DyMenuItem[] = [
     icon: 'browser-outline',
     children: [
       {
-        title: 'Dialog',
+        title: '对话框',
+        icon: 'credit-card',
         link: '/pages/modal-overlays/dialog',
       },
       {
-        title: 'Window',
+        title: '窗口',
+        icon: 'checkmark-square',
         link: '/pages/modal-overlays/window',
       },
       {
-        title: 'Popover',
+        title: '小贴士',
+        icon: 'done-all',
         link: '/pages/modal-overlays/popover',
       },
       {
-        title: 'Toastr',
+        title: '提示',
+        icon: 'droplet',
         link: '/pages/modal-overlays/toastr',
       },
       {
-        title: 'Tooltip',
+        title: '工具提示',
+        icon: 'move',
         link: '/pages/modal-overlays/tooltip',
       },
     ],
   },
   {
-    title: 'Extra Components',
-    icon: 'message-circle-outline',
+    title: '通用模块',
+    icon: 'keypad',
     children: [
       {
-        title: 'Calendar',
+        title: '日历',
         link: '/pages/extra-components/calendar',
+        icon:'calendar',
       },
       {
-        title: 'Progress Bar',
+        title: '进度条展示',
         link: '/pages/extra-components/progress-bar',
+        icon:'activity',
       },
       {
-        title: 'Spinner',
+        title: '进度圈',
         link: '/pages/extra-components/spinner',
+        icon:'alert-triangle',
       },
       {
-        title: 'Alert',
+        title: '警告框',
         link: '/pages/extra-components/alert',
+        icon:'alert-circle',
       },
       {
-        title: 'Calendar Kit',
+        title: '历表',
         link: '/pages/extra-components/calendar-kit',
+        icon:'browser',
       },
       {
-        title: 'Chat',
+        title: '聊天',
         link: '/pages/extra-components/chat',
+        icon:'message-circle',
       },
     ],
   },
   {
-    title: 'Maps',
+    title: '地图',
     icon: 'map-outline',
     children: [
       {
-        title: 'Google Maps',
-        link: '/pages/maps/gmaps',
-      },
-      {
-        title: 'Leaflet Maps',
+        title: '世界图',
+        icon: 'globe',
         link: '/pages/maps/leaflet',
       },
       {
-        title: 'Bubble Maps',
+        title: '人口分布图',
+        icon: 'pie-chart-2',
         link: '/pages/maps/bubble',
-      },
-      {
-        title: 'Search Maps',
-        link: '/pages/maps/searchmap',
       },
     ],
   },
   {
-    title: 'Charts',
+    title: '图表',
     icon: 'pie-chart-outline',
     children: [
       {
-        title: 'Echarts',
+        title: 'Echarts 渲染图表',
+        icon: 'bar-chart-outline',
         link: '/pages/charts/echarts',
       },
       {
-        title: 'Charts.js',
+        title: 'Charts.js 渲染图表',
+        icon: 'bar-chart-outline',
         link: '/pages/charts/chartjs',
       },
       {
-        title: 'D3',
+        title: 'D3 渲染图表',
+        icon: 'bar-chart-outline',
         link: '/pages/charts/d3',
       },
     ],
   },
   {
-    title: 'Editors',
+    title: '富文本',
     icon: 'text-outline',
     children: [
       {
-        title: 'TinyMCE',
+        title: 'TinyMCE 富文本',
+        icon: 'shield',
         link: '/pages/editors/tinymce',
       },
       {
-        title: 'CKEditor',
+        title: 'CKEditor 富文本',
+        icon: 'shake',
         link: '/pages/editors/ckeditor',
       },
     ],
   },
   {
-    title: 'Tables & Data',
+    title: '数据和表格展示',
     icon: 'grid-outline',
     children: [
       {
-        title: 'Smart Table',
+        title: '智能化表格',
+        icon: 'film',
         link: '/pages/tables/smart-table',
       },
       {
-        title: 'Tree Grid',
+        title: '树形表格',
+        icon: 'sun-outline',
         link: '/pages/tables/tree-grid',
       },
     ],
   },
   {
-    title: 'Miscellaneous',
+    title: '404',
     icon: 'shuffle-2-outline',
     children: [
       {
         title: '404',
+        icon: 'shuffle',
         link: '/pages/miscellaneous/404',
       },
     ],
   },
   {
-    title: 'Auth',
+    title: '权限',
     icon: 'lock-outline',
     children: [
       {
-        title: 'Login',
+        title: '登录',
+        icon: 'power-outline',
         link: '/auth/login',
       },
       {
-        title: 'Register',
+        title: '注册',
+        icon: 'star',
         link: '/auth/register',
       },
       {
-        title: 'Request Password',
+        title: '密码',
+        icon: 'shopping-bag',
         link: '/auth/request-password',
       },
       {
-        title: 'Reset Password',
+        title: '重置密码',
+        icon: 'shopping-bag-outline',
         link: '/auth/reset-password',
       },
     ],

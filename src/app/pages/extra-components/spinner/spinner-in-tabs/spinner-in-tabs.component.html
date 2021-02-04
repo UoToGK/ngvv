@@ -1,0 +1,20 @@
+<dy-card size="xsmall">
+  <dy-card-body>
+    <dy-tabset fullWidth (changeTab)="toggleLoadingAnimation()">
+      <dy-tab tabTitle="Tab 1" [dySpinner]="loading" dySpinnerStatus="success" dySpinnerSize="giant">
+        <p>
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object.
+        </p>
+      </dy-tab>
+
+      <dy-tab tabTitle="Tab 2" [dySpinner]="loading" dySpinnerStatus="info" dySpinnerSize="giant">
+        <p>
+          Nebular's primary goal is to assemble together and connect the most awesome features and libraries
+          creating an efficient ecosystem to speed up and simplify the development.
+        </p>
+      </dy-tab>
+
+    </dy-tabset>
+  </dy-card-body>
+</dy-card>

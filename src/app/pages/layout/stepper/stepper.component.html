@@ -1,0 +1,147 @@
+<dy-card class="col-md-12 col-lg-12 col-xxxl-12">
+  <dy-card-body>
+    <dy-stepper orientation="horizontal">
+      <dy-step [label]="labelOne">
+        <ng-template #labelOne>First step</ng-template>
+        <h3>Step content #1</h3>
+        <button dyButton matRipple disabled dyStepperNext>prev</button>
+        <button dyButton matRipple dyStepperNext>next</button>
+      </dy-step>
+      <dy-step [label]="labelTwo">
+        <ng-template #labelTwo>Second step</ng-template>
+        <h3>Step content #2</h3>
+        <button dyButton matRipple dyStepperPrevious>prev</button>
+        <button dyButton matRipple dyStepperNext>next</button>
+      </dy-step>
+      <dy-step label="Third step">
+        <h3>Step content #3</h3>
+        <button dyButton matRipple dyStepperPrevious>prev</button>
+        <button dyButton matRipple dyStepperNext>next</button>
+      </dy-step>
+      <dy-step [label]="labelFour">
+        <ng-template #labelFour>Fourth step</ng-template>
+        <h3>Step content #4</h3>
+        <button dyButton matRipple dyStepperPrevious>prev</button>
+        <button dyButton matRipple disabled dyStepperNext>next</button>
+      </dy-step>
+    </dy-stepper>
+  </dy-card-body>
+</dy-card>
+
+<div class="steppers-container row">
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <dy-card>
+      <dy-card-body>
+        <dy-stepper #stepper>
+          <dy-step [stepControl]="firstForm" label="First step">
+            <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+              <p class="lorem">
+                Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down. Nullizzle sapien velizzle,
+                my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up, gravida vizzle, dang.
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter your name" class="form-control" formControlName="firstCtrl"
+                  [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+              </div>
+              <button dyButton matRipple dyStepperNext>next</button>
+            </form>
+          </dy-step>
+          <dy-step [stepControl]="secondForm" label="Second step">
+            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+              <p class="lorem">
+                Pellentesque we gonna chung tortor.
+                Sizzle pizzle. Fizzle izzle dolor dapibus fo shizzle mah nizzle fo rizzle, mah home g-dizzle tempus
+                tempor.
+                Maurizzle cool nibh owned turpizzle. My shizz fo shizzle tortor.
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
+                  [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+              </div>
+              <button dyButton matRipple dyStepperPrevious>prev</button>
+              <button dyButton matRipple dyStepperNext>next</button>
+            </form>
+          </dy-step>
+          <dy-step [stepControl]="thirdForm" label="Third step">
+            <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
+              <p class="lorem">
+                Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
+                  [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+              </div>
+              <button dyButton matRipple dyStepperPrevious>prev</button>
+              <button dyButton matRipple dyStepperNext>Confirm</button>
+            </form>
+          </dy-step>
+          <dy-step [stepControl]="thirdForm" [hidden]="true" label="Third step">
+            <div class="step-container">
+              <h3>Wizard completed!</h3>
+              <button dyButton matRipple (click)="stepper.reset()">Try again</button>
+            </div>
+          </dy-step>
+        </dy-stepper>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <dy-card size="medium">
+      <dy-card-body>
+        <dy-stepper orientation="vertical">
+          <dy-step label="First step">
+            <h3>Step content #1</h3>
+            <p class="lorem">
+              Proin varius accumsan semper. Praesent consequat tincidunt sagittis. Curabitur egestas sem a ipsum
+              bibendum,
+              sit amet fringilla orci efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu pulvinar magna, quis
+              viverra ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent metus turpis, commodo vel
+              placerat quis, lobortis in ligula.
+            </p>
+            <button dyButton matRipple disabled dyStepperNext>prev</button>
+            <button dyButton matRipple dyStepperNext>next</button>
+          </dy-step>
+          <dy-step label="Second step">
+            <h3>Step content #2</h3>
+            <p class="lorem">
+              Curabitur luctus mattis risus nec condimentum. Donec at dui turpis. Sed vehicula fringilla rutrum. Nullam
+              sed ornare magna. Mauris vitae laoreet diam. Mauris fermentum ligula at lacinia semper. Nulla placerat dui
+              eu sapien pellentesque, eu placerat leo luctus. Cras pharetra blandit fermentum.
+            </p>
+            <button dyButton matRipple dyStepperPrevious>prev</button>
+            <button dyButton matRipple dyStepperNext>next</button>
+          </dy-step>
+          <dy-step label="Third step">
+            <h3>Step content #3</h3>
+            <p class="lorem">
+              Proin varius accumsan semper. Praesent consequat tincidunt sagittis. Curabitur egestas sem a ipsum
+              bibendum,
+              sit amet fringilla orci efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu pulvinar magna, quis
+              viverra ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent metus turpis, commodo vel
+              placerat quis, lobortis in ligula.
+            </p>
+            <p class="lorem">
+              Curabitur luctus mattis risus nec condimentum. Donec at dui turpis. Sed vehicula fringilla rutrum. Nullam
+              sed ornare magna. Mauris vitae laoreet diam. Mauris fermentum ligula at lacinia semper. Nulla placerat dui
+              eu sapien pellentesque, eu placerat leo luctus. Cras pharetra blandit fermentum.
+            </p>
+            <button dyButton matRipple dyStepperPrevious>prev</button>
+            <button dyButton matRipple dyStepperNext>next</button>
+          </dy-step>
+          <dy-step label="Fourth step">
+            <h3>Step content #4</h3>
+            <p class="lorem">
+              Proin varius accumsan semper. Praesent consequat tincidunt sagittis. Curabitur egestas sem a ipsum
+              bibendum,
+              sit amet fringilla orci efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu pulvinar magna, quis
+              viverra ex.
+            </p>
+            <button dyButton matRipple dyStepperPrevious>prev</button>
+            <button dyButton matRipple disabled dyStepperNext>next</button>
+          </dy-step>
+        </dy-stepper>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>

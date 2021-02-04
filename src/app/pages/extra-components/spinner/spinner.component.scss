@@ -1,0 +1,11 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  button {
+    margin: 1rem;
+  }
+
+  ::ng-deep dy-spinner {
+    z-index: 999;
+  }
+}

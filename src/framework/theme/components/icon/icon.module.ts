@@ -14,8 +14,9 @@ import { DyIconLibraries } from './icon-libraries';
     DyIconComponent,
   ],
   exports: [
-    DyIconComponent,
+    DyIconComponent
   ],
+
 })
 export class DyIconModule {
 

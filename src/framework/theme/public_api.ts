@@ -44,7 +44,8 @@ export { DyCalendarMonthCellComponent } from './components/calendar-kit/componen
 export { DyCalendarYearCellComponent } from './components/calendar-kit/components/calendar-year-picker/calendar-year-cell.component';
 export { DyCalendarPickerRowComponent } from './components/calendar-kit/components/calendar-picker/calendar-picker-row.component';
 export { DyCalendarPickerComponent }from './components/calendar-kit/components/calendar-picker/calendar-picker.component';
-export { DyEvaIconsModule } from './components/eva-icons/eva-icons.module';
+// export { DyEvaIconsModule } from './components/eva-icons/eva-icons.module';
+export { TableModule } from './components/table/table.module';
 
 // tslint:enable:max-line-length
 export * from './components/calendar/base-calendar.component';

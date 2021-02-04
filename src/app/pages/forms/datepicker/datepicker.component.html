@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12 col-lg-4 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Common Datepicker</dy-card-header>
+      <dy-card-body>
+        <input dyInput placeholder="Form Picker" [dyDatepicker]="formpicker">
+        <dy-datepicker #formpicker></dy-datepicker>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-4 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Datepicker With Range</dy-card-header>
+      <dy-card-body>
+        <input dyInput placeholder="Range Picker" [dyDatepicker]="rangepicker">
+        <dy-rangepicker #rangepicker></dy-rangepicker>
+      </dy-card-body>
+    </dy-card>
+  </div>
+  <div class="col-md-12 col-lg-4 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Datepicker With Disabled Min Max Values</dy-card-header>
+      <dy-card-body>
+        <input dyInput placeholder="Min Max Picker" [dyDatepicker]="picker">
+        <dy-datepicker #picker [min]="min" [max]="max"></dy-datepicker>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>

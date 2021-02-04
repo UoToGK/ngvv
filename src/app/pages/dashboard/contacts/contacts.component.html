@@ -1,0 +1,23 @@
+<dy-card size="giant">
+  <dy-tabset fullWidth>
+
+    <dy-tab tabTitle="联络">
+      <dy-list>
+        <dy-list-item matRipple class="contact" *ngFor="let c of contacts">
+          <dy-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></dy-user>
+          <dy-icon icon="phone-outline" pack="eva"></dy-icon>
+        </dy-list-item>
+      </dy-list>
+    </dy-tab>
+
+    <dy-tab tabTitle="最近">
+      <dy-list>
+        <dy-list-item matRipple class="contact" *ngFor="let c of recent">
+          <dy-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></dy-user>
+          <span class="caption">{{ c.time | date: 'shortTime' }}</span>
+        </dy-list-item>
+      </dy-list>
+    </dy-tab>
+
+  </dy-tabset>
+</dy-card>

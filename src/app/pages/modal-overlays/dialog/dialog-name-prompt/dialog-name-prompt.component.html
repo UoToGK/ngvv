@@ -1,0 +1,10 @@
+<dy-card>
+  <dy-card-header>Enter your name</dy-card-header>
+  <dy-card-body>
+    <input #name dyInput placeholder="Name">
+  </dy-card-body>
+  <dy-card-footer>
+    <button class="cancel" dyButton matRipple status="danger" (click)="cancel()">Cancel</button>
+    <button dyButton matRipple status="success" (click)="submit(name.value)">Submit</button>
+  </dy-card-footer>
+</dy-card>

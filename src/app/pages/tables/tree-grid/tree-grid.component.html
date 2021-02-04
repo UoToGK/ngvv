@@ -1,0 +1,33 @@
+<dy-card>
+  <dy-card-body>
+
+    <label class="search-label" for="search">Search:</label>
+    <input dyInput [dyFilterInput]="dataSource" id="search" class="search-input">
+
+    <table [dyTreeGrid]="dataSource" [dySort]="dataSource" (sort)="updateSort($event)">
+
+      <tr dyTreeGridHeaderRow *dyTreeGridHeaderRowDef="allColumns"></tr>
+      <tr dyTreeGridRow *dyTreeGridRowDef="let row; columns: allColumns"></tr>
+
+      <ng-container [dyTreeGridColumnDef]="customColumn">
+        <th dyTreeGridHeaderCell [dySortHeader]="getSortDirection(customColumn)" *dyTreeGridHeaderCellDef>
+          {{customColumn}}
+        </th>
+        <td dyTreeGridCell *dyTreeGridCellDef="let row">
+          <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon>
+          {{row.data[customColumn]}}
+        </td>
+      </ng-container>
+
+      <ng-container *ngFor="let column of defaultColumns; let index = index" [dyTreeGridColumnDef]="column"
+        [showOn]="getShowOn(index)">
+        <th dyTreeGridHeaderCell [dySortHeader]="getSortDirection(column)" *dyTreeGridHeaderCellDef>
+          {{column}}
+        </th>
+        <td dyTreeGridCell *dyTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+      </ng-container>
+
+    </table>
+
+  </dy-card-body>
+</dy-card>

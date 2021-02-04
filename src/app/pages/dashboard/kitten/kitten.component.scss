@@ -1,0 +1,38 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .picture {
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-top-left-radius: dy-theme(card-border-radius);
+    border-top-right-radius: dy-theme(card-border-radius);
+    flex: 1;
+  }
+
+  .details {
+    padding: dy-theme(card-padding);
+  }
+
+  .description {
+    text-align: justify;
+  }
+
+  dy-card-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .link-icon {
+    font-size: 1.75rem;
+  }
+
+  dy-icon {
+    font-size: 1.55rem;
+
+    ::ng-deep svg {
+      vertical-align: top;
+    }
+  }
+}

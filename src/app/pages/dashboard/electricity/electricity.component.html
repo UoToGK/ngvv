@@ -1,0 +1,45 @@
+<dy-card class="cards-container">
+  <dy-card size="large" class="table-card">
+    <dy-card-header>
+      用电量
+    </dy-card-header>
+
+    <dy-tabset fullWidth>
+      <dy-tab *ngFor="let year of listData" [tabTitle]="year.title" [active]="year.active">
+        <dy-list>
+          <dy-list-item *ngFor="let month of year.months">
+            <span class="month">{{ month.month }}</span>
+            <span>
+              <dy-icon [class.down]="month.down" [class.up]="!month.down"
+                [icon]="month.down ? 'arrow-down' : 'arrow-up'" pack="eva">
+              </dy-icon>
+              {{ month.delta }}
+            </span>
+            <span class="results">
+              {{ month.kWatts }} <span class="caption">kWh</span> / {{ month.cost }} <span class="caption">人民币</span>
+            </span>
+          </dy-list-item>
+        </dy-list>
+      </dy-tab>
+    </dy-tabset>
+  </dy-card>
+
+  <dy-card size="large" class="chart-card">
+    <dy-card-header>
+      <span class="stats">
+        <span class="caption">消耗</span>
+        <span>816 <span class="caption">kWh</span></span>
+      </span>
+      <span class="stats">
+        <span class="caption">花费</span>
+        <span>291 <span class="caption">人民币</span></span>
+      </span>
+
+      <dy-select matRipple [(selected)]="type" class="type-select">
+        <dy-option matRipple *ngFor="let t of types" [value]="t">{{ t }}</dy-option>
+      </dy-select>
+    </dy-card-header>
+
+    <ngx-electricity-chart [data]="chartData"></ngx-electricity-chart>
+  </dy-card>
+</dy-card>

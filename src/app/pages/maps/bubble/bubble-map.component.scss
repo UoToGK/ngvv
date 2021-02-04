@@ -1,0 +1,12 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card-body {
+    padding-top: 1.25rem;
+  }
+
+  .echarts {
+    width: 100%;
+    height: dy-theme(card-height-large);
+  }
+}

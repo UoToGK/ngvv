@@ -1,0 +1,28 @@
+<div class="lists row">
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <dy-card class="list-card">
+      <dy-card-header>Some Fruits</dy-card-header>
+      <dy-card-body>
+        <dy-list>
+          <dy-list-item *ngFor="let fruit of fruits">
+            {{ fruit }}
+          </dy-list-item>
+        </dy-list>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <dy-card class="list-card" size="small">
+      <dy-card-header>Users</dy-card-header>
+      <dy-card-body>
+        <dy-list>
+          <dy-list-item *ngFor="let user of users">
+            <dy-user [name]="user.name" [title]="user.title">
+            </dy-user>
+          </dy-list-item>
+        </dy-list>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>

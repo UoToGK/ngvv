@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-lg-6">
+    <dy-card>
+      <dy-card-header>Default Inputs</dy-card-header>
+      <dy-card-body>
+        <input type="text" dyInput fullWidth placeholder="Project">
+        <div class="full-name-inputs">
+          <input type="text" dyInput fullWidth placeholder="Nick">
+          <input type="text" dyInput fullWidth placeholder="Last Name">
+        </div>
+        <input type="password" dyInput fullWidth placeholder="Password">
+        <input type="text" dyInput fullWidth shape="rectangle" placeholder="Rectangle border">
+        <ng-container *ngIf="!(materialTheme$ | async)">
+          <input type="text" dyInput fullWidth shape="semi-round" placeholder="Semi-round border">
+          <input type="text" dyInput fullWidth shape="round" placeholder="Rounded border">
+        </ng-container>
+        <input type="text" dyInput fullWidth placeholder="Disabled input" disabled />
+        <textarea rows="5" dyInput fullWidth shape="round" placeholder="Text Area"></textarea>
+        <input type="text" dyInput fullWidth fieldSize="small" placeholder="Small Input">
+        <input type="text" dyInput fullWidth fieldSize="medium" placeholder="Medium Input">
+        <input type="text" dyInput fullWidth fieldSize="large" placeholder="Large Input">
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-lg-6">
+
+    <dy-card>
+      <dy-card-header>Select</dy-card-header>
+      <dy-card-body>
+        <dy-select matRipple selected="1">
+          <dy-option matRipple value="1">Option 1</dy-option>
+          <dy-option matRipple value="2">Option 2</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-header>Validation States</dy-card-header>
+      <dy-card-body>
+        <input type="text" dyInput fullWidth status="info" placeholder="Input with Info">
+        <input type="text" dyInput fullWidth status="success" placeholder="Warning Input">
+        <input type="text" dyInput fullWidth status="warning" placeholder="Danger Input">
+        <input type="text" dyInput fullWidth status="danger" placeholder="Danger Input">
+        <input type="text" dyInput fullWidth status="primary" placeholder="Input with Primary">
+        <div class="validation-checkboxes">
+          <dy-checkbox status="success">Success Checkbox</dy-checkbox>
+          <dy-checkbox status="warning">Warning Checkbox</dy-checkbox>
+          <dy-checkbox status="danger">Danger Checkbox</dy-checkbox>
+        </div>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-header>Checkboxes & Radios</dy-card-header>
+      <dy-card-body class="checkbox-radio">
+        <div class="demo-items">
+          <dy-checkbox>Checkbox 1</dy-checkbox>
+          <dy-checkbox [value]="true">Checkbox 2</dy-checkbox>
+        </div>
+        <div class="demo-items">
+          <dy-radio-group [(value)]="radioGroupValue">
+            <dy-radio [value]="'This is value 1'">
+              Radio 1
+            </dy-radio>
+            <dy-radio [value]="'This is value 2'">
+              Radio 2
+            </dy-radio>
+            <dy-radio [value]="'This is value 3'">
+              Radio 3
+            </dy-radio>
+          </dy-radio-group>
+        </div>
+        <div class="demo-items">
+          <dy-checkbox disabled>Disabled Checkbox</dy-checkbox>
+          <dy-radio-group disabled>
+            <dy-radio [value]="'Disabled Value'">
+              Disabled Radio
+            </dy-radio>
+          </dy-radio-group>
+        </div>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>
+<div *ngIf="materialTheme$ | async" class="row">
+  <div class="col-lg-12">
+    <ngx-material-inputs></ngx-material-inputs>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<dy-card>
+  <dy-card-header>Progress Bar Status</dy-card-header>
+  <dy-card-body>
+    <dy-progress-bar [value]="20" status="primary">primary</dy-progress-bar>
+    <dy-progress-bar [value]="40" status="info">info</dy-progress-bar>
+    <dy-progress-bar [value]="60" status="success">success</dy-progress-bar>
+    <dy-progress-bar [value]="80" status="warning">warning</dy-progress-bar>
+    <dy-progress-bar [value]="100" status="danger">danger</dy-progress-bar>
+  </dy-card-body>
+</dy-card>
+
+<ngx-interactive-progress-bar></ngx-interactive-progress-bar>
+
+<dy-card>
+  <dy-card-header>Progress Bar Size</dy-card-header>
+  <dy-card-body>
+    <dy-progress-bar [value]="20" size="tiny">tiny</dy-progress-bar>
+    <dy-progress-bar [value]="40" size="small">small</dy-progress-bar>
+    <dy-progress-bar [value]="60" size="medium">medium (default)</dy-progress-bar>
+    <dy-progress-bar [value]="80" size="large">large</dy-progress-bar>
+    <dy-progress-bar [value]="100" size="giant">giant</dy-progress-bar>
+  </dy-card-body>
+</dy-card>
+
+<dy-card>
+  <dy-card-header>Progress Bar Value</dy-card-header>
+  <dy-card-body>
+    <dy-progress-bar [value]="40" status="primary" [displayValue]="true"></dy-progress-bar>
+    <dy-progress-bar [value]="60" status="primary">Custom text</dy-progress-bar>
+  </dy-card-body>
+</dy-card>

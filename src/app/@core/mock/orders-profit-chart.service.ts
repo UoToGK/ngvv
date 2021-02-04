@@ -9,19 +9,19 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
 
   private summary = [
     {
-      title: 'Marketplace',
+      title: '市场',
       value: 3654,
     },
     {
-      title: 'Last Month',
+      title: '上个月',
       value: 946,
     },
     {
-      title: 'Last Week',
+      title: '上周',
       value: 654,
     },
     {
-      title: 'Today',
+      title: '今天',
       value: 230,
     },
   ];

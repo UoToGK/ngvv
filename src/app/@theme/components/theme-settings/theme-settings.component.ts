@@ -6,31 +6,35 @@ import { StateService } from '../../../@core/utils';
   selector: 'ngx-theme-settings',
   styleUrls: ['./theme-settings.component.scss'],
   template: `
-    <span class="subheader">Layouts</span>
+    <span class="subheader">布局</span>
     <div class="settings-row">
       <button *ngFor="let layout of layouts"
               dyButton
               [appearance]="layout.selected ? 'outline' : 'ghost'"
               [attr.aria-label]="layout.name"
+              [attr.title]="layout.name"
               (click)="layoutSelect(layout)"
               class="select-button">
-        <i [attr.class]="layout.icon + ' setting-icon'"></i>
+        <!-- <i [attr.class]="layout.icon + ' setting-icon'"></i> -->
+        <dy-icon [icon]="layout.icon"></dy-icon>
       </button>
     </div>
 
-    <span class="subheader">Sidebar</span>
+    <span class="subheader">侧边栏</span>
     <div class="settings-row">
       <button *ngFor="let sidebar of sidebars"
               dyButton
               [appearance]="sidebar.selected ? 'outline' : 'ghost'"
               [attr.aria-label]="sidebar.name"
+              [attr.title]="sidebar.name"
               (click)="sidebarSelect(sidebar)"
               class="select-button">
-        <i [attr.class]="sidebar.icon + ' setting-icon'"></i>
+        <!-- <i [attr.class]="sidebar.icon + ' setting-icon'"></i> -->
+        <dy-icon [icon]="sidebar.icon"></dy-icon>
       </button>
     </div>
 
-    <span class="subheader layout-setting-heading">Layout direction</span>
+    <span class="subheader layout-setting-heading">布局方向</span>
     <div class="settings-row">
       <div class="switcher">
         <ngx-layout-direction-switcher></ngx-layout-direction-switcher>

@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/@theme/styles/styles.scss";
+// 底部图标显示
+@import "../node_modules/ionicons/scss/ionicons.scss";
+
+@import "../node_modules/leaflet/dist/leaflet.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";

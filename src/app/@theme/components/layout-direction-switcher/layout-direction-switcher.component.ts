@@ -9,8 +9,8 @@ import { AnalyticsService } from '../../../@core/utils/analytics.service';
     <ngx-switcher
       [firstValue]="directions.RTL"
       [secondValue]="directions.LTR"
-      [firstValueLabel]="'RTL'"
-      [secondValueLabel]="'LTR'"
+      [firstValueLabel]="'右到左'"
+      [secondValueLabel]="'左到右'"
       [value]="currentDirection"
       (valueChange)="toggleDirection($event)"
       [vertical]="vertical">

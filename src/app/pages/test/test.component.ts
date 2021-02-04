@@ -33,6 +33,14 @@ export class TestComponent implements OnInit {
       value: 'material-dark',
       name: 'Material Dark',
     },
+    {
+      value: 'material',
+      name: 'Material',
+    },
+    {
+      value: 'header',
+      name: 'Header',
+    },
   ];
   currentTheme = 'default';
   constructor(private dythemeservices:DyThemeService) { }

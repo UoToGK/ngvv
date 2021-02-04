@@ -1,0 +1,7 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card {
+    transform: translate3d(0, 0, 0);
+  }
+}

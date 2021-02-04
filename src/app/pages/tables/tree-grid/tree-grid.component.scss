@@ -1,0 +1,55 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  button[dyTreeGridRowToggle] {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .search-label {
+    display: block;
+  }
+  .search-input {
+    margin-bottom: 1rem;
+  }
+
+  .dy-column-name {
+    width: 100%;
+  }
+
+  ::ng-deep .row-toggle-button {
+    color: dy-theme(text-basic-color);
+  }
+
+  .dy-tree-grid-header-cell,
+  .dy-tree-grid-header-cell button {
+    text-transform: capitalize;
+  }
+
+  @media screen and (min-width: 400px) {
+    .dy-column-name,
+    .dy-column-size {
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .dy-column-name,
+    .dy-column-size,
+    .dy-column-kind {
+      width: 33.333%;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .dy-column-name {
+      width: 31%;
+    }
+    .dy-column-size,
+    .dy-column-kind,
+    .dy-column-items {
+      width: 23%;
+    }
+  }
+}

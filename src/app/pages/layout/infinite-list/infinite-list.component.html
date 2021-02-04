@@ -1,0 +1,29 @@
+<div class="infinite-cards row">
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <dy-card class="own-scroll">
+      <dy-card-header>Own Scroll</dy-card-header>
+      <dy-list dyInfiniteList [threshold]="500" (bottomThreshold)="loadNext(firstCard)">
+        <dy-list-item *ngFor="let newsPost of firstCard.news">
+          <ngx-news-post [post]="newsPost"></ngx-news-post>
+        </dy-list-item>
+        <dy-list-item *ngFor="let _ of firstCard.placeholders">
+          <ngx-news-post-placeholder></ngx-news-post-placeholder>
+        </dy-list-item>
+      </dy-list>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <dy-card>
+      <dy-card-header>Window Scroll</dy-card-header>
+      <dy-list dyInfiniteList listenWindowScroll [threshold]="500" (bottomThreshold)="loadNext(secondCard)">
+        <dy-list-item *ngFor="let newsPost of secondCard.news">
+          <ngx-news-post [post]="newsPost"></ngx-news-post>
+        </dy-list-item>
+        <dy-list-item *ngFor="let _ of secondCard.placeholders">
+          <ngx-news-post-placeholder></ngx-news-post-placeholder>
+        </dy-list-item>
+      </dy-list>
+    </dy-card>
+  </div>
+</div>

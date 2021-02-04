@@ -8,16 +8,24 @@ import {
   DyRequestPasswordComponent,
   DyResetPasswordComponent,
 } from '../framework/auth/public_api';
+import { ThemeGuard } from './@core/guard/theme.guard';
 
 const routes: Routes = [
   {
     path: 'pages',
+    canActivate: [ThemeGuard],
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
   {
+    path: 'themes',
+    loadChildren: () => import('./themes-screen/starter.module')
+      .then(m => m.StarterModule),
+  },
+  {
     path: 'auth',
     component: DyAuthComponent,
+    canActivate: [ThemeGuard],
     children: [
       {
         path: '',
@@ -45,7 +53,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '', redirectTo: 'themes', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
 

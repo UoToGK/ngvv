@@ -1,0 +1,14 @@
+<dy-card>
+  <dy-card-header>Progress Bar Interactive</dy-card-header>
+  <dy-card-body>
+    <div class="container">
+      <button dyButton appearance="ghost" [disabled]="canDecrease ? null : ''" (click)="decreaseValue()">
+        <dy-icon icon="minus" pack="eva"></dy-icon>
+      </button>
+      <dy-progress-bar [value]="value" [status]="status" [displayValue]="true"></dy-progress-bar>
+      <button dyButton appearance="ghost" [disabled]="canIncrease ? null : ''" (click)="increaseValue()">
+        <dy-icon icon="plus" pack="eva"></dy-icon>
+      </button>
+    </div>
+  </dy-card-body>
+</dy-card>

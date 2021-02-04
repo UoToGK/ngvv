@@ -1,0 +1,69 @@
+<dy-card size="large">
+  <dy-tabset fullWidth>
+
+    <dy-tab tabTitle="温度">
+
+      <div class="slider-container">
+        <ngx-temperature-dragger [(value)]="temperature" (power)="temperatureOff = !$event" [min]="temperatureData.min"
+          [max]="temperatureData.max" [disableArcColor]="theme.arcEmpty" [fillColors]="theme.arcFill"
+          [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
+
+          <div class="slider-value-container" [ngClass]="{ 'off': temperatureOff }">
+            <div class="value temperature h1">
+              {{ temperatureOff ? '--' : (temperature | ngxRound) }}
+            </div>
+            <div class="desc">
+              摄氏度
+            </div>
+          </div>
+        </ngx-temperature-dragger>
+      </div>
+
+      <dy-radio-group [(ngModel)]="temperatureMode" name="temperature-mode">
+        <dy-radio matRipple value="cool">
+          <i class="dy-snowy-circled"></i>
+        </dy-radio>
+        <dy-radio matRipple value="warm">
+          <i class="dy-sunny-circled"></i>
+        </dy-radio>
+        <dy-radio matRipple value="heat">
+          <i class="dy-flame-circled"></i>
+        </dy-radio>
+        <dy-radio matRipple value="fan">
+          <i class="dy-loop-circled"></i>
+        </dy-radio>
+      </dy-radio-group>
+    </dy-tab>
+
+    <dy-tab tabTitle="湿度">
+
+      <div class="slider-container">
+        <ngx-temperature-dragger [(value)]="humidity" (power)="humidityOff = !$event" [min]="humidityData.min"
+          [max]="humidityData.max" [disableArcColor]="theme.arcEmpty" [fillColors]="theme.arcFill"
+          [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
+
+          <div class="slider-value-container" [ngClass]="{ 'off': humidityOff }">
+            <div class="value humidity h1">
+              {{ humidityOff ? '--' : (humidity | ngxRound) }}
+            </div>
+          </div>
+        </ngx-temperature-dragger>
+      </div>
+
+      <dy-radio-group [(ngModel)]="humidityMode" name="humidity-mode">
+        <dy-radio matRipple value="cool">
+          <i class="dy-snowy-circled"></i>
+        </dy-radio>
+        <dy-radio matRipple value="warm">
+          <i class="dy-sunny-circled"></i>
+        </dy-radio>
+        <dy-radio matRipple value="heat">
+          <i class="dy-flame-circled"></i>
+        </dy-radio>
+        <dy-radio matRipple value="fan">
+          <i class="dy-loop-circled"></i>
+        </dy-radio>
+      </dy-radio-group>
+    </dy-tab>
+  </dy-tabset>
+</dy-card>

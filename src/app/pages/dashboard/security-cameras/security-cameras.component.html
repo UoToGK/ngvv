@@ -1,0 +1,53 @@
+<dy-card size="giant">
+
+  <dy-card-header>
+    安全摄像头
+
+    <button class="single-view-button" dyButton size="small" [appearance]="isSingleView ? 'filled' : 'outline'"
+      (click)="isSingleView = true">
+      <i class="dy-square"></i>
+    </button>
+    <button class="grid-view-button" dyButton size="small" [appearance]="isSingleView ? 'outline' : 'filled'"
+      (click)="isSingleView = false">
+      <dy-icon icon="grid" pack="eva"></dy-icon>
+    </button>
+  </dy-card-header>
+
+  <div class="grid-container">
+
+    <div class="single-view" *ngIf="isSingleView">
+      <div class="camera single" [style.background-image]="'url(' + selectedCamera.source + ')'">
+        <span class="camera-name">{{ selectedCamera.title }}</span>
+      </div>
+    </div>
+
+    <div class="grid-view" *ngIf="!isSingleView">
+      <div class="camera" *ngFor="let camera of cameras" [style.background-image]="'url(' + camera.source + ')'"
+        (click)="selectCamera(camera)">
+        <span class="camera-name">{{ camera.title }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <dy-card-footer>
+    <dy-actions [size]="actionSize" fullWidth>
+      <dy-action matRipple>
+        <dy-icon icon="pause-circle-outline" pack="eva"></dy-icon>
+        Pause
+      </dy-action>
+      <dy-action matRipple>
+        <dy-icon icon="list-outline" pack="eva"></dy-icon>
+        Logs
+      </dy-action>
+      <dy-action matRipple>
+        <dy-icon icon="search-outline" pack="eva"></dy-icon>
+        Search
+      </dy-action>
+      <dy-action matRipple>
+        <dy-icon icon="settings-2-outline" pack="eva"></dy-icon>
+        Setup
+      </dy-action>
+    </dy-actions>
+  </dy-card-footer>
+</dy-card>

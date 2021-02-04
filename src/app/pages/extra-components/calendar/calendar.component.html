@@ -1,0 +1,20 @@
+<div class="calendars">
+  <div class="calendar-container">
+    <span class="subtitle">
+      Selected date: {{ date | date }}
+    </span>
+    <dy-calendar [(date)]="date" [boundingMonth]="true" showWeekNumber></dy-calendar>
+  </div>
+  <div class="calendar-container">
+    <span class="subtitle">
+      Selected range: {{ range.start | date }} - {{ range.end | date }}
+    </span>
+    <dy-calendar-range [(range)]="range"></dy-calendar-range>
+  </div>
+  <div class="calendar-container">
+    <span class="subtitle">
+      Selected date: {{ date2 | date }}
+    </span>
+    <dy-calendar [(date)]="date2" [dayCellComponent]="dayCellComponent"></dy-calendar>
+  </div>
+</div>

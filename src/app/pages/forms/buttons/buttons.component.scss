@@ -1,0 +1,25 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .buttons-row {
+    margin: -0.5rem;
+  }
+
+  button[dyButton] {
+    margin: 0.5rem;
+  }
+
+  .action-icon {
+    @include dy-ltr(margin-right, 0.5rem);
+    @include dy-rtl(margin-left, 0.5rem);
+  }
+
+  .actions-card {
+    height: 8rem;
+  }
+
+  dy-action {
+    border-radius: 2px;
+    cursor: pointer;
+  }
+}

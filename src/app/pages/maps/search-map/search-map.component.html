@@ -1,0 +1,7 @@
+<dy-card>
+  <dy-card-header>Google Maps with search</dy-card-header>
+  <dy-card-body>
+    <ngx-search (positionChanged)="setPosition($event)"></ngx-search>
+    <ngx-map [searchedPosition]="searchedPosition"></ngx-map>
+  </dy-card-body>
+</dy-card>

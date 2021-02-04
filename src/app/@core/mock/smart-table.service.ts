@@ -427,6 +427,7 @@ export class SmartTableService extends SmartTableData {
   }];
 
   getData() {
+    this.data=require('../../../assets/data/douyin.json')["RECORDS"]
     return this.data;
   }
 }

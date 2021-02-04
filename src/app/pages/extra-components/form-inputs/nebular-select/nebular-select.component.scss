@@ -1,0 +1,15 @@
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-select {
+    display: block;
+    width: 15rem;
+  }
+
+  .select-group {
+    dy-select {
+      margin-right: 0.75rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -11,6 +11,6 @@
 
 export const environment = {
   production: false,
-  hmr: false,
+  hmr: true,
   currentThemeLife: 604800000, // 1 week in milliseconds
 };

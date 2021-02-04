@@ -1,0 +1,17 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card-body {
+    padding: 0;
+  }
+
+  ::ng-deep .leaflet-top,
+  ::ng-deep .leaflet-bottom {
+    z-index: 997;
+  }
+
+  ::ng-deep .leaflet-container {
+    width: 100%;
+    height: dy-theme(card-height-large);
+  }
+}

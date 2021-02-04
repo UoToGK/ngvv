@@ -5,20 +5,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">
-      Created with ♥ by <b><a href="https://hubs.ly/H0n50Ch0"
-                              target="_blank">Akveo</a></b> 2019.
+      Created with ♥ by <b><a href=""
+                              target="_blank">嘉美高科</a></b> 2021.
       Made with
       <b>
-        <a href="https://hubs.ly/H0n50_80" target="_blank">
-        Nebular.
+        <a href="" target="_blank">
+        DyThemes.
         </a>
       </b>
     </span>
     <div class="socials">
-      <a href="https://github.com/akveo/ngx-admin" target="_blank" class="ion ion-social-github"></a>
-      <a href="https://www.facebook.com/akveo/" target="_blank" class="ion ion-social-facebook"></a>
-      <a href="https://twitter.com/akveo_inc" target="_blank" class="ion ion-social-twitter"></a>
-      <a href="https://www.linkedin.com/company/akveo" target="_blank" class="ion ion-social-linkedin"></a>
+      <!-- <i class="eva eva-5x eva-github-outline"></i> -->
+      <a href="https://github.com" target="_blank" class="ion ion-social-github"></a>
+      <a href="https://www.microsoft.com/zh-cn/" target="_blank" class="ion ion-social-windows"></a>
+      <a href="https://www.linux.org/" target="_blank" class="ion ion-social-tux"></a>
+      <a href="https://www.xbox.com/" target="_blank" class="ion ion-xbox"></a>
     </div>
   `,
 })

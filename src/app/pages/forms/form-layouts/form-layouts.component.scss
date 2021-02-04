@@ -1,0 +1,15 @@
+dy-checkbox {
+  margin-bottom: 1rem;
+}
+
+.form-inline [fullWidth] {
+  flex: 1;
+}
+
+.form-inline > * {
+  margin: 0 1.5rem 1.5rem 0;
+}
+
+dy-card.inline-form-card dy-card-body {
+  padding-bottom: 0;
+}

@@ -1,10 +1,10 @@
 <div class="header-container">
   <div class="logo-container">
-    <a href="#" class="sidebar-toggle" matRipple [attr.matRippleUdyounded]="true" [matRippleCentered]="true"
+    <a href="#" class="sidebar-toggle" matRipple [matRippleCentered]="true" [matRippleCentered]="true"
       (click)="toggleSidebar()">
       <dy-icon [icon]="(materialTheme$ | async) ? 'menu-outline' : 'menu-2-outline'"></dy-icon>
     </a>
-    <a class="logo" href="#" (click)="navigateHome()">ngx-<span>admin</span></a>
+    <a class="logo" href="#" (click)="navigateHome()"><span>DyThemes</span></a>
   </div>
   <dy-select status="primary" class="theme-select" matRipple [selected]="currentTheme"
     (selectedChange)="changeTheme($event)">
@@ -14,31 +14,33 @@
 
 <div class="header-container">
   <dy-actions size="small">
-    <dy-action class="control-item github-stars">
-      <span class="subtitle text">Support us: </span>
-      <iframe src="https://ghbtns.com/github-btn.html?user=akveo&repo=ngx-admin&type=star&count=true" frameborder="0"
-        scrolling="0" width="170px" height="20px">
+    <!-- <dy-action class="control-item github-stars">
+      <span class="subtitle text">联系我们 </span>
+      <iframe src="https://ghbtns.com/github-btn.html?user=
+      angular&repo=angular&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px">
       </iframe>
     </dy-action>
     <dy-action class="control-item downloads-count">
-      <dy-icon icon="download"></dy-icon>
+      <dy-icon icon="arrow-forward"></dy-icon>
       <span class="subtitle number">470.000</span>
-    </dy-action>
-    <dy-action class="control-item contact-us" matRipple [attr.matRippleUdyounded]="false" [matRippleCentered]="true">
-      <a dyButton ghost href="mailto:contact@akveo.com" (click)="trackEmailClick()">
-        <dy-icon icon="email-outline" pack="eva"></dy-icon>
-        <span>contact@akveo.com</span>
+    </dy-action> -->
+    <dy-action class="control-item contact-us" matRipple [matRippleCentered]="false" [matRippleCentered]="true">
+      <span class="subtitle text">联系我 </span>
+      <dy-icon icon="arrow-forward"></dy-icon>
+      <a dyButton ghost href="https://mail.qq.com/" (click)="trackEmailClick()">
+        <dy-icon icon="email" pack="eva"></dy-icon>
+        <span>939458466@qq.com</span>
       </a>
     </dy-action>
     <dy-action class="control-item search">
-      <dy-search type="rotate-layout" (click)="startSearch()" matRipple [attr.matRippleUdyounded]="true"
+      <dy-search type="rotate-layout" (click)="startSearch()" matRipple [matRippleCentered]="true"
         [matRippleCentered]="true"></dy-search>
     </dy-action>
-    <dy-action class="control-item email" icon="email-outline" matRipple [attr.matRippleUdyounded]="true"
+    <dy-action class="control-item email" icon="email-outline" matRipple [matRippleCentered]="true"
       [matRippleCentered]="true"></dy-action>
-    <dy-action class="control-item notifications" icon="bell-outline" matRipple [attr.matRippleUdyounded]="true"
+    <dy-action class="control-item notifications" icon="bell-outline" matRipple [matRippleCentered]="true"
       [matRippleCentered]="true"></dy-action>
-    <dy-action class="user-action" *dyIsGranted="['view', 'user']" matRipple [attr.matRippleUdyounded]="false"
+    <dy-action class="user-action" *dyIsGranted="['view', 'user']" matRipple [matRippleCentered]="false"
       [matRippleCentered]="true">
       <dy-user [dyContextMenu]="userMenu" [onlyPicture]="userPictureOnly" [name]="user?.name" [picture]="user?.picture">
       </dy-user>

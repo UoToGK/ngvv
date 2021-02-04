@@ -1,0 +1,17 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  dy-icon {
+    margin: 1rem;
+  }
+
+  dy-card-footer {
+    text-align: right;
+  }
+}

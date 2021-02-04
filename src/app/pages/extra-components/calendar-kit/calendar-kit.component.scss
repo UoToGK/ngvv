@@ -1,0 +1,13 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    p {
+      width: 80%;
+    }
+  }
+}

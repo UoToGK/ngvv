@@ -6,8 +6,10 @@
 
 import { NgModule } from '@angular/core';
 import { icons } from 'eva-icons';
-import { DyIconLibraries, DyIcons } from '../../public_api';
-import { DySvgIcon } from '../icon/icon';
+import { DyIconLibraries, DyIcons, DySvgIcon } from '../../public_api';
+import { DyIconModule } from '../icon/icon.module';
+
+
 
 interface DyOriginalEvaIcon {
   toSvg(options: DyEvaIconOptions);
@@ -40,7 +42,8 @@ export class DyEvaSvgIcon extends DySvgIcon {
   }
 }
 
-@NgModule({})
+@NgModule({
+})
 export class DyEvaIconsModule {
 
   private NAME = 'eva';

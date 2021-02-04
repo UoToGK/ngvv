@@ -1,0 +1,11 @@
+<dy-card>
+  <dy-card-header>
+    复杂表格
+  </dy-card-header>
+
+  <dy-card-body [dySpinner]="loading" dySpinnerStatus="info" dySpinnerSize="large">
+    <dy-progress-bar [value]="value" [status]="status" [displayValue]="true"></dy-progress-bar>
+    <dy-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </dy-table>
+  </dy-card-body>
+</dy-card>

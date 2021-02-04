@@ -1,0 +1,59 @@
+<dy-card>
+  <dy-card-header>
+    Toaster configuration
+  </dy-card-header>
+  <dy-card-body>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <label class="label">Position:</label>
+          <dy-select [(selected)]="position" matRipple class="position-select">
+            <dy-option *ngFor="let p of positions" [value]="p" matRipple>{{ p }}</dy-option>
+          </dy-select>
+        </div>
+
+        <div class="form-group">
+          <label class="label">Title:</label>
+          <input dyInput [(ngModel)]="title" name="title">
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label class="label">Content:</label>
+            <input dyInput [(ngModel)]="content" name="content">
+          </div>
+        </form>
+
+        <div class="form-group">
+          <label class="label">Time to hide toast, ms. 0 to persistent toast:</label>
+          <input dyInput type="number" [(ngModel)]="duration" name="timeout">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <label class="label">Toast type:</label>
+          <dy-select [(selected)]="status" matRipple>
+            <dy-option *ngFor="let t of types" [value]="t" matRipple>{{ t }}</dy-option>
+          </dy-select>
+        </div>
+
+        <div>
+          <dy-checkbox [(ngModel)]="destroyByClick">Hide on click</dy-checkbox>
+        </div>
+        <div>
+          <dy-checkbox [(ngModel)]="preventDuplicates">Prevent arising of duplicate toast</dy-checkbox>
+        </div>
+        <div>
+          <dy-checkbox [(ngModel)]="hasIcon">Show toast with icon</dy-checkbox>
+        </div>
+      </div>
+    </div>
+  </dy-card-body>
+
+  <dy-card-footer>
+    <button dyButton matRipple (click)="makeToast()">Show toast</button>
+    <button dyButton matRipple status="success" (click)="openRandomToast()">Random toast</button>
+  </dy-card-footer>
+</dy-card>

@@ -1,0 +1,89 @@
+@import "../../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+
+@include dy-install-component() {
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .table-card,
+  .chart-card {
+    box-shadow: none;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+
+  .table-card {
+    flex: 0 0 auto;
+  }
+
+  .chart-card {
+    flex: 1 0 auto;
+  }
+
+  .chart-card dy-card-header {
+    display: flex;
+    align-items: center;
+    padding-top: dy-theme(card-header-with-select-padding-top);
+    padding-bottom: dy-theme(card-header-with-select-padding-bottom);
+
+    // prevents double border from chart yAxisSplitLine
+    margin-bottom: -1px;
+  }
+
+  .type-select {
+    margin-left: auto;
+  }
+
+  .stats {
+    margin-right: 1rem;
+
+    > .caption {
+      display: block;
+    }
+  }
+
+  dy-tabset {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  dy-tab {
+    padding: 0;
+  }
+
+  dy-list-item {
+    display: flex;
+    align-items: baseline;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  .month {
+    width: 2rem;
+  }
+
+  dy-icon.down {
+    color: dy-theme(color-danger-default);
+  }
+
+  dy-icon.up {
+    color: dy-theme(color-success-default);
+  }
+
+  .results {
+    margin-left: auto;
+  }
+
+  @include media-breakpoint-down(xl) {
+    .table-card {
+      display: none;
+    }
+  }
+}

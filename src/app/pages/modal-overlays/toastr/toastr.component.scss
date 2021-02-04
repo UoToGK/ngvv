@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .position-select {
+    min-width: 13rem;
+  }
+
+  .label {
+    display: block;
+  }
+
+  dy-card-footer button:first-child {
+    @include dy-ltr(margin-right, 1rem);
+    @include dy-rtl(margin-left, 1rem);
+  }
+}

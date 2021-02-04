@@ -1,0 +1,39 @@
+<dy-card>
+  <dy-card-header>Button With Spinner</dy-card-header>
+  <dy-card-body>
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-xxxl-12">
+        <button dyButton matRipple status="success" size="large" (click)="toggleLoadingLargeGroupAnimation()"
+          [dySpinner]="loadingLargeGroup" dySpinnerStatus="success" dySpinnerSize="large" dySpinnerMessage="">
+          Download
+        </button>
+
+        <button dyButton matRipple status="primary" size="large" (click)="toggleLoadingLargeGroupAnimation()"
+          [dySpinner]="loadingLargeGroup" dySpinnerStatus="primary" dySpinnerSize="large" dySpinnerMessage="">
+          Download
+        </button>
+
+        <button dyButton matRipple status="warning" size="large" (click)="toggleLoadingLargeGroupAnimation()"
+          [dySpinner]="loadingLargeGroup" dySpinnerStatus="warning" dySpinnerSize="large" dySpinnerMessage="">
+          Download
+        </button>
+      </div>
+      <div class="col-md-12 col-lg-12 col-xxxl-12 size-medium-group">
+        <button dyButton matRipple status="danger" size="medium" (click)="toggleLoadingMediumGroupAnimation()"
+          [dySpinner]="loadingMediumGroup" dySpinnerStatus="danger" dySpinnerMessage="">
+          Download
+        </button>
+
+        <button dyButton matRipple status="info" size="medium" (click)="toggleLoadingMediumGroupAnimation()"
+          [dySpinner]="loadingMediumGroup" dySpinnerStatus="info" dySpinnerSize="small" dySpinnerMessage="">
+          Download
+        </button>
+
+        <button dyButton matRipple status="primary" size="medium" (click)="toggleLoadingMediumGroupAnimation()"
+          [dySpinner]="loadingMediumGroup" dySpinnerStatus="primary" dySpinnerSize="tiny" dySpinnerMessage="">
+          Download
+        </button>
+      </div>
+    </div>
+  </dy-card-body>
+</dy-card>

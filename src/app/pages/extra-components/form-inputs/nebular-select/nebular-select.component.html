@@ -1,0 +1,344 @@
+<div class="row">
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Select</dy-card-header>
+      <dy-card-body>
+        <dy-select placeholder="Select Showcase" [(selected)]="commonSelectedItem">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Multiple Select</dy-card-header>
+      <dy-card-body>
+        <dy-select multiple placeholder="Multiple Select">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Cleanable</dy-card-header>
+      <dy-card-body>
+        <dy-select placeholder="Cleanable">
+          <dy-option>Clean</dy-option>
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Placeholder</dy-card-header>
+      <dy-card-body>
+        <dy-select placeholder="Placeholder" status="primary">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Custom Label</dy-card-header>
+      <dy-card-body>
+        <dy-select placeholder="Custom Label" [(selected)]="selectedItem">
+          <dy-select-label>
+            Selected: {{ selectedItem }}
+          </dy-select-label>
+
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Select Groups</dy-card-header>
+      <dy-card-body>
+        <dy-select placeholder="Select Groups">
+
+          <dy-option-group title="Group 1">
+            <dy-option value="1">Option 1</dy-option>
+            <dy-option value="2">Option 2</dy-option>
+            <dy-option value="3">Option 3</dy-option>
+            <dy-option value="4">Option 4</dy-option>
+          </dy-option-group>
+
+          <dy-option-group title="Group 2">
+            <dy-option value="21">Option 21</dy-option>
+            <dy-option value="22">Option 22</dy-option>
+            <dy-option value="23">Option 23</dy-option>
+            <dy-option value="24">Option 24</dy-option>
+          </dy-option-group>
+
+          <dy-option-group title="Group 3">
+            <dy-option value="31">Option 31</dy-option>
+            <dy-option value="32">Option 32</dy-option>
+            <dy-option value="33">Option 33</dy-option>
+            <dy-option value="34">Option 34</dy-option>
+          </dy-option-group>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Disabled Select</dy-card-header>
+      <dy-card-body class="select-group">
+        <dy-select disabled placeholder="Disabled">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Disabled Items">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2" disabled>Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4" disabled>Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Disabled Groups">
+
+          <dy-option-group title="Group 1">
+            <dy-option value="1">Option 1</dy-option>
+            <dy-option value="2" disabled>Option 2</dy-option>
+            <dy-option value="3">Option 3</dy-option>
+            <dy-option value="4">Option 4</dy-option>
+          </dy-option-group>
+
+          <dy-option-group title="Group 2" disabled>
+            <dy-option value="21">Option 21</dy-option>
+            <dy-option value="22">Option 22</dy-option>
+            <dy-option value="23">Option 23</dy-option>
+            <dy-option value="24">Option 24</dy-option>
+          </dy-option-group>
+
+          <dy-option-group title="Group 3">
+            <dy-option value="31">Option 31</dy-option>
+            <dy-option value="32">Option 32</dy-option>
+            <dy-option value="33">Option 33</dy-option>
+            <dy-option value="34">Option 34</dy-option>
+          </dy-option-group>
+
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Select Shapes</dy-card-header>
+      <dy-card-body class="select-group">
+        <dy-select placeholder="Round" shape="round">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Rectangle" shape="rectangle">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Semi-round" shape="semi-round">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Select Sizes</dy-card-header>
+      <dy-card-body class="select-group">
+        <dy-select placeholder="XSmall" size="xsmall">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Small" size="small">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Medium" size="medium">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Large" size="large">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Select Statuses</dy-card-header>
+      <dy-card-body class="select-group">
+        <dy-select placeholder="Primary" status="primary">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Info" status="info">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Danger" status="danger">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Success" status="success">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Warning" status="warning">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Outline Select</dy-card-header>
+      <dy-card-body class="select-group">
+        <dy-select placeholder="Primary" outline status="primary">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Info" outline status="info">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Danger" outline status="danger">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Success" outline status="success">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Warning" outline status="warning">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+
+  <div class="col-md-12 col-lg-6 col-xxxl-4">
+    <dy-card>
+      <dy-card-header>Select Colors</dy-card-header>
+      <dy-card-body class="select-group">
+        <dy-select placeholder="Primary" hero status="primary">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Info" hero status="info">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Danger" hero status="danger">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Success" hero status="success">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+
+        <dy-select placeholder="Warning" hero status="warning">
+          <dy-option value="1">Option 1</dy-option>
+          <dy-option value="2">Option 2</dy-option>
+          <dy-option value="3">Option 3</dy-option>
+          <dy-option value="4">Option 4</dy-option>
+        </dy-select>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>

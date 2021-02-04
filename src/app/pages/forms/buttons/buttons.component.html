@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-lg-12">
+    <dy-card>
+      <dy-card-header>Hero Buttons</dy-card-header>
+      <dy-card-body>
+        <div class="buttons-row">
+          <button *ngFor="let status of statuses" dyButton matRipple [status]="status" hero>
+            {{ status }}
+          </button>
+          <button disabled dyButton matRipple hero>
+            disabled
+          </button>
+        </div>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-header>Default Buttons</dy-card-header>
+      <dy-card-body>
+        <div class="buttons-row">
+          <button *ngFor="let status of statuses" dyButton matRipple [status]="status">
+            {{ status }}
+          </button>
+          <button disabled dyButton matRipple>
+            disabled
+          </button>
+        </div>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-header>Outline Buttons</dy-card-header>
+      <dy-card-body>
+        <div class="buttons-row">
+          <button *ngFor="let status of statuses" dyButton matRipple [status]="status" outline>
+            {{ status }}
+          </button>
+          <button disabled dyButton matRipple outline>
+            disabled
+          </button>
+        </div>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-header>Ghost Buttons</dy-card-header>
+      <dy-card-body>
+        <div class="buttons-row">
+          <button *ngFor="let status of statuses" dyButton matRipple [status]="status" ghost>
+            {{ status }}
+          </button>
+          <button disabled dyButton matRipple outline>
+            disabled
+          </button>
+        </div>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-12 col-xxxl-6">
+    <dy-card>
+      <dy-card-header>Button shapes</dy-card-header>
+      <dy-card-body>
+        <div class="buttons-row">
+          <button *ngFor="let shape of shapes" dyButton matRipple [shape]="shape">
+            {{ shape }}
+          </button>
+        </div>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-header>Button sizes</dy-card-header>
+      <dy-card-body>
+        <div class="buttons-row">
+          <button *ngFor="let size of sizes" dyButton matRipple [size]="size">
+            {{ size }}
+          </button>
+        </div>
+      </dy-card-body>
+    </dy-card>
+  </div>
+
+  <div class="col-md-12 col-lg-12 col-xxxl-6">
+    <dy-card class="actions-card">
+      <dy-card-header>Action Groups</dy-card-header>
+      <dy-card-body>
+        <dy-actions size="medium">
+          <dy-action matRipple icon="menu-outline"></dy-action>
+          <dy-action matRipple icon="search-outline"></dy-action>
+          <dy-action matRipple icon="email-outline"></dy-action>
+          <dy-action disabled icon="bell-outline"></dy-action>
+          <dy-action>
+            <dy-user matRipple name="Han Solo"></dy-user>
+          </dy-action>
+          <dy-action matRipple icon="settings-2-outline"></dy-action>
+        </dy-actions>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card>
+      <dy-card-body>
+        <dy-actions size="medium" fullWidth>
+          <dy-action matRipple>
+            <dy-icon class="action-icon" icon="pause-circle-outline"></dy-icon>
+            <span>Pause</span>
+          </dy-action>
+          <dy-action matRipple>
+            <dy-icon class="action-icon" icon="list-outline"></dy-icon>
+            <span>Logs</span>
+          </dy-action>
+          <dy-action matRipple>
+            <dy-icon class="action-icon" icon="search-outline"></dy-icon>
+            <span>Search</span>
+          </dy-action>
+          <dy-action matRipple>
+            <dy-icon class="action-icon" icon="settings-2-outline"></dy-icon>
+            <span>Setup</span>
+          </dy-action>
+        </dy-actions>
+      </dy-card-body>
+    </dy-card>
+
+    <dy-card *ngIf="materialTheme$ | async">
+      <dy-card-body>
+        <ngx-material-buttons></ngx-material-buttons>
+      </dy-card-body>
+    </dy-card>
+  </div>
+</div>

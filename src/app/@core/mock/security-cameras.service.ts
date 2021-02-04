@@ -7,19 +7,19 @@ export class SecurityCamerasService extends SecurityCamerasData {
 
   private cameras: Camera[] = [
     {
-      title: 'Camera #1',
+      title: '照相机 #1',
       source: 'assets/images/camera1.jpg',
     },
     {
-      title: 'Camera #2',
+      title: '照相机 #2',
       source: 'assets/images/camera2.jpg',
     },
     {
-      title: 'Camera #3',
+      title: '照相机 #3',
       source: 'assets/images/camera3.jpg',
     },
     {
-      title: 'Camera #4',
+      title: '照相机 #4',
       source: 'assets/images/camera4.jpg',
     },
   ];

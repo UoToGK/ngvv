@@ -1,0 +1,7 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .accordion-container:first-child {
+    margin-bottom: dy-theme(card-margin-bottom);
+  }
+}
