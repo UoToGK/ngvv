@@ -1,0 +1,16 @@
+@import "../../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+@include dy-install-component() {
+  dy-card-body {
+    display: flex;
+    height: 100%;
+    padding: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    dy-card-body {
+      flex-direction: column;
+    }
+  }
+}

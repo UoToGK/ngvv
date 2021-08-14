@@ -1,0 +1,25 @@
+@import "../../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+
+@include dy-install-component() {
+  padding: 1.5rem 4.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: -1rem;
+
+  ngx-legend-chart,
+  .period-select {
+    padding-top: 1rem;
+    @include dy-ltr(padding-left, 0.5rem);
+    @include dy-rtl(padding-right, 0.5rem);
+  }
+
+  @include media-breakpoint-up(md) {
+    .period-select {
+      @include dy-ltr(margin-left, auto);
+      @include dy-rtl(margin-right, auto);
+    }
+  }
+}

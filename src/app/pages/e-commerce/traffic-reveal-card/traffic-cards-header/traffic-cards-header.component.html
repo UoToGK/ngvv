@@ -1,0 +1,6 @@
+<dy-card-header>
+  <span>Traffic</span>
+  <dy-select [selected]="type" (selectedChange)="changePeriod($event)">
+    <dy-option *ngFor="let period of types" [value]="period">{{ period }}</dy-option>
+  </dy-select>
+</dy-card-header>

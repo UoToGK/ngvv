@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../../framework/theme/styles/global/breakpoints";
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  overflow: auto;
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > * {
+      flex: 1;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  .delta {
+    display: flex;
+    align-items: center;
+
+    &.down {
+      color: dy-theme(color-danger-default);
+    }
+
+    &.up {
+      color: dy-theme(color-success-default);
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    ngx-traffic-bar {
+      display: none;
+    }
+  }
+}

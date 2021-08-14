@@ -1,0 +1,12 @@
+<dy-card size="medium">
+  <dy-card-body>
+    <div class="progress-info" *ngFor="let item of progressInfoData">
+      <div class="subtitle">{{ item.title }}</div>
+      <div class="h3">{{ item.value | ngxNumberWithCommas }}</div>
+      <dy-progress-bar [value]="item.activeProgress"></dy-progress-bar>
+      <div class="caption description">
+        <bdi>{{ item.description }}</bdi>
+      </div>
+    </div>
+  </dy-card-body>
+</dy-card>

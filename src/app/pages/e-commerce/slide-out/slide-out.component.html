@@ -1,0 +1,8 @@
+<dy-icon [icon]="showVisitorsStatistics ? 'arrow-forward-outline' : 'arrow-back-outline'" pack="eva"
+  class="show-hide-toggle" (click)="toggleStatistics()">
+</dy-icon>
+<div class="slide-out-container" [class.expanded]="showVisitorsStatistics" [class.collapsed]="!showVisitorsStatistics">
+  <div class="content-wrapper">
+    <ng-content></ng-content>
+  </div>
+</div>

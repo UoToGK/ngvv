@@ -1,0 +1,7 @@
+<ngx-legend-chart [legendItems]="chartLegend"></ngx-legend-chart>
+
+<dy-select class="period-select" [selected]="type" (selectedChange)="changePeriod($event)">
+  <dy-option *ngFor="let period of types" [value]="period">
+    {{ period }}
+  </dy-option>
+</dy-select>

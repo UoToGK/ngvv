@@ -1,0 +1,14 @@
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  dy-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: dy-theme(card-header-with-select-padding-top);
+    padding-bottom: dy-theme(card-header-with-select-padding-bottom);
+
+    @include dy-ltr(padding-right, 4rem);
+    @include dy-rtl(padding-left, 4rem);
+  }
+}

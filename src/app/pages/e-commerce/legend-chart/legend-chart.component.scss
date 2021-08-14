@@ -1,0 +1,31 @@
+@import "../../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+
+@include dy-install-component() {
+  display: flex;
+  flex-wrap: wrap;
+
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-child) {
+      @include dy-ltr(margin-right, 1rem);
+      @include dy-rtl(margin-left, 1rem);
+    }
+  }
+
+  .legend-item-color {
+    min-width: 15px;
+    min-height: 15px;
+    border-radius: 0.2rem;
+  }
+
+  .legend-title {
+    @include dy-ltr(padding-left, 0.75rem);
+    @include dy-rtl(padding-right, 0.75rem);
+    white-space: nowrap;
+  }
+}

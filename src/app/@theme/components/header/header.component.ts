@@ -60,10 +60,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private sidebarService: DySidebarService,
     private menuService: DyMenuService,
     private themeService: DyThemeService,
+    private currentThemeService: CurrentThemeService,
     private userService: UserData,
     private layoutService: LayoutService,
     private breakpointService: DyMediaBreakpointsService,
-    private currentThemeService: CurrentThemeService,
     private analytics: AnalyticsService,
     private rippleService: RippleService,
   ) {

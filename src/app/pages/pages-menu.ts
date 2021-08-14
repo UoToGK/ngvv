@@ -6,17 +6,16 @@ export const MENU_ITEMS: DyMenuItem[] = [
     icon: 'shopping-cart-outline',
     link: '/pages/test',
   },
-  // {
-  //   title: '电子商务数据展示面板',
-  //   icon: 'home',
-  //   link: '/pages/dashboard',
-  //   home: true,
-  // },
+  {
+    title: '电子商务数据展示面板',
+    icon: 'home',
+    link: '/pages/dashboard',
+    home: true,
+  },
   {
     title: '物联网数据展示面板',
     icon: 'home-outline',
     link: '/pages/iot-dashboard',
-    home: true,
   },
   {
     title: '特性模块',

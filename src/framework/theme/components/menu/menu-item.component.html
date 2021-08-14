@@ -2,70 +2,56 @@
   <dy-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></dy-icon>
   {{ menuItem.title }}
 </span>
-<a *ngIf="menuItem.link && !menuItem.url && !menuItem.children && !menuItem.group"
-   [routerLink]="menuItem.link"
-   [queryParams]="menuItem.queryParams"
-   [fragment]="menuItem.fragment"
-   [queryParamsHandling]="menuItem.queryParamsHandling"
-   [preserveFragment]="menuItem.preserveFragment"
-   [skipLocationChange]="menuItem.skipLocationChange"
-   [attr.target]="menuItem.target"
-   [attr.title]="menuItem.title"
-   [class.active]="menuItem.selected"
-   (mouseenter)="onHoverItem(menuItem)"
-   (click)="onItemClick(menuItem);">
+<!--
+  1.以根路由跳转/login
+this.router.navigate(['login']);
+2.设置relativeTo相对当前路由跳转，route是ActivatedRoute的实例，使用需要导入ActivatedRoute
+3.路由中传参数 /login?name=1
+4.preserveQueryParams默认值为false，设为true，保留之前路由中的查询参数/login?name=1 to /home?name=1
+5.路由中锚点跳转 /home#top
+this.router.navigate(['home'],{ fragment: 'top' });
+6.preserveFragment默认为false，设为true，保留之前路由中的锚点/home#top to /role#top
+this.router.navigate(['/role'], { preserveFragment: true });
+7.skipLocationChange默认为false，设为true，路由跳转时浏览器中的url会保持不变，但是传入的参数依然有效
+8.replaceUrl默认为true，设为false，路由不会进行跳转
+ -->
+<a *ngIf="menuItem.link && !menuItem.url && !menuItem.children && !menuItem.group" [routerLink]="menuItem.link"
+  [queryParams]="menuItem.queryParams" [fragment]="menuItem.fragment"
+  [queryParamsHandling]="menuItem.queryParamsHandling" [preserveFragment]="menuItem.preserveFragment"
+  [skipLocationChange]="menuItem.skipLocationChange" [attr.target]="menuItem.target" [attr.title]="menuItem.title"
+  [class.active]="menuItem.selected" (mouseenter)="onHoverItem(menuItem)" (click)="onItemClick(menuItem);">
   <dy-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></dy-icon>
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
 </a>
-<a *ngIf="menuItem.url && !menuItem.children && !menuItem.link && !menuItem.group"
-   [attr.href]="menuItem.url"
-   [attr.target]="menuItem.target"
-   [attr.title]="menuItem.title"
-   [class.active]="menuItem.selected"
-   (mouseenter)="onHoverItem(menuItem)"
-   (click)="onSelectItem(menuItem)">
+<a *ngIf="menuItem.url && !menuItem.children && !menuItem.link && !menuItem.group" [attr.href]="menuItem.url"
+  [attr.target]="menuItem.target" [attr.title]="menuItem.title" [class.active]="menuItem.selected"
+  (mouseenter)="onHoverItem(menuItem)" (click)="onSelectItem(menuItem)">
   <dy-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></dy-icon>
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
 </a>
-<a *ngIf="!menuItem.children && !menuItem.link && !menuItem.url && !menuItem.group"
-   [attr.target]="menuItem.target"
-   [attr.title]="menuItem.title"
-   [class.active]="menuItem.selected"
-   (mouseenter)="onHoverItem(menuItem)"
-   (click)="$event.preventDefault(); onItemClick(menuItem);">
+<a *ngIf="!menuItem.children && !menuItem.link && !menuItem.url && !menuItem.group" [attr.target]="menuItem.target"
+  [attr.title]="menuItem.title" [class.active]="menuItem.selected" (mouseenter)="onHoverItem(menuItem)"
+  (click)="$event.preventDefault(); onItemClick(menuItem);">
   <dy-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></dy-icon>
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
 </a>
-<a *ngIf="menuItem.children"
-   (click)="$event.preventDefault(); onToggleSubMenu(menuItem);"
-   [attr.target]="menuItem.target"
-   [attr.title]="menuItem.title"
-   [class.active]="menuItem.selected"
-   (mouseenter)="onHoverItem(menuItem)"
-   href="#">
+<a *ngIf="menuItem.children" (click)="$event.preventDefault(); onToggleSubMenu(menuItem);"
+  [attr.target]="menuItem.target" [attr.title]="menuItem.title" [class.active]="menuItem.selected"
+  (mouseenter)="onHoverItem(menuItem)" href="#">
   <dy-icon class="menu-icon" [config]="menuItem.icon" *ngIf="menuItem.icon"></dy-icon>
   <span class="menu-title">{{ menuItem.title }}</span>
   <ng-container *ngIf="badge" [ngTemplateOutlet]="badgeTemplate"></ng-container>
-  <dy-icon class="expand-state" [icon]="getExpandStateIcon()" pack="nebular-essentials"></dy-icon>
+  <dy-icon class="expand-state" [icon]="getExpandStateIcon()" pack="eva"></dy-icon>
 </a>
-<ul *ngIf="menuItem.children"
-    [class.collapsed]="!(menuItem.children && menuItem.expanded)"
-    [class.expanded]="menuItem.expanded"
-    [@toggle]="toggleState"
-    class="menu-items">
+<ul *ngIf="menuItem.children" [class.collapsed]="!(menuItem.children && menuItem.expanded)"
+  [class.expanded]="menuItem.expanded" [@toggle]="toggleState" class="menu-items">
   <ng-container *ngFor="let item of menuItem.children">
-    <li dyMenuItem *ngIf="!item.hidden"
-        [menuItem]="item"
-        [badge]="item.badge"
-        [class.menu-group]="item.group"
-        (hoverItem)="onHoverItem($event)"
-        (toggleSubMenu)="onToggleSubMenu($event)"
-        (selectItem)="onSelectItem($event)"
-        (itemClick)="onItemClick($event)"
-        class="menu-item">
+    <li dyMenuItem *ngIf="!item.hidden" [menuItem]="item" [badge]="item.badge" [class.menu-group]="item.group"
+      (hoverItem)="onHoverItem($event)" (toggleSubMenu)="onToggleSubMenu($event)" (selectItem)="onSelectItem($event)"
+      (itemClick)="onItemClick($event)" class="menu-item">
     </li>
   </ng-container>
 </ul>

@@ -1,0 +1,14 @@
+<dy-flip-card [showToggleButton]="false" [flipped]="flipped">
+  <dy-card-front>
+    <dy-card size="tiny">
+      <ngx-stats-card-front></ngx-stats-card-front>
+      <dy-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></dy-icon>
+    </dy-card>
+  </dy-card-front>
+  <dy-card-back>
+    <dy-card size="tiny">
+      <ngx-stats-card-back></ngx-stats-card-back>
+      <dy-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></dy-icon>
+    </dy-card>
+  </dy-card-back>
+</dy-flip-card>

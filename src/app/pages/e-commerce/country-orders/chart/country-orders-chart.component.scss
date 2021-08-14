@@ -1,0 +1,23 @@
+@import "../../../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../../framework/theme/styles/global/breakpoints";
+
+@include dy-install-component() {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  padding: dy-theme(card-padding);
+
+  .header {
+    margin-left: 1rem;
+  }
+
+  .echart {
+    height: 75%;
+  }
+
+  @include media-breakpoint-down(sm) {
+    height: 50%;
+  }
+}

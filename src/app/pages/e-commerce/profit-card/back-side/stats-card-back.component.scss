@@ -1,0 +1,51 @@
+@import "../../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .title {
+    padding-left: 0.5rem;
+  }
+
+  dy-card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .info {
+    display: flex;
+    @include dy-rtl(flex-direction, row-reverse);
+    justify-content: space-between;
+    padding: 0.75rem 0.75rem 0.5rem;
+  }
+
+  .period {
+    width: 49%;
+  }
+
+  .currency {
+    padding-right: 0.25rem;
+  }
+
+  ngx-stats-ares-chart {
+    flex: 1;
+    position: relative;
+
+    ::ng-deep {
+      .echart {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
+
+      canvas {
+        border-bottom-left-radius: dy-theme(card-border-radius);
+        border-bottom-right-radius: dy-theme(card-border-radius);
+      }
+    }
+  }
+}

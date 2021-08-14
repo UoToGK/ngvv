@@ -1,0 +1,12 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .toggle-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    @include dy-rtl(right, auto);
+    @include dy-rtl(left, 1.25rem);
+    cursor: pointer;
+  }
+}

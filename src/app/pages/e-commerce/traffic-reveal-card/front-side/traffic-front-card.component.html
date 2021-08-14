@@ -1,0 +1,12 @@
+<dy-list>
+  <dy-list-item class="item" *ngFor="let item of frontCardData; trackBy: trackByDate">
+    <span>{{ item.date }}</span>
+    <span>{{ item.value }}</span>
+    <span class="delta" [class.up]="item.delta.up" [class.down]="!item.delta.up">
+      <dy-icon [icon]="item.delta.up ? 'arrow-up' : 'arrow-down'" pack="eva"></dy-icon>
+      {{ item.delta.value }}%
+    </span>
+    <ngx-traffic-bar [barData]="item.comparison" [successDelta]="item.delta.up">
+    </ngx-traffic-bar>
+  </dy-list-item>
+</dy-list>

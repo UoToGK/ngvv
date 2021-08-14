@@ -1,7 +1,6 @@
 <div class="header-container">
   <div class="logo-container">
-    <a href="#" class="sidebar-toggle" matRipple [matRippleCentered]="true" [matRippleCentered]="true"
-      (click)="toggleSidebar()">
+    <a href="#" class="sidebar-toggle" matRipple [matRippleCentered]="true" (click)="toggleSidebar()">
       <dy-icon [icon]="(materialTheme$ | async) ? 'menu-outline' : 'menu-2-outline'"></dy-icon>
     </a>
     <a class="logo" href="#" (click)="navigateHome()"><span>DyThemes</span></a>
@@ -24,24 +23,20 @@
       <dy-icon icon="arrow-forward"></dy-icon>
       <span class="subtitle number">470.000</span>
     </dy-action> -->
-    <dy-action class="control-item contact-us" matRipple [matRippleCentered]="false" [matRippleCentered]="true">
+    <dy-action class="control-item contact-us" matRipple [matRippleCentered]="true">
       <span class="subtitle text">联系我 </span>
       <dy-icon icon="arrow-forward"></dy-icon>
       <a dyButton ghost href="https://mail.qq.com/" (click)="trackEmailClick()">
         <dy-icon icon="email" pack="eva"></dy-icon>
-        <span>939458466@qq.com</span>
+        <span class="subtitle text">939458466@qq.com</span>
       </a>
     </dy-action>
     <dy-action class="control-item search">
-      <dy-search type="rotate-layout" (click)="startSearch()" matRipple [matRippleCentered]="true"
-        [matRippleCentered]="true"></dy-search>
+      <dy-search type="rotate-layout" (click)="startSearch()" matRipple [matRippleCentered]="true"></dy-search>
     </dy-action>
-    <dy-action class="control-item email" icon="email-outline" matRipple [matRippleCentered]="true"
-      [matRippleCentered]="true"></dy-action>
-    <dy-action class="control-item notifications" icon="bell-outline" matRipple [matRippleCentered]="true"
-      [matRippleCentered]="true"></dy-action>
-    <dy-action class="user-action" *dyIsGranted="['view', 'user']" matRipple [matRippleCentered]="false"
-      [matRippleCentered]="true">
+    <dy-action class="control-item email" icon="email-outline" matRipple [matRippleCentered]="true"></dy-action>
+    <dy-action class="control-item notifications" icon="bell-outline" matRipple [matRippleCentered]="true"></dy-action>
+    <dy-action class="user-action" *dyIsGranted="['view', 'user']" matRipple [matRippleCentered]="true">
       <dy-user [dyContextMenu]="userMenu" [onlyPicture]="userPictureOnly" [name]="user?.name" [picture]="user?.picture">
       </dy-user>
     </dy-action>

@@ -1,0 +1,26 @@
+@import "../../../@theme/styles/themes";
+
+@include dy-install-component() {
+  .flip-icon {
+    position: absolute;
+    right: 0.625rem;
+    top: 1rem;
+    @include dy-rtl(right, auto);
+    @include dy-rtl(left, 0.625rem);
+    cursor: pointer;
+  }
+
+  ::ng-deep .flipped {
+    .back-container {
+      .flip-icon {
+        transform: scaleX(-1);
+      }
+    }
+
+    .front-container {
+      .flip-icon {
+        display: none;
+      }
+    }
+  }
+}

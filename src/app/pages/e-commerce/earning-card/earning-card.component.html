@@ -1,0 +1,14 @@
+<dy-flip-card [showToggleButton]="false" [flipped]="flipped">
+  <dy-card-front>
+    <dy-card size="tiny">
+      <ngx-earning-card-front></ngx-earning-card-front>
+      <dy-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></dy-icon>
+    </dy-card>
+  </dy-card-front>
+  <dy-card-back>
+    <dy-card size="tiny">
+      <ngx-earning-card-back></ngx-earning-card-back>
+      <dy-icon icon="chevron-right-outline" pack="eva" class="flip-icon" (click)="toggleView()"></dy-icon>
+    </dy-card>
+  </dy-card-back>
+</dy-flip-card>

@@ -1,0 +1,112 @@
+@import "../../../@theme/styles/themes";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../../framework/theme/styles/global/breakpoints";
+
+@include dy-install-component() {
+  $slide-out-container-width: 40%;
+
+  .show-hide-toggle {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    @include dy-ltr(right, 1.5rem);
+    @include dy-rtl(left, 1.5rem);
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 2;
+  }
+
+  .slide-out-container {
+    @include dy-ltr {
+      border-top-right-radius: dy-theme(card-border-radius);
+      border-bottom-right-radius: dy-theme(card-border-radius);
+    }
+    @include dy-rtl {
+      border-top-left-radius: dy-theme(card-border-radius);
+      border-bottom-left-radius: dy-theme(card-border-radius);
+    }
+    position: absolute;
+    padding: 1.5rem;
+    width: $slide-out-container-width;
+  }
+
+  .slide-out-container,
+  .slide-out-container::before {
+    display: block;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+  }
+
+  .slide-out-container::before {
+    content: "";
+    @include dy-ltr(right, 0);
+    @include dy-rtl(left, 0);
+    width: 100%;
+    position: absolute;
+    background: dy-theme(slide-out-background);
+    box-shadow: dy-theme(slide-out-shadow-color);
+    @include dy-rtl(box-shadow, dy-theme(slide-out-shadow-color-rtl));
+    opacity: 0.9;
+    z-index: 1;
+  }
+
+  .slide-out-container.collapsed {
+    @include dy-ltr(left, calc(100% - 6rem));
+    @include dy-rtl(right, calc(100% - 6rem));
+  }
+
+  .slide-out-container.expanded {
+    left: calc(100% + 1px - #{$slide-out-container-width});
+    @include dy-rtl(left, auto);
+    @include dy-rtl(right, calc(100% - #{$slide-out-container-width}));
+  }
+
+  .content-wrapper {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    margin: 0 6rem;
+    transition: all 0.2s ease-out;
+  }
+
+  .expanded .content-wrapper {
+    margin: 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    $slide-out-container-width: 50%;
+
+    .slide-out-container {
+      width: $slide-out-container-width;
+    }
+
+    .slide-out-container.expanded {
+      left: calc(100% + 1px - #{$slide-out-container-width});
+      @include dy-rtl(right, calc(100% + 1px - #{$slide-out-container-width}));
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    $slide-out-container-width: 100%;
+
+    .show-hide-toggle {
+      right: 0.5rem;
+    }
+
+    .slide-out-container {
+      width: $slide-out-container-width;
+    }
+
+    .slide-out-container.collapsed {
+      left: calc(100% + 1px - 3rem);
+      @include dy-rtl(right, calc(100% - 3rem));
+    }
+
+    .slide-out-container.expanded {
+      left: calc(100% + 1px - #{$slide-out-container-width});
+      @include dy-rtl(right, calc(100% - #{$slide-out-container-width}));
+    }
+  }
+}

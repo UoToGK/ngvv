@@ -21,6 +21,9 @@ const itemHover$ = new ReplaySubject<DyMenuBag>(1);
 const submenuToggle$ = new ReplaySubject<DyMenuBag>(1);
 const collapseAll$ = new ReplaySubject<{ tag: string }>(1);
 
+//Omit detail info in the  https://www.cnblogs.com/keatkeat/p/6017416.html
+// pick 的作用是从一个对象类型中选择我们要的属性， T 是源对象类型, K 就是指定的 keys 了
+// Omit 与pick相反
 export type DyMenuBadgeConfig = Omit<DyBadge, 'position'>;
 
 // TODO: check if we need both URL and LINK

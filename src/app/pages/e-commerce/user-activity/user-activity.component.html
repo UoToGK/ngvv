@@ -1,0 +1,33 @@
+<dy-card size="medium">
+
+  <dy-card-header>
+    <span>User Activity</span>
+    <dy-select [selected]="type" (selectedChange)="getUserActivity($event); type = $event">
+      <dy-option *ngFor="let t of types" [value]="t">{{ t }}</dy-option>
+    </dy-select>
+  </dy-card-header>
+
+  <dy-list class="user-activity-list">
+    <dy-list-item *ngFor="let item of userActivity">
+
+      <div class="visited-date">
+        {{ item.date }}
+      </div>
+
+      <div class="visited-pages-count">
+        <div class="caption">Pages Visit</div>
+        <div class="value">{{ item.pagesVisitCount }}</div>
+      </div>
+
+      <div class="visited-percentages">
+        <div class="caption">New visits, %</div>
+        <div class="delta value" [class.up]="item.deltaUp" [class.down]="!item.deltaUp">
+          <dy-icon [icon]="item.deltaUp ? 'arrow-up' : 'arrow-down'" pack="eva"></dy-icon>
+          {{ item.newVisits }}%
+        </div>
+      </div>
+
+    </dy-list-item>
+  </dy-list>
+
+</dy-card>

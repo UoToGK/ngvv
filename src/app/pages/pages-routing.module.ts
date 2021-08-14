@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { TestComponent } from './test/test.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-// import { ECommerceComponent } from './e-commerce/e-commerce.component';
+import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
 
@@ -16,10 +16,10 @@ const routes: Routes = [{
     //   path: 'test',
     //   component: TestComponent,
     // },
-    // {
-    //   path: 'dashboard',
-    //   component: ECommerceComponent,
-    // },
+    {
+      path: 'dashboard',
+      component: ECommerceComponent,
+    },
     {
       path: 'iot-dashboard',
       component: DashboardComponent,
