@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng  serve  --port 4321 --hmr --configuration=hmr   ",
+    "spider": "ng  serve  --port 7777 --hmr --configuration=hmr   ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -13,7 +14,6 @@
   "keywords": [
     "angular",
     "typescript",
-    "ngvv-admin",
     "ngvv-admin",
     "framework",
     "ngvv"
